@@ -1,0 +1,37 @@
+title: RPTU Folien
+author: Dominik Vollbracht <dominik@vollbracht.email>
+version: 0.1.0
+quarto-required: ">=1.7.0"
+contributes:
+  formats:
+    revealjs:
+      theme: [default, fonts.scss, rptu.scss]
+      highlight-style: rptu.theme
+      filters:
+        - path: handout.lua
+          at: pre-ast
+        - pausen.lua
+        - abschnitte.lua
+        - markieren.lua
+        - kontakt.lua
+      include-after-body: [druck.html, fusszeile.html]
+      embed-resources: true
+      width: 1280
+      height: 720
+      margin: 0.05
+      center: false
+      slide-number: c
+      hash-type: number
+      transition: none
+      background-transition: none
+      controls: false
+      progress: false
+      code-copy: true
+      code-line-numbers: false
+      echo: true
+      fig-align: center
+      fig-width: 8
+      fig-height: 4.5
+      fig-dpi: 150
+      title-slide-attributes:
+        data-background-color: "#042C58"

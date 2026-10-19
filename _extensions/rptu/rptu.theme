@@ -1,0 +1,31 @@
+{
+  "text-color": "#171616",
+  "background-color": null,
+  "line-number-color": "#9AA5AE",
+  "line-number-background-color": null,
+  "text-styles": {
+    "Comment":        { "text-color": "#4E8F3A", "italic": true },
+    "Documentation":  { "text-color": "#4E8F3A", "italic": true },
+    "CommentVar":     { "text-color": "#4E8F3A", "italic": true },
+    "Annotation":     { "text-color": "#4E8F3A", "italic": true },
+    "Function":       { "text-color": "#1F5F99" },
+    "BuiltIn":        { "text-color": "#1F5F99" },
+    "Keyword":        { "text-color": "#042C58", "bold": true },
+    "ControlFlow":    { "text-color": "#042C58", "bold": true },
+    "String":         { "text-color": "#006B6B" },
+    "Char":           { "text-color": "#006B6B" },
+    "VerbatimString": { "text-color": "#006B6B" },
+    "SpecialString":  { "text-color": "#006B6B" },
+    "DecVal":         { "text-color": "#9C4A1A" },
+    "Float":          { "text-color": "#9C4A1A" },
+    "BaseN":          { "text-color": "#9C4A1A" },
+    "Constant":       { "text-color": "#9C4A1A" },
+    "Operator":       { "text-color": "#507289" },
+    "Variable":       { "text-color": "#171616" },
+    "Attribute":      { "text-color": "#507289" },
+    "Other":          { "text-color": "#171616" },
+    "Error":          { "text-color": "#C00000", "bold": true },
+    "Alert":          { "text-color": "#C00000", "bold": true },
+    "Warning":        { "text-color": "#C00000", "italic": true }
+  }
+}

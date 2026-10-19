@@ -1,0 +1,81 @@
+---
+title: "Probleme und FAQ"
+subtitle: "Häufige Probleme nach Symptom"
+---
+
+## Es entsteht kein Handout {#kein-pdf}
+
+Der Reihe nach prüfen:
+
+- Steht `format: rptu-revealjs` im Kopf der qmd-Datei? Nur daran erkennt das Skript
+  Foliensätze; ein Eintrag allein in der `_quarto.yml` reicht nicht.
+- Ist das Skript für das Handout in der `_quarto.yml` eingetragen und stimmt der Pfad?
+  Bei Projekten aus der Vorlage ist das der Fall, sonst siehe
+  [Weg B](installation.qmd#weg-b).
+- Liegt die Extension an der richtigen Stelle? Siehe
+  [Wo die Extension liegen muss](installation.qmd#fundort).
+- Ist das R-Paket `chromote` installiert und findet es Chrome? Siehe
+  [Chrome für das Handout](installation.qmd#chrome). Beim Rendern erscheint sonst
+  „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.
+- Ist `RPTU_HANDOUT_RENDER` noch auf `1` gesetzt (siehe
+  [Schneller ohne Handout](getting-started.qmd#ohne-handout))?
+
+Ist der Druck fehlgeschlagen, bleibt eine Zwischendatei `…_handout.html` liegen. Sie
+kann gelöscht werden.
+
+## Das Handout ist nicht aktuell {#pdf-alt}
+
+Ist das PDF in einem Programm geöffnet, kann Windows es nicht überschreiben. Das Skript
+gibt dann einen auffälligen Hinweis mit `!!!` aus. PDF schließen und neu rendern.
+
+## „quarto“ wird nicht gefunden
+
+Befehle mit `quarto` gehören ins Terminal, nicht in die R-Konsole. Meldet auch das
+Terminal einen unbekannten Befehl, ist Quarto nicht installiert oder RStudio findet es
+nicht, siehe [Quarto prüfen](installation.qmd#quarto-pruefen).
+
+## Am Anfang ist eine leere Folie
+
+Zwischen Kopf und erster Folienüberschrift steht etwas anderes als der Setup-Chunk, z. B.
+ein HTML-Kommentar. Siehe [Setup-Chunk](getting-started.qmd#setup-chunk).
+
+## Eine Datei oder ein Bild wird nicht gefunden
+
+Pfade gelten relativ zur qmd-Datei. Aus einem Unterordner heißt es `../_resources/…`,
+siehe [Eigene Datei anlegen](getting-started.qmd#eigene-datei-anlegen).
+
+## Eine Datei wird nicht gerendert
+
+Dateien und Ordner, deren Name mit `_` beginnt, rendert Quarto nicht. Gut für
+`_resources/`, schlecht für `_folien.qmd`.
+
+## Das Rendern dauert lange
+
+Jeder Foliensatz wird zweimal gerendert, einmal für den Vortrag und einmal für das
+Handout, und dann gedruckt. Mit einfachem R-Code dauert das etwa 15 bis 35 Sekunden.
+Beim Arbeiten an den Folien geht es
+[ohne Handout](getting-started.qmd#ohne-handout) schneller.
+
+## Vortrag und Handout zeigen unterschiedliche Zahlen
+
+Bei Zufallszahlen im Setup-Chunk `set.seed()` setzen, siehe
+[Was im Handout anders ist](handout.qmd#was-im-handout-anders-ist).
+
+## Eine Markierung fehlt
+
+Das Rendern warnt, wenn eine Textstelle nicht im Output steht. Meist haben sich Zahlen
+geändert oder die Leerzeichen stimmen nicht, siehe
+[Markierungen](highlighting.qmd#arbeitsablauf).
+
+## Formeln erscheinen als LaTeX-Code
+
+Normalerweise bettet das Skript nach dem Rendern die Software für Formeln (MathJax) in
+den Vortrag ein. Ist das Skript nicht gelaufen, lädt der Vortrag MathJax aus dem
+Internet, und ohne Verbindung erscheint LaTeX-Code. Das passiert z. B., wenn die
+Extension ohne Projekt neben der qmd-Datei liegt, siehe
+[Wo die Extension liegen muss](installation.qmd#fundort).
+
+## Nach `theme:` stimmt das Design nicht mehr
+
+`theme:` ersetzt die Theme-Liste der Extension vollständig. Ihre Dateien gehören mit in
+die Liste, siehe [Eigene SCSS-Datei](design.qmd#scss).

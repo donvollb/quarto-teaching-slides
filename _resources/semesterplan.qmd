@@ -1,0 +1,28 @@
+<!--
+Beispiel-Semesterplan (Format rptu-revealjs). Eine Zeile pro Sitzung mit der
+Klasse s1, s2, …; auf der Folie wird die Sitzung aus aktuell="N" fett und leicht
+getönt hervorgehoben (siehe Website, Seite Semesterplan:
+https://donvollb.github.io/quarto-teaching-slides/de/schedule.html).
+Weitere Zeilenklassen: pause (z. B. Ferien), wechsel (Linie darüber, z. B. beim
+Wechsel der Lehrperson), teil2 (ausgegraut); td.person zeigt den Namen rechts.
+Der Ordner _resources wird von Quarto nicht gerendert (Unterstrich am Anfang).
+-->
+
+```{=html}
+<table>
+  <thead>
+    <tr><th>Nr.</th><th>Datum</th><th>Thema</th><th>Abgabe</th><th></th></tr>
+  </thead>
+  <tbody>
+    <tr class="s1"><td>1</td><td>22.10.</td><td>Einführung und Organisatorisches</td><td></td>
+      <td class="person" rowspan="5">A. Lehrende</td></tr>
+    <tr class="s2"><td>2</td><td>29.10.</td><td>Thema 2</td><td>04.11.</td></tr>
+    <tr class="s3"><td>3</td><td>05.11.</td><td>Thema 3</td><td></td></tr>
+    <tr class="pause"><td colspan="4">entfällt (Lektürewoche)</td></tr>
+    <tr class="s4"><td>4</td><td>19.11.</td><td>Thema 4</td><td>25.11.</td></tr>
+    <tr class="s5 wechsel teil2"><td>5</td><td>26.11.</td><td>Thema 5</td><td></td>
+      <td class="person" rowspan="2">B. Lehrende</td></tr>
+    <tr class="s6 teil2"><td>6</td><td>03.12.</td><td>Thema 6</td><td>09.12.</td></tr>
+  </tbody>
+</table>
+```

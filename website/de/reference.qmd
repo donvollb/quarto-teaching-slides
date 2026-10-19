@@ -1,0 +1,97 @@
+---
+title: "Referenz"
+subtitle: "Klassen, Attribute, Metadaten, Voreinstellungen und Umgebungsvariablen"
+---
+
+Diese Seite enthält nur Tabellen zum Nachschlagen; die Erklärungen stehen auf den
+verlinkten Seiten.
+
+## Klassen {#klassen}
+
+Fast alle Klassen haben einen deutschen und einen gleichwertigen englischen Namen;
+beide lassen sich mischen.
+
+::: {.syntax-tabelle}
+| Deutsch | Englisch | Wirkung | Mehr |
+|---------|----------|---------|------|
+| `## Titel {.agenda}` | – | nummeriert die `###`-Überschriften der Folie | [Agenda](slides.qmd#agenda) |
+| `::: kasten` | `::: info-box` | Block mit getöntem Hintergrund | [Kasten](slides.qmd#kasten) |
+| `[Text]{.box}` | – | Wort weiß auf dunkelblauem Grund | [Text hervorheben](slides.qmd#text-hervorheben) |
+| `{.gruen}` `{.rot}` `{.akzent}` `{.grau}` | `{.green}` `{.red}` `{.accent}` `{.grey}` | Textfarbe | [Text hervorheben](slides.qmd#text-hervorheben) |
+| `[Text]{.frage}` | `{.question}` | kursiv, für Fragestellungen | [Text hervorheben](slides.qmd#text-hervorheben) |
+| `[Text]{.anm}` | `{.note}` | kleine, kursive Anmerkung | [Text hervorheben](slides.qmd#text-hervorheben) |
+| `::: klein` | `::: small-text` | kleinere Schrift für einen Block | [Text hervorheben](slides.qmd#text-hervorheben) |
+| `## Titel {.achtung}` | `{.warning}` | Warndreieck am Folientitel (Output-Folie) | [Symbole](slides.qmd#symbole) |
+| `{.ki}` | `{.ai}` | KI-Stern hinter Überschrift oder Text | [Symbole](slides.qmd#symbole) |
+| `[]{.symbol-achtung}` | `[]{.symbol-warning}` | Warndreieck allein im Text | [Symbole](slides.qmd#symbole) |
+| `[]{.symbol-ki}` | `[]{.symbol-ai}` | KI-Stern allein im Text | [Symbole](slides.qmd#symbole) |
+| `{.no-handout}` | – | im Handout ausblenden (Folie entfällt, sonst bleibt der Platz frei) | [Vortrag und Handout](handout.qmd#no-handout) |
+| `::: {.markiert m1="…"}` | `::: {.highlighted m1="…"}` | Stellen im R-Output einrahmen | [Markierungen](highlighting.qmd) |
+| `[1]{.nr}` | – | Nummer einer Markierung in der Erklärung | [Markierungen](highlighting.qmd) |
+| `::: {.semesterplan aktuell="3"}` | `::: {.schedule current="3"}` | Semesterplan mit hervorgehobener Sitzung | [Semesterplan](schedule.qmd) |
+:::
+
+Aus Quarto stammen `::: columns` / `::: column`, `::: incremental`, `::: fragment` und
+`::: notes`, siehe [Folien gestalten](slides.qmd).
+
+Die englischen Namen weichen bewusst von Namen ab, die Quarto schon belegt: `.info-box`
+statt `.callout-…` (das wäre ein Quarto-Callout) und `.small-text` statt `.small` (das
+deutet Quarto bei Tabellen um).
+
+## Attribute
+
+| Attribut | Wo | Wirkung |
+|----------|----|---------|
+| `nr="00"` | an `# Titel` | eigene Nummer für eine Abschnittsfolie |
+| `m1="…"` bis `m6="…"` | an `.markiert` | Textstellen im Output, je mit eigener Farbe und Nummer |
+| `aktuell="3"` bzw. `current="3"` | an `.semesterplan` bzw. `.schedule` | hervorgehobene Sitzung, 1 bis 20 |
+
+## Metadaten
+
+| Eintrag | Wo | Wirkung |
+|---------|----|---------|
+| `kontakt:` bzw. `contact:` | `_quarto.yml` oder Kopf | Kontakt links in der Fußzeile; `""` lässt ihn leer. `kontakt:` hat immer Vorrang vor `contact:`, auch wenn es nur in der `_quarto.yml` steht |
+| `footer:` | unter `format: rptu-revealjs:` | Mitte der Fußzeile |
+| `title`, `subtitle`, `date`, `author` | Kopf | Titelfolie, siehe [Erster Foliensatz](getting-started.qmd#kopf) |
+| `date-format:` | `_quarto.yml` | Darstellung des Datums (Vorlage: `DD.MM.YYYY`) |
+| `lang:` | `_quarto.yml` | Sprache der Foliensätze (Vorlage: `de`) |
+| `handout: true` | wird vom Skript gesetzt | erzeugt die Handout-Fassung; nicht selbst eintragen |
+
+## Voreinstellungen des Formats {#formatoptionen}
+
+Alle Werte lassen sich ändern, siehe [Design anpassen](design.qmd).
+
+| Option | Wert | Bedeutung |
+|--------|------|-----------|
+| `width`, `height` | 1280, 720 | Foliengröße 16:9 |
+| `margin` | 0.05 | Rand um die Folie |
+| `center` | false | Inhalt oben statt vertikal zentriert |
+| `slide-number` | c | Foliennummer ohne Gesamtzahl |
+| `hash-type` | number | Adresse der Folie als Nummer (`#/12`) |
+| `transition`, `background-transition` | none | keine Übergänge |
+| `controls`, `progress` | false | keine Pfeil-Knöpfe, kein Fortschrittsbalken |
+| `embed-resources` | true | Vortrag als eine einzige Datei |
+| `echo` | true | R-Code wird angezeigt |
+| `code-copy` | true | Kopierknopf an Codeblöcken (nur im Vortrag) |
+| `code-line-numbers` | false | keine Zeilennummern im Code |
+| `fig-width`, `fig-height`, `fig-dpi` | 8, 4.5, 150 | Größe und Auflösung von R-Grafiken |
+| `fig-align` | center | Grafiken zentriert |
+| `title-slide-attributes` | `data-background-color: "#042C58"` | dunkelblaue Titelfolie |
+| `highlight-style` | `rptu.theme` | Farben im Code |
+
+Ohne eigene Einstellung gilt außerdem: Bilder sind höchstens 520 px hoch, in sehr
+schmalen Fenstern (unter 1000 px) entfällt der Kontakt in der Fußzeile, und bei
+Foliensätzen mit Formeln wird MathJax eingebettet ([Formeln](slides.qmd#formeln)).
+
+## SCSS-Variablen
+
+Siehe [Design anpassen](design.qmd#scss). Zusätzlich gibt es `$rptu-kontakt`: der
+Kontakt, wenn weder `kontakt:` noch `contact:` angegeben ist (Standard: leer).
+
+## Umgebungsvariablen
+
+| Variable | Wirkung |
+|----------|---------|
+| `RPTU_HANDOUT_RENDER=1` | kein Handout, nur der Vortrag, siehe [Schneller ohne Handout](getting-started.qmd#ohne-handout) |
+| `CHROMOTE_CHROME` | Pfad zu dem Browser, der das Handout druckt, siehe [Installation](installation.qmd#chrome) |
+| `QUARTO_BIN_PATH` | setzt RStudio; das Skript für das Handout startet damit dasselbe Quarto |

@@ -1,0 +1,115 @@
+---
+title: "Design anpassen"
+subtitle: "Formatoptionen, eigene Farben und Linien, Logo"
+---
+
+## Formatoptionen ändern
+
+Alle reveal.js-Optionen von Quarto lassen sich ändern: im Kopf eines Foliensatzes für
+diese Datei oder in der `_quarto.yml` für alle Foliensätze des Projekts.
+
+```yaml
+format:
+  rptu-revealjs:
+    slide-number: false   # keine Foliennummer
+    code-copy: false      # kein Kopierknopf an Codeblöcken
+    incremental: true     # alle Listen Punkt für Punkt einblenden
+```
+
+Die Voreinstellungen des Formats stehen in der
+[Referenz](reference.qmd#formatoptionen), alle Optionen in der
+[Quarto-Dokumentation](https://quarto.org/docs/reference/formats/presentations/revealjs.html).
+
+## Eigene SCSS-Datei {#scss}
+
+Farben, Linien und Logo legt das Theme der Extension fest. Ein Teil seiner Variablen
+lässt sich in einer eigenen SCSS-Datei überschreiben.
+
+**1. Datei anlegen**, z. B. `eigenes.scss` im Projektordner:
+
+```scss
+/*-- scss:defaults --*/
+$rptu-titelstrich: kombi;
+```
+
+**2. In der `_quarto.yml` eintragen**, damit sie für alle Foliensätze gilt:
+
+```yaml
+format:
+  rptu-revealjs:
+    theme: [default,
+            _extensions/donvollb/rptu/fonts.scss,
+            _extensions/donvollb/rptu/rptu.scss,
+            eigenes.scss]
+```
+
+`theme:` ersetzt die Theme-Liste der Extension vollständig. Deshalb gehören ihre beiden
+Dateien mit in die Liste, und zwar vor die eigene Datei. Die Pfade gelten relativ zur
+`_quarto.yml`; im Kopf eines einzelnen Foliensatzes relativ zu dessen qmd-Datei. Die
+Extension liegt nach [Weg A und B](installation.qmd) in `_extensions/donvollb/rptu/`.
+
+| Variable | Bedeutung | Standard |
+|----------|-----------|----------|
+| `$rptu-navy` | Leitfarbe: Titel, Linien, Aufzählungszeichen, Kästen | `#042C58` (Dunkelblau) |
+| `$rptu-titelstrich` | Titellinie: `linie` (dünne Linie über die ganze Breite), `oben` (kurzer Strich über dem Titel), `unten` (kurzer Strich darunter), `kombi` (kurzer Strich auf feiner Linie), `false` (keine) | `linie` |
+| `$rptu-akzent` | Farbe der Titellinie und der Streifen an Code und Kästen (die Textfarbe `.akzent` folgt dagegen der Leitfarbe) | Leitfarbe |
+| `$rptu-akzent-zahl` | Farbe der großen Nummern (Abschnitte, Agenda) | Leitfarbe, aufgehellt |
+| `$rptu-akzent-dunkel` | Strich und Untertitel auf der Titelfolie | Weiß, halb transparent |
+| `$rptu-tint` | Hintergrund von Kästen und der aktuellen Sitzung im Semesterplan | Leitfarbe, sehr hell |
+| `$rptu-markierungen` | Farben der [Markierungen](highlighting.qmd) 1 bis 6 | Dunkelblau, Dunkelgrün, … |
+| `$logo-weiss`, `$logo-dunkel` | Logo auf Titel- bzw. Abschnittsfolien, siehe unten | RPTU-Logo |
+
+Die übrigen Farben (z. B. Textfarben Grün und Rot) und die Schriften lassen sich nicht
+überschreiben.
+
+## Logo ersetzen oder abschalten {#logo}
+
+Das Logo erscheint weiß auf der Titelfolie (`$logo-weiss`) und dunkelblau auf den
+Abschnittsfolien (`$logo-dunkel`). In der eigenen SCSS-Datei:
+
+```scss
+/*-- scss:defaults --*/
+$logo-weiss: none;    // kein Logo auf der Titelfolie
+$logo-dunkel: none;   // kein Logo auf den Abschnittsfolien
+```
+
+Ein eigenes Logo muss als Data-URI eingetragen werden, also als Text, der die
+Bilddatei selbst enthält, z. B. `url("data:image/svg+xml,…")`. Ein Pfad zu einer Datei
+(`url("logo.svg")`) funktioniert hier nicht zuverlässig, weil Quarto ihn relativ zum
+Ordner des Themes auflöst. Eine SVG-Datei lässt sich mit einem
+Online-Werkzeug („SVG to Data URI“) umwandeln.
+
+## Außerhalb der RPTU nutzen {#ausserhalb-der-rptu}
+
+Das RPTU-Logo und der Name „RPTU“ stehen nicht unter der MIT-Lizenz; die Rechte liegen
+bei der RPTU. Wer das Format außerhalb der RPTU nutzt, sollte das Logo abschalten oder
+ersetzen und kann eine eigene Leitfarbe wählen. Vollständig sieht das so aus:
+
+`eigenes.scss`:
+
+```scss
+/*-- scss:defaults --*/
+$rptu-navy: #7A1F3D;   // eigene Leitfarbe
+$logo-weiss: none;
+$logo-dunkel: none;
+```
+
+`_quarto.yml`:
+
+```yaml
+kontakt: "Vorname Nachname | name@hochschule.de"
+
+format:
+  rptu-revealjs:
+    theme: [default,
+            _extensions/donvollb/rptu/fonts.scss,
+            _extensions/donvollb/rptu/rptu.scss,
+            eigenes.scss]
+    title-slide-attributes:
+      data-background-color: "#7A1F3D"   # Titelfolie in der Leitfarbe
+```
+
+Die Farbe der Titelfolie steht nicht im Theme, sondern in den Formatoptionen; deshalb
+taucht sie zweimal auf. Dunkelblau bleiben das KI-Symbol, die Farben im Code und die
+Farben der [R-Grafiken](r-code.qmd#grafiken) aus `rptu.R`; dort lassen sie sich in der
+Datei selbst ändern.

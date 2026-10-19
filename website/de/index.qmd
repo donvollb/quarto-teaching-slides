@@ -1,0 +1,58 @@
+---
+title: "Start"
+subtitle: "Quarto-Vorlage für die Lehre an der RPTU"
+toc: false
+---
+
+Aus einem Foliensatz entstehen zwei Dateien: der Vortrag als HTML-Datei und das Handout
+als PDF.
+
+::: {.grid}
+::: {.g-col-12 .g-col-md-6}
+![**Vortrag (HTML)** mit allen Inhalten](../bilder/folie-nur-vortrag.png){.folienbild}
+:::
+::: {.g-col-12 .g-col-md-6}
+![**Handout (PDF)** ohne schrittweise Einblendungen und ohne Inhalte, die nur für den Vortrag gekennzeichnet sind](../bilder/handout-nur-vortrag.png){.folienbild}
+:::
+:::
+
+[Erster Foliensatz →](getting-started.qmd){.btn .btn-primary}
+[Demo ansehen](demo.qmd){.btn .btn-outline-primary}
+
+**Voraussetzungen:** Quarto ab Version 1.7, R mit dem Paket `chromote` und Google
+Chrome ([Installation](installation.qmd)).
+
+::: {.herkunft}
+Entwickelt von Dominik Vollbracht für die eigene Lehre an der RPTU
+(Rheinland-Pfälzische Technische Universität Kaiserslautern-Landau). **Kein
+offizielles Angebot der RPTU.** Logo und Farben lassen sich austauschen, siehe
+[Außerhalb der RPTU nutzen](design.qmd#ausserhalb-der-rptu).
+:::
+
+## Funktionen
+
+- **Vortrag und Handout aus einem Foliensatz:** Jedes Rendern erzeugt beide Dateien.
+  Im Handout erscheinen alle Inhalte sofort; Inhalte, die nur für den Vortrag
+  gekennzeichnet sind, fehlen. → [Vortrag und Handout](handout.qmd)
+- **Design der RPTU:** dunkelblaue Titelfolie, nummerierte Abschnittsfolien, Fußzeile
+  mit Kontakt, Lehrveranstaltung und Foliennummer, Schrift Lato.
+  → [Folien gestalten](slides.qmd)
+- **Markierungen im R-Output:** Zahlen im Output farbig einrahmen und in der Erklärung
+  darauf verweisen. → [Markierungen](highlighting.qmd)
+- **Elemente für Übungen:** Agenda, Kästen, Warndreieck für Output-Folien, KI-Symbol
+  für Zusatzaufgaben, [Semesterplan](schedule.qmd) mit hervorgehobener Sitzung,
+  [R-Grafiken](r-code.qmd#grafiken) im gleichen Design.
+- **Eigenständige HTML-Datei:** Schriften, Bilder und die Software für Formeln sind
+  eingebettet. Zum Präsentieren ist keine Internetverbindung nötig.
+
+## Schnellstart
+
+In einem leeren Ordner im Terminal:
+
+```bash
+quarto use template donvollb/quarto-teaching-slides
+```
+
+Dann in der `_quarto.yml` den Kontakt eintragen und mit `quarto render` rendern.
+Schritt für Schritt: [Installation](installation.qmd) und
+[Erster Foliensatz](getting-started.qmd).

@@ -1,0 +1,9 @@
+# Dateien, die "quarto use template" NICHT in neue Projekte kopiert
+# (README.md, LICENSE, _extensions und Dateien mit Punkt am Anfang schließt Quarto
+# ohnehin aus; die Extension installiert Quarto separat)
+claude_notes
+CLAUDE.md
+*.html
+*.pdf
+website
+docs

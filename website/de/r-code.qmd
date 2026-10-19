@@ -1,0 +1,86 @@
+---
+title: "R-Code und Grafiken"
+subtitle: "Code und Output zeigen, breiten Output einpassen, Grafiken im Folien-Design"
+---
+
+## Code und Output zeigen
+
+R-Chunks erscheinen auf den Folien mit Code und Output. Was angezeigt wird, steuern
+Chunk-Optionen: Zeilen der Form `#| option: wert` am Anfang des Chunks.
+
+````markdown
+```{{r}}
+#| echo: false
+anova(lm(weight ~ feed, data = chickwts))
+```
+````
+
+| Chunk-Option | Was erscheint |
+|--------------|---------------|
+| (keine) | Code und Output |
+| `echo: false` | nur der Output, z. B. auf [Output-Folien](highlighting.qmd#uebungsfolge) |
+| `eval: false` | nur der Code, er wird nicht ausgeführt |
+| `include: false` | nichts; der Code läuft trotzdem, z. B. im Setup-Chunk |
+
+Der Setup-Chunk direkt nach dem Kopf lädt Pakete und Daten, siehe
+[Erster Foliensatz](getting-started.qmd#setup-chunk).
+
+## Breiter Output
+
+Breiter Output wie große Tabellen oder `summary(lm(…))` gehört besser untereinander
+als in eine halbe Spalte; dort brechen seine Zeilen um. Passt der Output nicht auf die
+Folie, nur den nötigen Teil ausgeben, z. B. `coef(summary(modell))` statt
+`summary(modell)`.
+
+## Grafiken {#grafiken}
+
+R-Grafiken werden standardmäßig 8 × 4,5 Zoll groß gerendert und auf der Folie
+zentriert. Die Größe lässt sich pro Chunk ändern:
+
+````markdown
+```{{r}}
+#| fig-width: 6
+#| fig-height: 3.6
+plot(mpg ~ wt, data = mtcars)
+```
+````
+
+### Grafiken im Folien-Design (ggplot2)
+
+Die Vorlage enthält das optionale Skript `_resources/R/rptu.R`. Im Setup-Chunk
+eingebunden, setzt es für ggplot2 ein schlichtes Theme, die Farben des Formats und die
+Schrift Lato:
+
+````markdown
+```{{r}}
+#| include: false
+source("_resources/R/rptu.R")       # aus einem Unterordner: "../_resources/R/rptu.R"
+```
+````
+
+![Streudiagramm mit dem Theme aus `rptu.R`](../bilder/folie-grafik.png){.folienbild width="70%"}
+
+Dafür sind zwei R-Pakete nötig:
+
+```r
+install.packages(c("ggplot2", "ragg"))
+```
+
+- Ohne ggplot2 legt das Skript nur die Farben an; ohne ragg bleibt die Standardschrift.
+- Lato muss nicht installiert sein: Fehlt sie im System, nimmt das Skript die
+  Schriftdateien der Extension.
+- In bestehende Projekte lässt sich die Datei aus dem
+  [Repository](https://github.com/donvollb/quarto-teaching-slides/blob/main/_resources/R/rptu.R)
+  kopieren.
+
+Das Skript stellt bereit:
+
+| Name | Inhalt |
+|------|--------|
+| `theme_rptu(base_size = 16)` | ggplot2-Theme; ist als Standard gesetzt (`theme_set()`) |
+| `rptu_farben` | Farben mit Namen: `navy`, `hellblau`, `blaugrau`, `petrol`, `teal`, `gruen`, `orange`, `rot`, `grau`; z. B. `rptu_farben[["rot"]]` |
+| `rptu_palette` | Farben für Gruppen, in dieser Reihenfolge: Dunkelblau, Hellblau, Orange, Dunkelgrün, Blaugrau, Grau |
+| `rptu_schrift` | Name der Schrift für Grafiken (`"Lato"` oder leer) |
+
+Punkte, Linien und Balken sind standardmäßig dunkelblau; Gruppen bekommen die Farben
+aus `rptu_palette`.

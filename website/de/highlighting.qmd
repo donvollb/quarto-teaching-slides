@@ -1,0 +1,114 @@
+---
+title: "Markierungen"
+subtitle: "Zahlen im R-Output einrahmen, nummerieren und erklären"
+---
+
+![](../bilder/folie-markierungen.png){.folienbild width="80%"}
+
+## So geht's
+
+Den Chunk in einen Block mit der Klasse `.markiert` einpacken. In `m1`, `m2`, … steht
+jeweils der Text, der im Output eingerahmt werden soll:
+
+````markdown
+::: {.markiert m1="-5.344472" m2="-9.559044" m3="1.293959e-10"}
+```{{r}}
+modell <- lm(mpg ~ wt, data = mtcars)
+coef(summary(modell))
+```
+:::
+
+. . .
+
+- [1]{.nr} **Steigung:** pro 1000 lbs mehr Gewicht 5.34 Meilen weniger pro Gallone
+- [2]{.nr} **t-Wert** der Steigung
+- [3]{.nr} ***p*-Wert:** *p* < .001, der Zusammenhang ist signifikant
+````
+
+![Markierter Output](../bilder/el-markiert.png){.folienbild}
+
+`[1]{.nr}` setzt in der Erklärung die passende Nummer. Am Anfang eines Listenpunkts
+ersetzt sie den Aufzählungspunkt, und Fettes direkt danach erscheint in derselben
+Farbe.
+
+![Nummern in der Erklärung](../bilder/el-nummern.png){.folienbild width="70%"}
+
+## Arbeitsablauf
+
+1. Den Chunk zuerst ohne Markierung rendern.
+2. Die Zahlen aus dem Output kopieren, genau so, wie R sie ausgibt (auch mit
+   Leerzeichen, z. B. `"X-squared = 293.37"`).
+3. Den Chunk in `::: {.markiert m1="…"}` einpacken und die Erklärung schreiben.
+4. Die Erklärung mit `. . .` erst nach dem Output einblenden: erst schauen, dann
+   erklären.
+
+## Regeln
+
+- Gesucht wird der Text **wörtlich**, markiert wird sein **erstes** Vorkommen im
+  Output. Erzeugt der Chunk mehrere Outputs, gilt das für jeden einzeln.
+- Steht eine Stelle nicht im Output (z. B. weil sich Zahlen geändert haben), warnt das
+  Rendern:
+  `WARNUNG (markieren.lua): Markierung m2 "…" nicht im Output gefunden`.
+- Überlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne
+  Rahmen.
+- Die Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau.
+  Mehr als sechs Markierungen pro Chunk sind nicht vorgesehen: Ab der siebten fehlen
+  Farbe und sichtbare Nummer.
+- Markierungen funktionieren auch mit `#| echo: false` (nur Output).
+- Markierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer
+  Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den
+  nötigen Teil ausgeben, siehe [Breiter Output](r-code.qmd#breiter-output).
+
+## Übungsfolge {#uebungsfolge}
+
+Ein bewährter Ablauf für Übungen mit R, über drei Folien:
+
+1. **Übungsfolie:** Fragestellung, Datensatz und Aufgaben; eine Zusatzaufgabe mit KI
+   bekommt `{.ki}`.
+2. **Output-Folie** mit `{.achtung}`: nur der Output (`#| echo: false`), damit die
+   Studierenden ihr Ergebnis vergleichen können. Das Warndreieck sagt: noch nicht
+   weiterklicken.
+3. **Lösungsfolie:** markierter Output, Erklärung und die Antwort im Kasten.
+
+````markdown
+## Übung 1
+
+**Datensatz:** *chickwts* (in R enthalten)\
+**Fragestellung:** [Unterscheidet sich das Gewicht der Küken je nach Futter?]{.frage}
+
+### Aufgaben
+
+1. Verschaffen Sie sich einen Überblick über den Datensatz.
+2. Berechnen Sie eine einfaktorielle Varianzanalyse.
+
+### Zusatzaufgabe {.ki}
+
+- Lassen Sie sich von einer KI R-Code für eine passende Grafik erzeugen.
+
+## Output Übung 1 {.achtung}
+
+```{{r}}
+#| echo: false
+anova(lm(weight ~ feed, data = chickwts))
+```
+
+## Lösung Übung 1
+
+::: {.markiert m1="15.365" m2="5.936e-10"}
+```{{r}}
+#| echo: false
+anova(lm(weight ~ feed, data = chickwts))
+```
+:::
+
+- [1]{.nr} **F-Wert**
+- [2]{.nr} ***p*-Wert:** *p* < .001
+
+. . .
+
+::: kasten
+**Unterscheidet sich das Gewicht der Küken je nach Futter?** Ja, *F*(5, 65) = 15.37, *p* < .001.
+:::
+````
+
+![Lösungsfolie](../bilder/folie-loesung.png){.folienbild width="70%"}

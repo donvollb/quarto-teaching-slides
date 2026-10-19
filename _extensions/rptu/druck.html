@@ -1,0 +1,57 @@
+<script>
+// PDF-Druck (?print-pdf): Die Fußzeile ist fixiert und läge sonst über den
+// Foliennummern. Deshalb pro Seite eine Kopie einfügen und das Original ausblenden.
+// --rptu-rand = Abstand der Folie zum Seitenrand, damit die Fußzeile bündig steht.
+//
+// Weißer Streifen unter farbigen Folien (z. B. Titelfolie): reveal.js macht jede
+// Druckseite 1px niedriger als das Papier, Chrome rundet das Papier zudem leicht auf
+// (756px -> 756,16px). Deshalb die Hintergrundfarbe der Folie 2px nach unten verlängern
+// und die Seite 0,5px höher angeben (bei +1px springt Chrome auf die nächste Größe).
+(function () {
+  if (!/print-pdf/i.test(window.location.search)) return;
+  function hintergrund(seite) {
+    var farbe = null;
+    seite.querySelectorAll('.slide-background, .slide-background-content').forEach(function (e) {
+      var c = getComputedStyle(e).backgroundColor;
+      if (!farbe && c && c !== 'transparent' && c !== 'rgba(0, 0, 0, 0)') farbe = c;
+    });
+    return farbe;
+  }
+  function fusszeilen() {
+    if (window.rptuPdfFertig) return;
+    document.querySelectorAll('.pdf-page').forEach(function (seite) {
+      var farbe = hintergrund(seite);
+      if (farbe) seite.style.boxShadow = '0 2px 0 0 ' + farbe;
+    });
+    var erste = document.querySelector('.pdf-page');
+    if (erste) {
+      var stil = document.createElement('style');
+      stil.textContent = '@page { size: ' + erste.offsetWidth + 'px ' +
+        (erste.offsetHeight + 1.5) + 'px; margin: 0; }';
+      document.head.appendChild(stil);
+    }
+    var original = document.querySelector('.reveal .footer');
+    if (original) {
+      document.querySelectorAll('.pdf-page').forEach(function (seite) {
+        var folie = seite.querySelector('section');
+        if (folie) {
+          var rand = folie.getBoundingClientRect().left - seite.getBoundingClientRect().left;
+          seite.style.setProperty('--rptu-rand', Math.max(0, rand) + 'px');
+        }
+        seite.appendChild(original.cloneNode(true));
+        // Foliennummer wie im Vortrag (handout.lua), auch wenn Folien entfallen sind
+        var nummer = seite.querySelector('.slide-number-pdf');
+        var mitNr = seite.querySelector('section[data-folie]');
+        if (nummer && mitNr) nummer.textContent = mitNr.getAttribute('data-folie');
+      });
+      original.style.display = 'none';
+    }
+    window.rptuPdfFertig = true;
+  }
+  if (window.Reveal && Reveal.on) Reveal.on('pdf-ready', fusszeilen);
+  (function warten() {
+    if (document.querySelector('.pdf-page')) fusszeilen();
+    else setTimeout(warten, 100);
+  })();
+})();
+</script>

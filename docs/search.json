@@ -1,0 +1,837 @@
+[
+  {
+    "objectID": "de/slides.html",
+    "href": "de/slides.html",
+    "title": "Folien gestalten",
+    "section": "",
+    "text": "Zu jedem Element gibt es hier kopierbaren Code und ein Bild. Alle Klassen auf einen Blick, auch mit ihren englischen Namen, stehen in der Referenz.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#abschnitte",
+    "href": "de/slides.html#abschnitte",
+    "title": "Folien gestalten",
+    "section": "Abschnitte",
+    "text": "Abschnitte\n# Deskriptive Statistik\n\nLage- und Streuungsmaße\n# Titel erzeugt eine Abschnittsfolie mit großer Nummer und Logo. Die Abschnitte werden fortlaufend nummeriert (01, 02, …). Text direkt unter der Überschrift wird zum grauen Untertitel.\n\n\n\nAbschnittsfolie\n\n\nEine Nummer lässt sich auch selbst setzen, z. B. # Rückblick {nr=\"00\"}. Die fortlaufende Zählung der übrigen Abschnitte ändert sich dadurch nicht.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#agenda",
+    "href": "de/slides.html#agenda",
+    "title": "Folien gestalten",
+    "section": "Agenda",
+    "text": "Agenda\n## Heutige Themen {.agenda}\n\n### Deskriptive Statistik\n\n- Lage- und Streuungsmaße\n\n### Grafiken mit ggplot2\n{.agenda} nummeriert die ###-Überschriften dieser Folie (01, 02, …). Listen und Text darunter werden passend eingerückt.\n\n\n\nAgenda",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#folien-und-zwischenüberschriften",
+    "href": "de/slides.html#folien-und-zwischenüberschriften",
+    "title": "Folien gestalten",
+    "section": "Folien und Zwischenüberschriften",
+    "text": "Folien und Zwischenüberschriften\n## Ablauf der Sitzungen\n\n### Theorie\n\n- Inhalte wiederholen und vertiefen\n\n### Praxis\n\n- Verfahren in R anwenden\n## Titel beginnt eine neue Folie mit Titellinie, ### setzt eine fette Zwischenüberschrift.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#zwei-spalten",
+    "href": "de/slides.html#zwei-spalten",
+    "title": "Folien gestalten",
+    "section": "Zwei Spalten",
+    "text": "Zwei Spalten\n## Zwei Spalten\n\n::: columns\n::: {.column width=\"55%\"}\n### Links\n\n- Text oder Code\n:::\n\n::: {.column width=\"45%\"}\n```{r}\n#| echo: false\nboxplot(weight ~ feed, data = chickwts)\n```\n:::\n:::\nJede Spalte ist ein eigener Block in ::: columns. Die Breiten sollten zusammen höchstens 100 % ergeben. Jeder Block endet mit :::; ein fehlendes ::: verschiebt den Rest der Folie in die Spalte.\n\n\n\nZwei Spalten\n\n\nBreiter R-Output gehört nicht in halbe Spalten, siehe Breiter Output.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#bilder",
+    "href": "de/slides.html#bilder",
+    "title": "Folien gestalten",
+    "section": "Bilder",
+    "text": "Bilder\n![](bilder/streudiagramm.png){width=\"60%\"}\nBilder werden wie in jedem Quarto-Dokument eingebunden; der Pfad gilt relativ zur qmd-Datei. Mehr Möglichkeiten stehen in der Quarto-Dokumentation.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#formeln",
+    "href": "de/slides.html#formeln",
+    "title": "Folien gestalten",
+    "section": "Formeln",
+    "text": "Formeln\nDer Mittelwert $\\bar{x}$ ist definiert als\n\n$$\\bar{x} = \\frac{1}{n} \\sum_{i=1}^{n} x_i$$\nFormeln werden in LaTeX geschrieben: zwischen $…$ im Text, zwischen $$…$$ als eigene Zeile. Sie funktionieren auch ohne Internetverbindung, denn die Software für Formeln (MathJax) wird eingebettet. Ein Foliensatz mit Formeln wird dadurch etwa 3 MB größer.\n\n\n\nFormeln auf einer Folie",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#schrittweise-einblendungen",
+    "href": "de/slides.html#schrittweise-einblendungen",
+    "title": "Folien gestalten",
+    "section": "Schrittweise Einblendungen",
+    "text": "Schrittweise Einblendungen\nSofort sichtbar.\n\n. . .\n\nErscheint beim nächsten Klick.\n\n::: incremental\n- Punkt für Punkt\n- erscheint diese Liste\n:::\n\n::: fragment\nDieser Block erscheint als Ganzes beim Klick.\n:::\n\n. . . auf einer eigenen Zeile ist eine Pause: Alles danach erscheint beim nächsten Klick. Das funktioniert auch nach ###-Überschriften und in Spalten.\n::: incremental blendet eine Liste Punkt für Punkt ein, ::: fragment einen ganzen Block.\nIm Handout erscheinen alle Inhalte sofort.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#sprechernotizen",
+    "href": "de/slides.html#sprechernotizen",
+    "title": "Folien gestalten",
+    "section": "Sprechernotizen",
+    "text": "Sprechernotizen\n## Ergebnisse\n\n- Mittelwert und Streuung\n\n::: notes\nAuf die Ausreißer in Gruppe B hinweisen.\n:::\nSprechernotizen erscheinen nur in der Referentenansicht (Taste S), nicht auf der Folie und nicht im Handout.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#kasten",
+    "href": "de/slides.html#kasten",
+    "title": "Folien gestalten",
+    "section": "Kasten",
+    "text": "Kasten\n::: kasten\n**Merke:** Ein Kasten hebt einen Block hervor, z. B. die Antwort auf eine\nFragestellung.\n:::",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#text-hervorheben",
+    "href": "de/slides.html#text-hervorheben",
+    "title": "Folien gestalten",
+    "section": "Text hervorheben",
+    "text": "Text hervorheben\n[Grün]{.gruen}, [Rot]{.rot}, [Akzent]{.akzent} und [Grau]{.grau}\n\n[Unterscheidet sich der Verbrauch je nach Getriebe?]{.frage}\n\nEin wichtiges [Wort]{.box} im Satz\n\n[Kleine Anmerkung, z. B. unter Code]{.anm}\n\n\n\n\n\n\n\nKlasse\nWirkung\n\n\n\n\n.gruen, .rot, .akzent, .grau\nTextfarbe. Grün und Rot sind bewusst dunkel, weil Beamer Farben aufhellen\n\n\n.frage\nkursiv, für Fragestellungen\n\n\n.box\nweiße, fette Schrift auf dunkelblauem Grund, für einzelne Wörter\n\n\n.anm\nkleine, kursive Anmerkung in Dunkelblau\n\n\n\n\n\n\nEinen ganzen Block in kleinerer Schrift setzt ::: klein.\n\n\n\nKästen, Farben und Text auf einer Folie",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#symbole",
+    "href": "de/slides.html#symbole",
+    "title": "Folien gestalten",
+    "section": "Symbole",
+    "text": "Symbole\n## Output Übung 1 {.achtung}\n\n### Zusatzaufgabe mit KI {.ki}\n\nIm Text: []{.symbol-achtung} und []{.symbol-ki}\n\n{.achtung} setzt ein rotes Warndreieck hinter den Folientitel. Gedacht ist es für Output-Folien in einer Übungsfolge.\n{.ki} setzt einen KI-Stern hinter eine Überschrift oder ein Stück Text, z. B. für Zusatzaufgaben mit KI.\n[]{.symbol-achtung} und []{.symbol-ki} setzen das Symbol allein in den Text.\n\n\n\n\n\n\nSymbole auf einer Folie",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/reference.html",
+    "href": "de/reference.html",
+    "title": "Referenz",
+    "section": "",
+    "text": "Diese Seite enthält nur Tabellen zum Nachschlagen; die Erklärungen stehen auf den verlinkten Seiten.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Referenz"
+    ]
+  },
+  {
+    "objectID": "de/reference.html#klassen",
+    "href": "de/reference.html#klassen",
+    "title": "Referenz",
+    "section": "Klassen",
+    "text": "Klassen\nFast alle Klassen haben einen deutschen und einen gleichwertigen englischen Namen; beide lassen sich mischen.\n\n\n\n\nDeutsch\nEnglisch\nWirkung\nMehr\n\n\n\n\n## Titel {.agenda}\n–\nnummeriert die ###-Überschriften der Folie\nAgenda\n\n\n::: kasten\n::: info-box\nBlock mit getöntem Hintergrund\nKasten\n\n\n[Text]{.box}\n–\nWort weiß auf dunkelblauem Grund\nText hervorheben\n\n\n{.gruen} {.rot} {.akzent} {.grau}\n{.green} {.red} {.accent} {.grey}\nTextfarbe\nText hervorheben\n\n\n[Text]{.frage}\n{.question}\nkursiv, für Fragestellungen\nText hervorheben\n\n\n[Text]{.anm}\n{.note}\nkleine, kursive Anmerkung\nText hervorheben\n\n\n::: klein\n::: small-text\nkleinere Schrift für einen Block\nText hervorheben\n\n\n## Titel {.achtung}\n{.warning}\nWarndreieck am Folientitel (Output-Folie)\nSymbole\n\n\n{.ki}\n{.ai}\nKI-Stern hinter Überschrift oder Text\nSymbole\n\n\n[]{.symbol-achtung}\n[]{.symbol-warning}\nWarndreieck allein im Text\nSymbole\n\n\n[]{.symbol-ki}\n[]{.symbol-ai}\nKI-Stern allein im Text\nSymbole\n\n\n{.no-handout}\n–\nim Handout ausblenden (Folie entfällt, sonst bleibt der Platz frei)\nVortrag und Handout\n\n\n::: {.markiert m1=\"…\"}\n::: {.highlighted m1=\"…\"}\nStellen im R-Output einrahmen\nMarkierungen\n\n\n[1]{.nr}\n–\nNummer einer Markierung in der Erklärung\nMarkierungen\n\n\n::: {.semesterplan aktuell=\"3\"}\n::: {.schedule current=\"3\"}\nSemesterplan mit hervorgehobener Sitzung\nSemesterplan\n\n\n\n\nAus Quarto stammen ::: columns / ::: column, ::: incremental, ::: fragment und ::: notes, siehe Folien gestalten.\nDie englischen Namen weichen bewusst von Namen ab, die Quarto schon belegt: .info-box statt .callout-… (das wäre ein Quarto-Callout) und .small-text statt .small (das deutet Quarto bei Tabellen um).",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Referenz"
+    ]
+  },
+  {
+    "objectID": "de/reference.html#attribute",
+    "href": "de/reference.html#attribute",
+    "title": "Referenz",
+    "section": "Attribute",
+    "text": "Attribute\n\n\n\n\n\n\n\n\nAttribut\nWo\nWirkung\n\n\n\n\nnr=\"00\"\nan # Titel\neigene Nummer für eine Abschnittsfolie\n\n\nm1=\"…\" bis m6=\"…\"\nan .markiert\nTextstellen im Output, je mit eigener Farbe und Nummer\n\n\naktuell=\"3\" bzw. current=\"3\"\nan .semesterplan bzw. .schedule\nhervorgehobene Sitzung, 1 bis 20",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Referenz"
+    ]
+  },
+  {
+    "objectID": "de/reference.html#metadaten",
+    "href": "de/reference.html#metadaten",
+    "title": "Referenz",
+    "section": "Metadaten",
+    "text": "Metadaten\n\n\n\nEintrag\nWo\nWirkung\n\n\n\n\nkontakt: bzw. contact:\n_quarto.yml oder Kopf\nKontakt links in der Fußzeile; \"\" lässt ihn leer. kontakt: hat immer Vorrang vor contact:, auch wenn es nur in der _quarto.yml steht\n\n\nfooter:\nunter format: rptu-revealjs:\nMitte der Fußzeile\n\n\ntitle, subtitle, date, author\nKopf\nTitelfolie, siehe Erster Foliensatz\n\n\ndate-format:\n_quarto.yml\nDarstellung des Datums (Vorlage: DD.MM.YYYY)\n\n\nlang:\n_quarto.yml\nSprache der Foliensätze (Vorlage: de)\n\n\nhandout: true\nwird vom Skript gesetzt\nerzeugt die Handout-Fassung; nicht selbst eintragen",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Referenz"
+    ]
+  },
+  {
+    "objectID": "de/reference.html#formatoptionen",
+    "href": "de/reference.html#formatoptionen",
+    "title": "Referenz",
+    "section": "Voreinstellungen des Formats",
+    "text": "Voreinstellungen des Formats\nAlle Werte lassen sich ändern, siehe Design anpassen.\n\n\n\n\n\n\n\n\nOption\nWert\nBedeutung\n\n\n\n\nwidth, height\n1280, 720\nFoliengröße 16:9\n\n\nmargin\n0.05\nRand um die Folie\n\n\ncenter\nfalse\nInhalt oben statt vertikal zentriert\n\n\nslide-number\nc\nFoliennummer ohne Gesamtzahl\n\n\nhash-type\nnumber\nAdresse der Folie als Nummer (#/12)\n\n\ntransition, background-transition\nnone\nkeine Übergänge\n\n\ncontrols, progress\nfalse\nkeine Pfeil-Knöpfe, kein Fortschrittsbalken\n\n\nembed-resources\ntrue\nVortrag als eine einzige Datei\n\n\necho\ntrue\nR-Code wird angezeigt\n\n\ncode-copy\ntrue\nKopierknopf an Codeblöcken (nur im Vortrag)\n\n\ncode-line-numbers\nfalse\nkeine Zeilennummern im Code\n\n\nfig-width, fig-height, fig-dpi\n8, 4.5, 150\nGröße und Auflösung von R-Grafiken\n\n\nfig-align\ncenter\nGrafiken zentriert\n\n\ntitle-slide-attributes\ndata-background-color: \"#042C58\"\ndunkelblaue Titelfolie\n\n\nhighlight-style\nrptu.theme\nFarben im Code\n\n\n\nOhne eigene Einstellung gilt außerdem: Bilder sind höchstens 520 px hoch, in sehr schmalen Fenstern (unter 1000 px) entfällt der Kontakt in der Fußzeile, und bei Foliensätzen mit Formeln wird MathJax eingebettet (Formeln).",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Referenz"
+    ]
+  },
+  {
+    "objectID": "de/reference.html#scss-variablen",
+    "href": "de/reference.html#scss-variablen",
+    "title": "Referenz",
+    "section": "SCSS-Variablen",
+    "text": "SCSS-Variablen\nSiehe Design anpassen. Zusätzlich gibt es $rptu-kontakt: der Kontakt, wenn weder kontakt: noch contact: angegeben ist (Standard: leer).",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Referenz"
+    ]
+  },
+  {
+    "objectID": "de/reference.html#umgebungsvariablen",
+    "href": "de/reference.html#umgebungsvariablen",
+    "title": "Referenz",
+    "section": "Umgebungsvariablen",
+    "text": "Umgebungsvariablen\n\n\n\nVariable\nWirkung\n\n\n\n\nRPTU_HANDOUT_RENDER=1\nkein Handout, nur der Vortrag, siehe Schneller ohne Handout\n\n\nCHROMOTE_CHROME\nPfad zu dem Browser, der das Handout druckt, siehe Installation\n\n\nQUARTO_BIN_PATH\nsetzt RStudio; das Skript für das Handout startet damit dasselbe Quarto",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Referenz"
+    ]
+  },
+  {
+    "objectID": "de/installation.html",
+    "href": "de/installation.html",
+    "title": "Installation",
+    "section": "",
+    "text": "Es gibt zwei Wege:",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "de/installation.html#voraussetzungen",
+    "href": "de/installation.html#voraussetzungen",
+    "title": "Installation",
+    "section": "Voraussetzungen",
+    "text": "Voraussetzungen\n\n\n\nWofür\nWas\n\n\n\n\nVortrag (HTML)\nQuarto ab Version 1.7\n\n\nR-Code auf Folien\nR mit den Paketen knitr und rmarkdown\n\n\nHandout (PDF)\nR mit dem Paket chromote und Google Chrome\n\n\nGrafiken im Folien-Design (optional)\nR-Pakete ggplot2 und ragg, siehe R-Code und Grafiken\n\n\n\nR ist für das Handout auch dann nötig, wenn die Folien keinen R-Code enthalten: Das PDF erzeugt ein R-Skript. R gibt es bei CRAN, RStudio bei Posit. Die R-Pakete in der R-Konsole installieren:\ninstall.packages(c(\"rmarkdown\", \"chromote\"))\n\nQuarto prüfen\nBefehle, die mit quarto beginnen, gehören ins Terminal, nicht in die R-Konsole. In RStudio liegt das Terminal im Reiter Terminal neben Console (Tastenkürzel Alt+Umschalt+R).\nquarto --version\nErscheint eine Versionsnummer ab 1.7, ist alles bereit. Erscheint eine Fehlermeldung oder eine ältere Version, Quarto von quarto.org installieren und RStudio neu starten. RStudio bringt zwar ein eigenes Quarto mit, das im Terminal aber oft nicht gefunden wird oder älter ist.\n\n\nChrome für das Handout\nchromote findet Google Chrome in der Regel selbst. Ob das klappt, zeigt in der R-Konsole:\nchromote::find_chrome()\nErscheint ein Pfad zu Chrome, ist alles bereit. Fehlt chromote oder Chrome, entsteht nur der Vortrag, und das Rendern meldet, dass das Handout fehlt.\nOhne Chrome lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B. Microsoft Edge. Dazu den Pfad zur Programmdatei in die Datei .Renviron im Benutzerordner schreiben und R danach neu starten. Die Datei lässt sich z. B. mit usethis::edit_r_environ() öffnen (R-Paket usethis). Ob der Druck mit Edge funktioniert, ist noch nicht geklärt; getestet ist er mit Google Chrome.\nCHROMOTE_CHROME=\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\"",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "de/installation.html#weg-a",
+    "href": "de/installation.html#weg-a",
+    "title": "Installation",
+    "section": "Weg A: neues Projekt aus der Vorlage",
+    "text": "Weg A: neues Projekt aus der Vorlage\n1. Leeren Ordner anlegen und im Terminal dorthin wechseln, z. B.:\ncd \"C:/Lehre/statistik-ws26\"\n2. Vorlage holen:\nquarto use template donvollb/quarto-teaching-slides\nQuarto fragt zuerst, ob die Autoren der Vorlage vertrauenswürdig sind, denn Vorlagen können beim Rendern Code ausführen. Mit Y bestätigen. Ist der Ordner nicht leer, fragt Quarto zusätzlich, ob es einen Unterordner anlegen soll.\nAus R heraus geht dasselbe mit dem R-Paket quarto: quarto::quarto_use_template(\"donvollb/quarto-teaching-slides\", dir = \"C:/Lehre/statistik-ws26\").\n3. Ergebnis: Im Ordner liegen jetzt die folgenden Dateien. Die Beispieldatei heißt wie der Ordner.\nstatistik-ws26/\n├── _quarto.yml              # Einstellungen für alle Foliensätze, u. a. der Kontakt\n├── _rptu-post-render.R      # erzeugt nach jedem Rendern das Handout\n├── _extensions/\n│   └── donvollb/rptu/       # die Extension (Format, Design, Filter)\n├── _resources/\n│   ├── semesterplan.qmd     # Beispiel-Semesterplan\n│   └── R/rptu.R             # Farben und Theme für R-Grafiken (optional)\n└── statistik-ws26.qmd       # Beispiel-Foliensatz mit allen Elementen\n4. Kontakt eintragen: In der _quarto.yml steht der Platzhalter kontakt: \"Name | Mailadresse\" für den Kontakt links in der Fußzeile. Ihn durch den eigenen Kontakt ersetzen, z. B.:\nkontakt: \"Vorname Nachname | vorname.nachname@rptu.de\"\nFür RStudio lässt sich anschließend ein RStudio-Projekt für den Ordner anlegen (File → New Project → Existing Directory). Weiter geht es mit dem ersten Foliensatz.\n\n\n\n\n\n\nWarum ein Projekt?\n\n\n\nDas Handout erzeugt ein R-Skript, das Quarto nach jedem Rendern startet. Diesen Schritt (post-render) kann nur ein Projekt in seiner _quarto.yml festlegen, nicht die Extension selbst. Deshalb gibt es die Vorlage.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "de/installation.html#weg-b",
+    "href": "de/installation.html#weg-b",
+    "title": "Installation",
+    "section": "Weg B: bestehendes Quarto-Projekt",
+    "text": "Weg B: bestehendes Quarto-Projekt\nIm Projektordner (dort, wo die _quarto.yml liegt):\nquarto add donvollb/quarto-teaching-slides\nDie Extension landet in _extensions/donvollb/rptu/. Dann in der _quarto.yml das Skript für das Handout und den Kontakt eintragen:\nproject:\n  post-render: _extensions/donvollb/rptu/post-render.R\n\nkontakt: \"Vorname Nachname | vorname.nachname@rptu.de\"\nSteht dort schon ein anderes post-render-Skript, beide als Liste eintragen:\nproject:\n  post-render:\n    - mein-skript.R\n    - _extensions/donvollb/rptu/post-render.R\nHat der Ordner noch keine _quarto.yml, reicht eine mit diesem Inhalt. lang: de stellt Bedienelemente und Datum auf Deutsch um, date-format legt fest, wie das Datum auf der Titelfolie erscheint:\nproject:\n  type: default\n  post-render: _extensions/donvollb/rptu/post-render.R\n\nlang: de\ndate-format: \"DD.MM.YYYY\"\nkontakt: \"Vorname Nachname | vorname.nachname@rptu.de\"\nOptional lassen sich aus dem Repository der Semesterplan und das Skript für R-Grafiken kopieren.\n\n\n\n\n\n\nOhne festen Pfad\n\n\n\nWer den Pfad nicht eintragen möchte, kopiert _rptu-post-render.R in den Projektordner und trägt post-render: _rptu-post-render.R ein. Das Skript sucht die Extension selbst.\n\n\n\nWo die Extension liegen muss\n\nQuarto sucht den Ordner _extensions/ nur im Ordner der qmd-Datei und im Projektordner (dem Ordner mit der _quarto.yml). Ein übergeordneter Ordner ohne _quarto.yml reicht nicht.\nLiegt die Extension nur neben der qmd-Datei, ohne Projekt, stimmt zwar das Design, aber das Skript nach dem Rendern läuft nicht: Es entsteht kein Handout, die HTML-Datei bleibt größer (ca. 3,5 statt 0,7 MB), und Formeln brauchen beim Präsentieren Internet.\nEmpfehlung: ein Projekt pro Lehrveranstaltung, die Extension im Projektordner.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "de/installation.html#aktualisieren",
+    "href": "de/installation.html#aktualisieren",
+    "title": "Installation",
+    "section": "Aktualisieren",
+    "text": "Aktualisieren\nIm Projektordner:\nquarto update extension donvollb/quarto-teaching-slides\nAktualisiert wird nur die Extension in _extensions/. Die eigene _quarto.yml, die Foliensätze und die Dateien aus der Vorlage (_rptu-post-render.R, _resources/) bleiben unverändert.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Installation"
+    ]
+  },
+  {
+    "objectID": "de/highlighting.html#so-gehts",
+    "href": "de/highlighting.html#so-gehts",
+    "title": "Markierungen",
+    "section": "So geht’s",
+    "text": "So geht’s\nDen Chunk in einen Block mit der Klasse .markiert einpacken. In m1, m2, … steht jeweils der Text, der im Output eingerahmt werden soll:\n::: {.markiert m1=\"-5.344472\" m2=\"-9.559044\" m3=\"1.293959e-10\"}\n```{r}\nmodell &lt;- lm(mpg ~ wt, data = mtcars)\ncoef(summary(modell))\n```\n:::\n\n. . .\n\n- [1]{.nr} **Steigung:** pro 1000 lbs mehr Gewicht 5.34 Meilen weniger pro Gallone\n- [2]{.nr} **t-Wert** der Steigung\n- [3]{.nr} ***p*-Wert:** *p* &lt; .001, der Zusammenhang ist signifikant\n\n\n\nMarkierter Output\n\n\n[1]{.nr} setzt in der Erklärung die passende Nummer. Am Anfang eines Listenpunkts ersetzt sie den Aufzählungspunkt, und Fettes direkt danach erscheint in derselben Farbe.\n\n\n\nNummern in der Erklärung",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Markierungen"
+    ]
+  },
+  {
+    "objectID": "de/highlighting.html#arbeitsablauf",
+    "href": "de/highlighting.html#arbeitsablauf",
+    "title": "Markierungen",
+    "section": "Arbeitsablauf",
+    "text": "Arbeitsablauf\n\nDen Chunk zuerst ohne Markierung rendern.\nDie Zahlen aus dem Output kopieren, genau so, wie R sie ausgibt (auch mit Leerzeichen, z. B. \"X-squared = 293.37\").\nDen Chunk in ::: {.markiert m1=\"…\"} einpacken und die Erklärung schreiben.\nDie Erklärung mit . . . erst nach dem Output einblenden: erst schauen, dann erklären.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Markierungen"
+    ]
+  },
+  {
+    "objectID": "de/highlighting.html#regeln",
+    "href": "de/highlighting.html#regeln",
+    "title": "Markierungen",
+    "section": "Regeln",
+    "text": "Regeln\n\nGesucht wird der Text wörtlich, markiert wird sein erstes Vorkommen im Output. Erzeugt der Chunk mehrere Outputs, gilt das für jeden einzeln.\nSteht eine Stelle nicht im Output (z. B. weil sich Zahlen geändert haben), warnt das Rendern: WARNUNG (markieren.lua): Markierung m2 \"…\" nicht im Output gefunden.\nÜberlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne Rahmen.\nDie Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau. Mehr als sechs Markierungen pro Chunk sind nicht vorgesehen: Ab der siebten fehlen Farbe und sichtbare Nummer.\nMarkierungen funktionieren auch mit #| echo: false (nur Output).\nMarkierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den nötigen Teil ausgeben, siehe Breiter Output.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Markierungen"
+    ]
+  },
+  {
+    "objectID": "de/highlighting.html#uebungsfolge",
+    "href": "de/highlighting.html#uebungsfolge",
+    "title": "Markierungen",
+    "section": "Übungsfolge",
+    "text": "Übungsfolge\nEin bewährter Ablauf für Übungen mit R, über drei Folien:\n\nÜbungsfolie: Fragestellung, Datensatz und Aufgaben; eine Zusatzaufgabe mit KI bekommt {.ki}.\nOutput-Folie mit {.achtung}: nur der Output (#| echo: false), damit die Studierenden ihr Ergebnis vergleichen können. Das Warndreieck sagt: noch nicht weiterklicken.\nLösungsfolie: markierter Output, Erklärung und die Antwort im Kasten.\n\n## Übung 1\n\n**Datensatz:** *chickwts* (in R enthalten)\\\n**Fragestellung:** [Unterscheidet sich das Gewicht der Küken je nach Futter?]{.frage}\n\n### Aufgaben\n\n1. Verschaffen Sie sich einen Überblick über den Datensatz.\n2. Berechnen Sie eine einfaktorielle Varianzanalyse.\n\n### Zusatzaufgabe {.ki}\n\n- Lassen Sie sich von einer KI R-Code für eine passende Grafik erzeugen.\n\n## Output Übung 1 {.achtung}\n\n```{r}\n#| echo: false\nanova(lm(weight ~ feed, data = chickwts))\n```\n\n## Lösung Übung 1\n\n::: {.markiert m1=\"15.365\" m2=\"5.936e-10\"}\n```{r}\n#| echo: false\nanova(lm(weight ~ feed, data = chickwts))\n```\n:::\n\n- [1]{.nr} **F-Wert**\n- [2]{.nr} ***p*-Wert:** *p* &lt; .001\n\n. . .\n\n::: kasten\n**Unterscheidet sich das Gewicht der Küken je nach Futter?** Ja, *F*(5, 65) = 15.37, *p* &lt; .001.\n:::\n\n\n\nLösungsfolie",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Markierungen"
+    ]
+  },
+  {
+    "objectID": "de/getting-started.html",
+    "href": "de/getting-started.html",
+    "title": "Erster Foliensatz",
+    "section": "",
+    "text": "Voraussetzung: ein Projekt aus der Vorlage (siehe Installation). Die Beispiele heißen hier statistik-ws26.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Erster Foliensatz"
+    ]
+  },
+  {
+    "objectID": "de/getting-started.html#beispiel-rendern-und-ansehen",
+    "href": "de/getting-started.html#beispiel-rendern-und-ansehen",
+    "title": "Erster Foliensatz",
+    "section": "1. Beispiel rendern und ansehen",
+    "text": "1. Beispiel rendern und ansehen\nDie Beispieldatei statistik-ws26.qmd in RStudio öffnen und auf Render klicken. Oder im Terminal:\nquarto render statistik-ws26.qmd\nNach etwa einer halben Minute liegen neben der qmd-Datei zwei neue Dateien:\n\n\n\n\n\n\n\nDatei\nInhalt\n\n\n\n\nstatistik-ws26.html\nder Vortrag, zum Präsentieren im Browser öffnen\n\n\nstatistik-ws26.pdf\ndas Handout, z. B. zum Hochladen in die Lernplattform\n\n\n\nTasten beim Präsentieren:\n\n\n\nTaste\nWirkung\n\n\n\n\nPfeiltasten, Leertaste\nblättern\n\n\nF\nVollbild\n\n\nS\nReferentenansicht mit Sprechernotizen und nächster Folie\n\n\nEsc\nÜbersicht aller Folien\n\n\nB\nBildschirm schwarz, erneut B zurück\n\n\nM\nFolienmenü (auch über den Knopf unten links)\n\n\n\nDie Beispieldatei zeigt alle Gestaltungselemente; sie eignet sich zum Nachschlagen und Abschreiben. Dieselben Folien gibt es in der Demo.\n\n\n\n\n\n\nKontrolle\n\n\n\nFehlt das Handout oder ist es nicht aktuell, hilft Probleme und FAQ weiter. Ein geöffnetes PDF kann Windows nicht überschreiben.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Erster Foliensatz"
+    ]
+  },
+  {
+    "objectID": "de/getting-started.html#eigene-datei-anlegen",
+    "href": "de/getting-started.html#eigene-datei-anlegen",
+    "title": "Erster Foliensatz",
+    "section": "2. Eigene Datei anlegen",
+    "text": "2. Eigene Datei anlegen\nAm einfachsten die Beispieldatei kopieren und alles nach dem Kopf löschen. Für mehrere Sitzungen bietet sich ein Ordner pro Sitzung an:\nstatistik-ws26/\n├── _quarto.yml\n├── _resources/\n├── 01_einfuehrung/\n│   └── 01_folien.qmd\n└── 02_deskriptiv/\n    └── 02_folien.qmd\n\n\n\n\n\n\nPfade in Unterordnern\n\n\n\nPfade in einer qmd-Datei gelten relativ zu dieser Datei. Aus einem Unterordner heißt es also ../_resources/… statt _resources/…, z. B. beim Semesterplan und bei rptu.R.\n\n\nDateinamen nicht mit _ beginnen: Solche Dateien und Ordner rendert Quarto nicht.\nquarto render ohne Dateinamen rendert auch die Beispieldatei mit. Wer sie zum Nachschlagen behalten möchte, kann sie trotzdem liegen lassen; sonst löschen.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Erster Foliensatz"
+    ]
+  },
+  {
+    "objectID": "de/getting-started.html#kopf",
+    "href": "de/getting-started.html#kopf",
+    "title": "Erster Foliensatz",
+    "section": "3. Kopf und Titelfolie",
+    "text": "3. Kopf und Titelfolie\nJeder Foliensatz beginnt mit einem Kopf zwischen zwei Zeilen ---. Darin stehen Einträge der Form name: wert (im Format YAML):\n---\ntitle: \"Einführung\"\nsubtitle: \"Organisatorisches und erste Schritte in R\"\ndate: 2026-10-22\nformat:\n  rptu-revealjs:\n    footer: \"Statistik I | Sitzung 1\"\n---\n\ntitle, subtitle, date und optional author erscheinen auf der Titelfolie. Das Datum im Format JJJJ-MM-TT eintragen; angezeigt wird es so, wie date-format in der _quarto.yml es festlegt (Vorlage: 22.10.2026). date: today setzt das Datum des Renderns.\nfooter: steht in der Mitte der Fußzeile. Links steht der Kontakt aus der _quarto.yml, rechts die Foliennummer.\nformat: rptu-revealjs muss im Kopf jedes Foliensatzes stehen. Nur daran erkennt das Skript für das Handout, welche Dateien Foliensätze sind.\n\n\n\n\nTitelfolie\n\n\nDer Kontakt aus der _quarto.yml gilt für alle Foliensätze des Projekts. Steht kontakt: im Kopf einer Datei, gilt dort dieser Wert; kontakt: \"\" lässt die Stelle leer.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Erster Foliensatz"
+    ]
+  },
+  {
+    "objectID": "de/getting-started.html#setup-chunk",
+    "href": "de/getting-started.html#setup-chunk",
+    "title": "Erster Foliensatz",
+    "section": "4. Setup-Chunk",
+    "text": "4. Setup-Chunk\nDirekt nach dem Kopf folgt ein R-Chunk, also ein Codeblock, den R beim Rendern ausführt. Er lädt Pakete und Daten, ohne etwas anzuzeigen:\n```{r}\n#| include: false\nsource(\"../_resources/R/rptu.R\")   # optional: Grafiken im Folien-Design (Pfad aus einem Unterordner)\n# Pakete laden und Daten einlesen, z. B.:\n# library(dplyr)\n# daten &lt;- read.csv(\"../_resources/daten/umfrage.csv\")\n```\n\n\n\n\n\n\nWarnung\n\n\n\nZwischen Kopf und erster Folienüberschrift nur den Setup-Chunk setzen. Alles andere, auch ein HTML-Kommentar, ergibt eine leere Folie.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Erster Foliensatz"
+    ]
+  },
+  {
+    "objectID": "de/getting-started.html#folien-schreiben",
+    "href": "de/getting-started.html#folien-schreiben",
+    "title": "Erster Foliensatz",
+    "section": "5. Folien schreiben",
+    "text": "5. Folien schreiben\nEin Foliensatz besteht aus Überschriften und Inhalt. Ausdrücke wie {.agenda} heißen Klassen: Sie stehen in geschweiften Klammern hinter einer Überschrift oder einem Stück Text ([Text]{.rot}) oder direkt nach ::: an einem Block (::: kasten) und bestimmen, wie er aussieht.\n## Heutige Themen {.agenda}\n\n### Organisatorisches\n\n### Erste Schritte in R\n\n# Organisatorisches\n\nTermine, Ablauf und Prüfung\n\n## Ablauf der Sitzungen\n\n### Theorie\n\n- Inhalte wiederholen und vertiefen\n\n. . .\n\n### Praxis\n\n- Verfahren in R anwenden\n\n```{r}\nsummary(mtcars$mpg)\n```\n\n\n\n\n\n\n\nZeile\nWirkung\n\n\n\n\n# Titel\nAbschnittsfolie mit großer Nummer (01, 02, …); Text direkt darunter wird zum grauen Untertitel\n\n\n## Titel\nneue Folie\n\n\n### Titel\nfette Zwischenüberschrift auf der Folie\n\n\n{.agenda}\nnummeriert die ###-Überschriften der Folie\n\n\n. . .\nPause: Alles danach erscheint erst beim nächsten Klick (im Handout sofort)\n\n\nR-Chunk\nCode und Output erscheinen auf der Folie\n\n\n\nWie die Folien aussehen und was es sonst noch gibt (Spalten, Kästen, Farben, Symbole), zeigt Folien gestalten.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Erster Foliensatz"
+    ]
+  },
+  {
+    "objectID": "de/getting-started.html#rendern",
+    "href": "de/getting-started.html#rendern",
+    "title": "Erster Foliensatz",
+    "section": "6. Rendern",
+    "text": "6. Rendern\nIn RStudio mit Render oder im Terminal:\nquarto render 01_einfuehrung/01_folien.qmd\nquarto render ohne Dateinamen rendert alle Foliensätze des Projekts. Auch der Render-Knopf in RStudio erzeugt Vortrag und Handout; ist dort „Render on Save“ eingeschaltet, geschieht das nach jedem Speichern.\n\nSchneller ohne Handout\nMit Handout dauert jedes Rendern etwa doppelt so lange, denn der Foliensatz wird ein zweites Mal gerendert und dann gedruckt. Beim Arbeiten an den Folien reicht oft der Vortrag. Dafür gibt es eine Umgebungsvariable, also eine Einstellung, die für alle Programme gilt, die aus diesem Terminal bzw. dieser R-Sitzung starten: Ist RPTU_HANDOUT_RENDER auf 1 gesetzt, entsteht kein Handout.\n# Terminal: Git Bash, macOS, Linux\nRPTU_HANDOUT_RENDER=1 quarto render 01_einfuehrung/01_folien.qmd\n# Terminal: PowerShell (gilt bis zum Schließen des Terminals)\n$env:RPTU_HANDOUT_RENDER = \"1\"\nquarto render 01_einfuehrung/01_folien.qmd\n# R-Konsole, mit dem R-Paket quarto\nSys.setenv(RPTU_HANDOUT_RENDER = \"1\")\nquarto::quarto_render(\"01_einfuehrung/01_folien.qmd\")\nSys.unsetenv(\"RPTU_HANDOUT_RENDER\")   # danach wieder mit Handout",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Erster Foliensatz"
+    ]
+  },
+  {
+    "objectID": "de/design.html",
+    "href": "de/design.html",
+    "title": "Design anpassen",
+    "section": "",
+    "text": "Alle reveal.js-Optionen von Quarto lassen sich ändern: im Kopf eines Foliensatzes für diese Datei oder in der _quarto.yml für alle Foliensätze des Projekts.\nformat:\n  rptu-revealjs:\n    slide-number: false   # keine Foliennummer\n    code-copy: false      # kein Kopierknopf an Codeblöcken\n    incremental: true     # alle Listen Punkt für Punkt einblenden\nDie Voreinstellungen des Formats stehen in der Referenz, alle Optionen in der Quarto-Dokumentation.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Design anpassen"
+    ]
+  },
+  {
+    "objectID": "de/design.html#formatoptionen-ändern",
+    "href": "de/design.html#formatoptionen-ändern",
+    "title": "Design anpassen",
+    "section": "",
+    "text": "Alle reveal.js-Optionen von Quarto lassen sich ändern: im Kopf eines Foliensatzes für diese Datei oder in der _quarto.yml für alle Foliensätze des Projekts.\nformat:\n  rptu-revealjs:\n    slide-number: false   # keine Foliennummer\n    code-copy: false      # kein Kopierknopf an Codeblöcken\n    incremental: true     # alle Listen Punkt für Punkt einblenden\nDie Voreinstellungen des Formats stehen in der Referenz, alle Optionen in der Quarto-Dokumentation.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Design anpassen"
+    ]
+  },
+  {
+    "objectID": "de/design.html#scss",
+    "href": "de/design.html#scss",
+    "title": "Design anpassen",
+    "section": "Eigene SCSS-Datei",
+    "text": "Eigene SCSS-Datei\nFarben, Linien und Logo legt das Theme der Extension fest. Ein Teil seiner Variablen lässt sich in einer eigenen SCSS-Datei überschreiben.\n1. Datei anlegen, z. B. eigenes.scss im Projektordner:\n/*-- scss:defaults --*/\n$rptu-titelstrich: kombi;\n2. In der _quarto.yml eintragen, damit sie für alle Foliensätze gilt:\nformat:\n  rptu-revealjs:\n    theme: [default,\n            _extensions/donvollb/rptu/fonts.scss,\n            _extensions/donvollb/rptu/rptu.scss,\n            eigenes.scss]\ntheme: ersetzt die Theme-Liste der Extension vollständig. Deshalb gehören ihre beiden Dateien mit in die Liste, und zwar vor die eigene Datei. Die Pfade gelten relativ zur _quarto.yml; im Kopf eines einzelnen Foliensatzes relativ zu dessen qmd-Datei. Die Extension liegt nach Weg A und B in _extensions/donvollb/rptu/.\n\n\n\nVariable\nBedeutung\nStandard\n\n\n\n\n$rptu-navy\nLeitfarbe: Titel, Linien, Aufzählungszeichen, Kästen\n#042C58 (Dunkelblau)\n\n\n$rptu-titelstrich\nTitellinie: linie (dünne Linie über die ganze Breite), oben (kurzer Strich über dem Titel), unten (kurzer Strich darunter), kombi (kurzer Strich auf feiner Linie), false (keine)\nlinie\n\n\n$rptu-akzent\nFarbe der Titellinie und der Streifen an Code und Kästen (die Textfarbe .akzent folgt dagegen der Leitfarbe)\nLeitfarbe\n\n\n$rptu-akzent-zahl\nFarbe der großen Nummern (Abschnitte, Agenda)\nLeitfarbe, aufgehellt\n\n\n$rptu-akzent-dunkel\nStrich und Untertitel auf der Titelfolie\nWeiß, halb transparent\n\n\n$rptu-tint\nHintergrund von Kästen und der aktuellen Sitzung im Semesterplan\nLeitfarbe, sehr hell\n\n\n$rptu-markierungen\nFarben der Markierungen 1 bis 6\nDunkelblau, Dunkelgrün, …\n\n\n$logo-weiss, $logo-dunkel\nLogo auf Titel- bzw. Abschnittsfolien, siehe unten\nRPTU-Logo\n\n\n\nDie übrigen Farben (z. B. Textfarben Grün und Rot) und die Schriften lassen sich nicht überschreiben.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Design anpassen"
+    ]
+  },
+  {
+    "objectID": "de/design.html#logo",
+    "href": "de/design.html#logo",
+    "title": "Design anpassen",
+    "section": "Logo ersetzen oder abschalten",
+    "text": "Logo ersetzen oder abschalten\nDas Logo erscheint weiß auf der Titelfolie ($logo-weiss) und dunkelblau auf den Abschnittsfolien ($logo-dunkel). In der eigenen SCSS-Datei:\n/*-- scss:defaults --*/\n$logo-weiss: none;    // kein Logo auf der Titelfolie\n$logo-dunkel: none;   // kein Logo auf den Abschnittsfolien\nEin eigenes Logo muss als Data-URI eingetragen werden, also als Text, der die Bilddatei selbst enthält, z. B. url(\"data:image/svg+xml,…\"). Ein Pfad zu einer Datei (url(\"logo.svg\")) funktioniert hier nicht zuverlässig, weil Quarto ihn relativ zum Ordner des Themes auflöst. Eine SVG-Datei lässt sich mit einem Online-Werkzeug („SVG to Data URI“) umwandeln.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Design anpassen"
+    ]
+  },
+  {
+    "objectID": "de/design.html#ausserhalb-der-rptu",
+    "href": "de/design.html#ausserhalb-der-rptu",
+    "title": "Design anpassen",
+    "section": "Außerhalb der RPTU nutzen",
+    "text": "Außerhalb der RPTU nutzen\nDas RPTU-Logo und der Name „RPTU“ stehen nicht unter der MIT-Lizenz; die Rechte liegen bei der RPTU. Wer das Format außerhalb der RPTU nutzt, sollte das Logo abschalten oder ersetzen und kann eine eigene Leitfarbe wählen. Vollständig sieht das so aus:\neigenes.scss:\n/*-- scss:defaults --*/\n$rptu-navy: #7A1F3D;   // eigene Leitfarbe\n$logo-weiss: none;\n$logo-dunkel: none;\n_quarto.yml:\nkontakt: \"Vorname Nachname | name@hochschule.de\"\n\nformat:\n  rptu-revealjs:\n    theme: [default,\n            _extensions/donvollb/rptu/fonts.scss,\n            _extensions/donvollb/rptu/rptu.scss,\n            eigenes.scss]\n    title-slide-attributes:\n      data-background-color: \"#7A1F3D\"   # Titelfolie in der Leitfarbe\nDie Farbe der Titelfolie steht nicht im Theme, sondern in den Formatoptionen; deshalb taucht sie zweimal auf. Dunkelblau bleiben das KI-Symbol, die Farben im Code und die Farben der R-Grafiken aus rptu.R; dort lassen sie sich in der Datei selbst ändern.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Design anpassen"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto-teaching-slides",
+    "section": "",
+    "text": "Weiter zur Dokumentation."
+  },
+  {
+    "objectID": "de/demo.html",
+    "href": "de/demo.html",
+    "title": "Demo",
+    "section": "",
+    "text": "In die Folien klicken und mit den Pfeiltasten oder der Leertaste blättern. Taste M öffnet das Folienmenü, F den Vollbildmodus.\nIm Vollbild öffnen Handout (PDF) herunterladen",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Demo"
+    ]
+  },
+  {
+    "objectID": "de/demo.html#was-ist-zu-sehen",
+    "href": "de/demo.html#was-ist-zu-sehen",
+    "title": "Demo",
+    "section": "Was ist zu sehen?",
+    "text": "Was ist zu sehen?\nDer Foliensatz ist die Datei template.qmd aus dem Repository, so wie quarto use template sie anlegt. Er zeigt alle Elemente: Titelfolie, Agenda, Abschnitte, Spalten, Semesterplan, schrittweise Einblendungen, Kästen, Farben, Symbole, Inhalte nur für den Vortrag, R-Code, eine Grafik, Markierungen und eine Übungsfolge.\nDas Handout ist aus derselben Datei entstanden: Alle Inhalte sind sofort sichtbar, die Folie „Diese Folie fehlt im Handout“ fehlt, und auf „Nur im Vortrag“ bleibt die rechte Spalte leer.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Demo"
+    ]
+  },
+  {
+    "objectID": "de/faq.html",
+    "href": "de/faq.html",
+    "title": "Probleme und FAQ",
+    "section": "",
+    "text": "Der Reihe nach prüfen:\n\nSteht format: rptu-revealjs im Kopf der qmd-Datei? Nur daran erkennt das Skript Foliensätze; ein Eintrag allein in der _quarto.yml reicht nicht.\nIst das Skript für das Handout in der _quarto.yml eingetragen und stimmt der Pfad? Bei Projekten aus der Vorlage ist das der Fall, sonst siehe Weg B.\nLiegt die Extension an der richtigen Stelle? Siehe Wo die Extension liegen muss.\nIst das R-Paket chromote installiert und findet es Chrome? Siehe Chrome für das Handout. Beim Rendern erscheint sonst „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.\nIst RPTU_HANDOUT_RENDER noch auf 1 gesetzt (siehe Schneller ohne Handout)?\n\nIst der Druck fehlgeschlagen, bleibt eine Zwischendatei …_handout.html liegen. Sie kann gelöscht werden.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#kein-pdf",
+    "href": "de/faq.html#kein-pdf",
+    "title": "Probleme und FAQ",
+    "section": "",
+    "text": "Der Reihe nach prüfen:\n\nSteht format: rptu-revealjs im Kopf der qmd-Datei? Nur daran erkennt das Skript Foliensätze; ein Eintrag allein in der _quarto.yml reicht nicht.\nIst das Skript für das Handout in der _quarto.yml eingetragen und stimmt der Pfad? Bei Projekten aus der Vorlage ist das der Fall, sonst siehe Weg B.\nLiegt die Extension an der richtigen Stelle? Siehe Wo die Extension liegen muss.\nIst das R-Paket chromote installiert und findet es Chrome? Siehe Chrome für das Handout. Beim Rendern erscheint sonst „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.\nIst RPTU_HANDOUT_RENDER noch auf 1 gesetzt (siehe Schneller ohne Handout)?\n\nIst der Druck fehlgeschlagen, bleibt eine Zwischendatei …_handout.html liegen. Sie kann gelöscht werden.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#pdf-alt",
+    "href": "de/faq.html#pdf-alt",
+    "title": "Probleme und FAQ",
+    "section": "Das Handout ist nicht aktuell",
+    "text": "Das Handout ist nicht aktuell\nIst das PDF in einem Programm geöffnet, kann Windows es nicht überschreiben. Das Skript gibt dann einen auffälligen Hinweis mit !!! aus. PDF schließen und neu rendern.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#quarto-wird-nicht-gefunden",
+    "href": "de/faq.html#quarto-wird-nicht-gefunden",
+    "title": "Probleme und FAQ",
+    "section": "„quarto“ wird nicht gefunden",
+    "text": "„quarto“ wird nicht gefunden\nBefehle mit quarto gehören ins Terminal, nicht in die R-Konsole. Meldet auch das Terminal einen unbekannten Befehl, ist Quarto nicht installiert oder RStudio findet es nicht, siehe Quarto prüfen.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#am-anfang-ist-eine-leere-folie",
+    "href": "de/faq.html#am-anfang-ist-eine-leere-folie",
+    "title": "Probleme und FAQ",
+    "section": "Am Anfang ist eine leere Folie",
+    "text": "Am Anfang ist eine leere Folie\nZwischen Kopf und erster Folienüberschrift steht etwas anderes als der Setup-Chunk, z. B. ein HTML-Kommentar. Siehe Setup-Chunk.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#eine-datei-oder-ein-bild-wird-nicht-gefunden",
+    "href": "de/faq.html#eine-datei-oder-ein-bild-wird-nicht-gefunden",
+    "title": "Probleme und FAQ",
+    "section": "Eine Datei oder ein Bild wird nicht gefunden",
+    "text": "Eine Datei oder ein Bild wird nicht gefunden\nPfade gelten relativ zur qmd-Datei. Aus einem Unterordner heißt es ../_resources/…, siehe Eigene Datei anlegen.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#eine-datei-wird-nicht-gerendert",
+    "href": "de/faq.html#eine-datei-wird-nicht-gerendert",
+    "title": "Probleme und FAQ",
+    "section": "Eine Datei wird nicht gerendert",
+    "text": "Eine Datei wird nicht gerendert\nDateien und Ordner, deren Name mit _ beginnt, rendert Quarto nicht. Gut für _resources/, schlecht für _folien.qmd.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#das-rendern-dauert-lange",
+    "href": "de/faq.html#das-rendern-dauert-lange",
+    "title": "Probleme und FAQ",
+    "section": "Das Rendern dauert lange",
+    "text": "Das Rendern dauert lange\nJeder Foliensatz wird zweimal gerendert, einmal für den Vortrag und einmal für das Handout, und dann gedruckt. Mit einfachem R-Code dauert das etwa 15 bis 35 Sekunden. Beim Arbeiten an den Folien geht es ohne Handout schneller.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#vortrag-und-handout-zeigen-unterschiedliche-zahlen",
+    "href": "de/faq.html#vortrag-und-handout-zeigen-unterschiedliche-zahlen",
+    "title": "Probleme und FAQ",
+    "section": "Vortrag und Handout zeigen unterschiedliche Zahlen",
+    "text": "Vortrag und Handout zeigen unterschiedliche Zahlen\nBei Zufallszahlen im Setup-Chunk set.seed() setzen, siehe Was im Handout anders ist.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#eine-markierung-fehlt",
+    "href": "de/faq.html#eine-markierung-fehlt",
+    "title": "Probleme und FAQ",
+    "section": "Eine Markierung fehlt",
+    "text": "Eine Markierung fehlt\nDas Rendern warnt, wenn eine Textstelle nicht im Output steht. Meist haben sich Zahlen geändert oder die Leerzeichen stimmen nicht, siehe Markierungen.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#formeln-erscheinen-als-latex-code",
+    "href": "de/faq.html#formeln-erscheinen-als-latex-code",
+    "title": "Probleme und FAQ",
+    "section": "Formeln erscheinen als LaTeX-Code",
+    "text": "Formeln erscheinen als LaTeX-Code\nNormalerweise bettet das Skript nach dem Rendern die Software für Formeln (MathJax) in den Vortrag ein. Ist das Skript nicht gelaufen, lädt der Vortrag MathJax aus dem Internet, und ohne Verbindung erscheint LaTeX-Code. Das passiert z. B., wenn die Extension ohne Projekt neben der qmd-Datei liegt, siehe Wo die Extension liegen muss.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#nach-theme-stimmt-das-design-nicht-mehr",
+    "href": "de/faq.html#nach-theme-stimmt-das-design-nicht-mehr",
+    "title": "Probleme und FAQ",
+    "section": "Nach theme: stimmt das Design nicht mehr",
+    "text": "Nach theme: stimmt das Design nicht mehr\ntheme: ersetzt die Theme-Liste der Extension vollständig. Ihre Dateien gehören mit in die Liste, siehe Eigene SCSS-Datei.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/handout.html",
+    "href": "de/handout.html",
+    "title": "Vortrag und Handout",
+    "section": "",
+    "text": "Jedes Rendern erzeugt zu folien.qmd zwei Dateien:\n\n\n\n\n\n\n\n\nDatei\nInhalt\nZweck\n\n\n\n\nfolien.html\nalles, mit schrittweisen Einblendungen\nVortrag: eine einzige Datei, auch ohne Internet nutzbar\n\n\nfolien.pdf\nalle Inhalte sofort sichtbar, ohne Inhalte nur für den Vortrag\nHandout, z. B. zum Hochladen in die Lernplattform\n\n\n\nBeide Versionen zeigt die Demo. Fehlt das Handout, hilft Probleme und FAQ weiter. Beim Arbeiten an den Folien geht es ohne Handout schneller.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Vortrag und Handout"
+    ]
+  },
+  {
+    "objectID": "de/handout.html#was-entsteht",
+    "href": "de/handout.html#was-entsteht",
+    "title": "Vortrag und Handout",
+    "section": "",
+    "text": "Jedes Rendern erzeugt zu folien.qmd zwei Dateien:\n\n\n\n\n\n\n\n\nDatei\nInhalt\nZweck\n\n\n\n\nfolien.html\nalles, mit schrittweisen Einblendungen\nVortrag: eine einzige Datei, auch ohne Internet nutzbar\n\n\nfolien.pdf\nalle Inhalte sofort sichtbar, ohne Inhalte nur für den Vortrag\nHandout, z. B. zum Hochladen in die Lernplattform\n\n\n\nBeide Versionen zeigt die Demo. Fehlt das Handout, hilft Probleme und FAQ weiter. Beim Arbeiten an den Folien geht es ohne Handout schneller.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Vortrag und Handout"
+    ]
+  },
+  {
+    "objectID": "de/handout.html#no-handout",
+    "href": "de/handout.html#no-handout",
+    "title": "Vortrag und Handout",
+    "section": "Nur im Vortrag zeigen",
+    "text": "Nur im Vortrag zeigen\nManches gehört nur in den Raum: Memes, Umfragen, organisatorische Hinweise. Die Klasse .no-handout blendet es im Handout aus.\n![](bilder/meme.jpg){.no-handout}\n\n::: {.no-handout}\n**Kurze Pause:** Weiter geht es in zehn Minuten.\n:::\n\n## Umfrage {.no-handout}\n\n\n\n\n\n\n\nWo\nWirkung im Handout\n\n\n\n\nan einem Bild\nBild unsichtbar, sein Platz bleibt frei\n\n\nan einem Block (::: {.no-handout})\nBlock unsichtbar, Platz bleibt frei\n\n\nan einer Spalte (::: {.column width=\"40%\" .no-handout})\nSpalte unsichtbar, Platz bleibt frei\n\n\nan einer Folie (## Titel {.no-handout})\nganze Folie entfällt\n\n\nan einer Abschnittsfolie (# Titel {.no-handout})\nAbschnittsfolie entfällt; die Nummern der folgenden Abschnitte rücken im Handout auf\n\n\n\nWeil der Platz frei bleibt, sieht jede Folie in beiden Versionen gleich aus:\n\n\n\n\n\nVortrag\n\n\n\n\n\n\n\nHandout",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Vortrag und Handout"
+    ]
+  },
+  {
+    "objectID": "de/handout.html#was-im-handout-anders-ist",
+    "href": "de/handout.html#was-im-handout-anders-ist",
+    "title": "Vortrag und Handout",
+    "section": "Was im Handout anders ist",
+    "text": "Was im Handout anders ist\n\nSchrittweise Einblendungen (. . ., ::: incremental, ::: fragment): Im Handout erscheinen alle Inhalte sofort.\nFoliennummern: Sie entsprechen denen im Vortrag. Entfällt eine Folie, springt die Nummer im Handout (z. B. von 10 auf 12). So passt ein Verweis wie „siehe Folie 12“ zu beiden Versionen.\nSprechernotizen erscheinen nur in der Referentenansicht des Vortrags, nicht im Handout.\nZufallszahlen: Der R-Code läuft für das Handout ein zweites Mal. Damit beide Versionen dieselben Zahlen zeigen, im Setup-Chunk set.seed() setzen.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Vortrag und Handout"
+    ]
+  },
+  {
+    "objectID": "de/handout.html#wie-es-funktioniert",
+    "href": "de/handout.html#wie-es-funktioniert",
+    "title": "Vortrag und Handout",
+    "section": "Wie es funktioniert",
+    "text": "Wie es funktioniert\nNach dem normalen Rendern startet Quarto das post-render-Skript der Extension (post-render.R). Für jeden Foliensatz\n\nrendert es die Datei ein zweites Mal mit -M handout:true; dabei löst der Filter handout.lua die schrittweisen Einblendungen auf, blendet Inhalte mit .no-handout aus und entfernt Folien mit .no-handout,\ndruckt diese Fassung mit Chrome als PDF und\nlöscht die Zwischendatei folien_handout.html wieder.\n\nAußerdem entfernt es aus den HTML-Dateien eine Schrift, die Quarto einbindet, die Folien aber nicht nutzen (ca. 3 MB weniger pro Datei). Enthält ein Foliensatz Formeln, bettet es die Software für Formeln (MathJax) ein, die Quarto sonst beim Präsentieren aus dem Internet lädt (ca. 3 MB mehr).",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Vortrag und Handout"
+    ]
+  },
+  {
+    "objectID": "de/index.html",
+    "href": "de/index.html",
+    "title": "Start",
+    "section": "",
+    "text": "Aus einem Foliensatz entstehen zwei Dateien: der Vortrag als HTML-Datei und das Handout als PDF.\nErster Foliensatz → Demo ansehen\nVoraussetzungen: Quarto ab Version 1.7, R mit dem Paket chromote und Google Chrome (Installation).",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Start"
+    ]
+  },
+  {
+    "objectID": "de/index.html#funktionen",
+    "href": "de/index.html#funktionen",
+    "title": "Start",
+    "section": "Funktionen",
+    "text": "Funktionen\n\nVortrag und Handout aus einem Foliensatz: Jedes Rendern erzeugt beide Dateien. Im Handout erscheinen alle Inhalte sofort; Inhalte, die nur für den Vortrag gekennzeichnet sind, fehlen. → Vortrag und Handout\nDesign der RPTU: dunkelblaue Titelfolie, nummerierte Abschnittsfolien, Fußzeile mit Kontakt, Lehrveranstaltung und Foliennummer, Schrift Lato. → Folien gestalten\nMarkierungen im R-Output: Zahlen im Output farbig einrahmen und in der Erklärung darauf verweisen. → Markierungen\nElemente für Übungen: Agenda, Kästen, Warndreieck für Output-Folien, KI-Symbol für Zusatzaufgaben, Semesterplan mit hervorgehobener Sitzung, R-Grafiken im gleichen Design.\nEigenständige HTML-Datei: Schriften, Bilder und die Software für Formeln sind eingebettet. Zum Präsentieren ist keine Internetverbindung nötig.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Start"
+    ]
+  },
+  {
+    "objectID": "de/index.html#schnellstart",
+    "href": "de/index.html#schnellstart",
+    "title": "Start",
+    "section": "Schnellstart",
+    "text": "Schnellstart\nIn einem leeren Ordner im Terminal:\nquarto use template donvollb/quarto-teaching-slides\nDann in der _quarto.yml den Kontakt eintragen und mit quarto render rendern. Schritt für Schritt: Installation und Erster Foliensatz.",
+    "crumbs": [
+      "Demo",
+      "Loslegen",
+      "Start"
+    ]
+  },
+  {
+    "objectID": "de/r-code.html",
+    "href": "de/r-code.html",
+    "title": "R-Code und Grafiken",
+    "section": "",
+    "text": "R-Chunks erscheinen auf den Folien mit Code und Output. Was angezeigt wird, steuern Chunk-Optionen: Zeilen der Form #| option: wert am Anfang des Chunks.\n```{r}\n#| echo: false\nanova(lm(weight ~ feed, data = chickwts))\n```\n\n\n\nChunk-Option\nWas erscheint\n\n\n\n\n(keine)\nCode und Output\n\n\necho: false\nnur der Output, z. B. auf Output-Folien\n\n\neval: false\nnur der Code, er wird nicht ausgeführt\n\n\ninclude: false\nnichts; der Code läuft trotzdem, z. B. im Setup-Chunk\n\n\n\nDer Setup-Chunk direkt nach dem Kopf lädt Pakete und Daten, siehe Erster Foliensatz.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "R-Code und Grafiken"
+    ]
+  },
+  {
+    "objectID": "de/r-code.html#code-und-output-zeigen",
+    "href": "de/r-code.html#code-und-output-zeigen",
+    "title": "R-Code und Grafiken",
+    "section": "",
+    "text": "R-Chunks erscheinen auf den Folien mit Code und Output. Was angezeigt wird, steuern Chunk-Optionen: Zeilen der Form #| option: wert am Anfang des Chunks.\n```{r}\n#| echo: false\nanova(lm(weight ~ feed, data = chickwts))\n```\n\n\n\nChunk-Option\nWas erscheint\n\n\n\n\n(keine)\nCode und Output\n\n\necho: false\nnur der Output, z. B. auf Output-Folien\n\n\neval: false\nnur der Code, er wird nicht ausgeführt\n\n\ninclude: false\nnichts; der Code läuft trotzdem, z. B. im Setup-Chunk\n\n\n\nDer Setup-Chunk direkt nach dem Kopf lädt Pakete und Daten, siehe Erster Foliensatz.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "R-Code und Grafiken"
+    ]
+  },
+  {
+    "objectID": "de/r-code.html#breiter-output",
+    "href": "de/r-code.html#breiter-output",
+    "title": "R-Code und Grafiken",
+    "section": "Breiter Output",
+    "text": "Breiter Output\nBreiter Output wie große Tabellen oder summary(lm(…)) gehört besser untereinander als in eine halbe Spalte; dort brechen seine Zeilen um. Passt der Output nicht auf die Folie, nur den nötigen Teil ausgeben, z. B. coef(summary(modell)) statt summary(modell).",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "R-Code und Grafiken"
+    ]
+  },
+  {
+    "objectID": "de/r-code.html#grafiken",
+    "href": "de/r-code.html#grafiken",
+    "title": "R-Code und Grafiken",
+    "section": "Grafiken",
+    "text": "Grafiken\nR-Grafiken werden standardmäßig 8 × 4,5 Zoll groß gerendert und auf der Folie zentriert. Die Größe lässt sich pro Chunk ändern:\n```{r}\n#| fig-width: 6\n#| fig-height: 3.6\nplot(mpg ~ wt, data = mtcars)\n```\n\nGrafiken im Folien-Design (ggplot2)\nDie Vorlage enthält das optionale Skript _resources/R/rptu.R. Im Setup-Chunk eingebunden, setzt es für ggplot2 ein schlichtes Theme, die Farben des Formats und die Schrift Lato:\n```{r}\n#| include: false\nsource(\"_resources/R/rptu.R\")       # aus einem Unterordner: \"../_resources/R/rptu.R\"\n```\n\n\n\nStreudiagramm mit dem Theme aus rptu.R\n\n\nDafür sind zwei R-Pakete nötig:\ninstall.packages(c(\"ggplot2\", \"ragg\"))\n\nOhne ggplot2 legt das Skript nur die Farben an; ohne ragg bleibt die Standardschrift.\nLato muss nicht installiert sein: Fehlt sie im System, nimmt das Skript die Schriftdateien der Extension.\nIn bestehende Projekte lässt sich die Datei aus dem Repository kopieren.\n\nDas Skript stellt bereit:\n\n\n\n\n\n\n\nName\nInhalt\n\n\n\n\ntheme_rptu(base_size = 16)\nggplot2-Theme; ist als Standard gesetzt (theme_set())\n\n\nrptu_farben\nFarben mit Namen: navy, hellblau, blaugrau, petrol, teal, gruen, orange, rot, grau; z. B. rptu_farben[[\"rot\"]]\n\n\nrptu_palette\nFarben für Gruppen, in dieser Reihenfolge: Dunkelblau, Hellblau, Orange, Dunkelgrün, Blaugrau, Grau\n\n\nrptu_schrift\nName der Schrift für Grafiken (\"Lato\" oder leer)\n\n\n\nPunkte, Linien und Balken sind standardmäßig dunkelblau; Gruppen bekommen die Farben aus rptu_palette.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "R-Code und Grafiken"
+    ]
+  },
+  {
+    "objectID": "de/schedule.html",
+    "href": "de/schedule.html",
+    "title": "Semesterplan",
+    "section": "",
+    "text": "Der Semesterplan wird einmal als Tabelle angelegt und in jeden Foliensatz eingebunden. Pro Sitzung ändert sich nur eine Zahl: Sie bestimmt, welche Sitzung fett und leicht getönt hervorgehoben wird.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Semesterplan"
+    ]
+  },
+  {
+    "objectID": "de/schedule.html#tabelle-anlegen",
+    "href": "de/schedule.html#tabelle-anlegen",
+    "title": "Semesterplan",
+    "section": "1. Tabelle anlegen",
+    "text": "1. Tabelle anlegen\nDie Vorlage bringt ein Beispiel mit: _resources/semesterplan.qmd. Weil der Ordnername _resources/ mit einem Unterstrich beginnt, rendert Quarto ihn nicht; die Datei dient nur zum Einbinden.\nDie Tabelle ist in HTML geschrieben, weil jede Zeile eine eigene Klasse braucht; eine Markdown-Tabelle kann das nicht. Jede Sitzung ist eine Zeile &lt;tr class=\"sN\"&gt; mit ihrer Nummer N:\n```{=html}\n&lt;table&gt;\n  &lt;thead&gt;\n    &lt;tr&gt;&lt;th&gt;Nr.&lt;/th&gt;&lt;th&gt;Datum&lt;/th&gt;&lt;th&gt;Thema&lt;/th&gt;&lt;th&gt;Abgabe&lt;/th&gt;&lt;th&gt;&lt;/th&gt;&lt;/tr&gt;\n  &lt;/thead&gt;\n  &lt;tbody&gt;\n    &lt;tr class=\"s1\"&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;22.10.&lt;/td&gt;&lt;td&gt;Einführung&lt;/td&gt;&lt;td&gt;&lt;/td&gt;\n      &lt;td class=\"person\" rowspan=\"3\"&gt;A. Lehrende&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr class=\"s2\"&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;29.10.&lt;/td&gt;&lt;td&gt;Thema 2&lt;/td&gt;&lt;td&gt;04.11.&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr class=\"pause\"&gt;&lt;td colspan=\"4\"&gt;entfällt (Lektürewoche)&lt;/td&gt;&lt;/tr&gt;\n    &lt;tr class=\"s3 wechsel teil2\"&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;12.11.&lt;/td&gt;&lt;td&gt;Thema 3&lt;/td&gt;&lt;td&gt;&lt;/td&gt;\n      &lt;td class=\"person\"&gt;B. Lehrende&lt;/td&gt;&lt;/tr&gt;\n  &lt;/tbody&gt;\n&lt;/table&gt;\n```\n\n\n\n\n\n\n\nKlasse\nWirkung\n\n\n\n\ns1, s2, … an &lt;tr&gt;\nZeile der Sitzung 1, 2, …; hervorgehoben werden können Sitzungen 1 bis 20\n\n\npause an &lt;tr&gt;\nkursiv und zentriert, z. B. für Ferien (eine Zelle mit colspan)\n\n\nwechsel an &lt;tr&gt;\nLinie über der Zeile, z. B. beim Wechsel der Lehrperson\n\n\nteil2 an &lt;tr&gt;\nausgegraut, z. B. Sitzungen einer anderen Lehrperson\n\n\nperson an &lt;td&gt;\nName rechts, mit rowspan über mehrere Zeilen",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Semesterplan"
+    ]
+  },
+  {
+    "objectID": "de/schedule.html#auf-einer-folie-einbinden",
+    "href": "de/schedule.html#auf-einer-folie-einbinden",
+    "title": "Semesterplan",
+    "section": "2. Auf einer Folie einbinden",
+    "text": "2. Auf einer Folie einbinden\n## Semesterplan\n\n::: {.semesterplan aktuell=\"2\"}\n{{&lt; include ../_resources/semesterplan.qmd &gt;}}\n:::\n\naktuell=\"2\" hebt die Zeile s2 hervor. In der nächsten Sitzung steht hier 3.\nDer Pfad ist relativ zur qmd-Datei; hier liegt sie in einem Unterordner.\n\n\n\n\n\n\n\nWarnung\n\n\n\nDen include-Befehl nie in einen Kommentar der eingebundenen Datei selbst schreiben: Sie würde sich dann endlos selbst einbinden.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Semesterplan"
+    ]
+  }
+]

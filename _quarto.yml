@@ -1,0 +1,20 @@
+project:
+  type: default
+  # Was "quarto render" (ohne Dateiname) rendert: alle .qmd-Dateien, auch in
+  # Unterordnern. "!website/" schließt die Tutorial-Website des Repositorys aus
+  # (eigenes Projekt); in neuen Projekten aus der Vorlage schadet die Zeile nicht.
+  render:
+    - "*.qmd"
+    - "!website/"
+  # Nach jedem Rendern: Handout-PDF erzeugen und HTML aufräumen (siehe README).
+  # _rptu-post-render.R sucht das Skript der Extension selbst, egal ob sie unter
+  # _extensions/rptu/ oder _extensions/donvollb/rptu/ liegt. Alternativ direkt:
+  #   post-render: _extensions/donvollb/rptu/post-render.R
+  post-render: _rptu-post-render.R
+
+lang: de
+date-format: "DD.MM.YYYY"
+
+# Kontakt links in der Fußzeile, gilt für alle Foliensätze dieses Projekts
+# (kann auch im Kopf einer einzelnen qmd stehen; ohne Angabe bleibt das Feld leer)
+kontakt: "Name | Mailadresse"

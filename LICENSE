@@ -1,0 +1,55 @@
+MIT License
+
+Copyright (c) 2026 Dominik Vollbracht
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+================================================================================
+AUSNAHMEN / EXCEPTIONS
+================================================================================
+
+Die MIT-Lizenz oben gilt NICHT für die folgenden Bestandteile.
+The MIT License above does NOT apply to the following parts.
+
+1. Schriften / Fonts: Lato und Source Code Pro
+   Dateien: _extensions/rptu/fonts/*.woff2 sowie die base64-kodierten Kopien
+   in _extensions/rptu/fonts.scss.
+   Lizenz: SIL Open Font License, Version 1.1. Lizenztexte mit den jeweiligen
+   Copyright-Hinweisen:
+     _extensions/rptu/fonts/OFL-Lato.txt
+     _extensions/rptu/fonts/OFL-SourceCodePro.txt
+
+2. RPTU-Logo sowie Name und Marke „RPTU“ / RPTU logo, name and trademark
+   Dateien: _extensions/rptu/svg/rptu-logo-dunkel.svg,
+   _extensions/rptu/svg/rptu-logo-weiss.svg sowie die eingebetteten Kopien
+   ($logo-dunkel, $logo-weiss) in _extensions/rptu/rptu.scss.
+   Alle Rechte liegen bei der Rheinland-Pfälzischen Technischen Universität
+   Kaiserslautern-Landau (RPTU). Die RPTU stellt das Logo öffentlich bereit:
+   https://rptu.de/ueber-die-rptu/organisation/referate/universitaetskommunikation/rptu-corporate-design
+   (ohne ausdrückliche Nutzungsbedingungen). Fragen zum Corporate Design:
+   Universitätskommunikation der RPTU, presse@rptu.de.
+   Dieses Projekt ist kein offizielles Angebot der RPTU und wird nicht von ihr
+   herausgegeben. This project is not an official RPTU product.
+
+3. MathJax
+   Datei: _extensions/rptu/mathjax/tex-svg-full.js (MathJax 3.2.2, unverändert;
+   wird in Foliensätze mit Formeln eingebettet).
+   Lizenz: Apache License, Version 2.0, Copyright The MathJax Consortium.
+   Lizenztext: _extensions/rptu/mathjax/LICENSE

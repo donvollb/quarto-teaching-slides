@@ -1,0 +1,20 @@
+<script>
+// Die Folie (16:9) wird aufs Fenster skaliert; bei breiteren Fenstern bleiben links
+// und rechts Ränder. Die Fußzeile liegt außerhalb der Folie über die ganze Fensterbreite.
+// Damit ihr Text trotzdem bündig mit dem Folieninhalt steht, wird der linke Rand der
+// Folie als CSS-Variable --rptu-rand bereitgestellt (vom Theme für die Fußzeile genutzt).
+(function () {
+  if (/print-pdf/i.test(window.location.search)) return;
+  function anpassen() {
+    var folien = document.querySelector('.reveal .slides');
+    if (!folien) return;
+    var rand = Math.max(0, folien.getBoundingClientRect().left);
+    document.documentElement.style.setProperty('--rptu-rand', rand + 'px');
+  }
+  window.addEventListener('load', function () {
+    anpassen();
+    if (window.Reveal && Reveal.on) Reveal.on('resize', anpassen);
+  });
+  window.addEventListener('resize', function () { setTimeout(anpassen, 50); });
+})();
+</script>

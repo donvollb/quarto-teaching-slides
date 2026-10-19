@@ -1,0 +1,310 @@
+---
+# title, subtitle, date (und optional author) stehen auf der Titelfolie.
+# footer: erscheint in der Mitte der Fußzeile, die Foliennummer rechts.
+# Den Kontakt links in der Fußzeile legt kontakt: fest, hier für das ganze
+# Projekt in _quarto.yml (kann auch hier im Kopf stehen).
+#
+# quarto render erzeugt zwei Dateien:
+#   <name>.html  Vortrag mit schrittweisen Einblendungen und allem, was .no-handout trägt
+#   <name>.pdf   Handout: alle Inhalte sofort sichtbar, ohne .no-handout
+#
+# Achtung: Alles zwischen Kopf und erster Folienüberschrift (auch HTML-Kommentare)
+# ergibt eine leere Folie. Der Setup-Chunk mit include: false ist unproblematisch.
+#
+# Die Klassen haben deutsche Namen und englische Aliasse (z. B. .kasten = .info-box,
+# .achtung = .warning, .ki = .ai, .markiert = .highlighted); Liste auf der Website:
+# https://donvollb.github.io/quarto-teaching-slides/de/reference.html
+title: "Beispiel-Foliensatz"
+subtitle: "Gestaltungselemente des Formats rptu-revealjs"
+date: today
+format:
+  rptu-revealjs:
+    footer: "Name der Lehrveranstaltung | Beispielsitzung"
+---
+
+```{r}
+#| include: false
+# Setup-Chunk (include: false = weder Code noch Output auf den Folien):
+# Pakete laden, Daten einlesen. Hier nur Datensätze, die in R enthalten sind.
+# rptu.R (optional): Farben, ggplot2-Theme und Lato für Grafiken
+source("_resources/R/rptu.R")
+daten <- mtcars
+daten$getriebe <- factor(daten$am, levels = c(0, 1),
+                         labels = c("Automatik", "Schaltung"))
+```
+
+## Heutige Themen {.agenda}
+
+<!-- Agenda: {.agenda} nummeriert die ###-Überschriften dieser Folie (01, 02, …) -->
+
+### Aufbau eines Foliensatzes
+
+- Abschnitte, Folien und Zwischenüberschriften
+
+### Gestaltungselemente
+
+- Pausen, Kästen, Farben und Symbole
+
+### R-Code und Output
+
+- Grafiken, Markierungen im Output, Übungsfolgen
+
+<!-- # = Abschnittsfolie mit großer Nummer; Text direkt darunter = grauer Untertitel -->
+
+# Aufbau eines Foliensatzes
+
+Abschnitte, Folien und Zwischenüberschriften
+
+## Folien und Zwischenüberschriften
+
+### Abschnitte
+
+- `# Titel` erzeugt eine Abschnittsfolie, fortlaufend nummeriert (01, 02, …)
+
+### Folien
+
+- `## Titel` beginnt eine neue Inhaltsfolie
+- `### Titel` setzt eine fette Zwischenüberschrift wie diese
+
+### Agenda
+
+- `## Heutige Themen {.agenda}` nummeriert die `###`-Überschriften der Folie
+
+## Zwei Spalten
+
+::: columns
+::: {.column width="55%"}
+### Spalten
+
+- `::: columns` mit `::: {.column width="55%"}` darin
+- Breite R-Ausgaben lieber untereinander setzen, in halben Spalten brechen sie um
+
+### Abbildungen
+
+- R-Grafiken werden automatisch zentriert
+:::
+
+::: {.column width="45%"}
+```{r}
+#| echo: false
+#| fig-width: 5
+#| fig-height: 4.5
+par(mar = c(6, 4.5, 1, 1))
+boxplot(weight ~ feed, data = chickwts, las = 2, xlab = "",
+        ylab = "Gewicht (g)", col = "#D5DEE8", border = "#042C58")
+```
+:::
+:::
+
+## Semesterplan
+
+<!--
+  Tabelle aus _resources/semesterplan.qmd; aktuell="2" hebt Sitzung 2 hervor
+  (fett, leicht getönt). In jedem Foliensatz nur diese Zahl ändern.
+  Englisch: ::: {.schedule current="2"}
+-->
+
+::: {.semesterplan aktuell="2"}
+{{< include _resources/semesterplan.qmd >}}
+:::
+
+# Gestaltungselemente
+
+## Schrittweise Einblendungen
+
+Text vor der ersten Pause ist sofort zu sehen.
+
+<!-- . . . = Pause: alles danach erscheint beim nächsten Klick (auch nach ### und in Spalten) -->
+
+. . .
+
+### Nach einer Pause
+
+- `. . .` auf einer eigenen Zeile: Alles Folgende erscheint erst beim nächsten Klick
+
+. . .
+
+::: incremental
+- `::: incremental` zeigt eine Liste Punkt für Punkt
+- `::: fragment` lässt einen ganzen Block erscheinen
+- Im Handout (PDF) erscheinen alle Inhalte sofort
+:::
+
+## Kästen, Farben und Text
+
+::: kasten
+**Merke:** `::: kasten` hebt einen Block hervor, z. B. die Antwort auf eine Fragestellung.
+:::
+
+[Grün]{.gruen}, [Rot]{.rot}, [Akzent]{.akzent} und [Grau]{.grau} färben Text ein.
+
+[Fragestellungen stehen kursiv: Unterscheidet sich der Verbrauch je nach Getriebe?]{.frage}
+
+[Box]{.box} &nbsp;⟶&nbsp; [Box in Leitfarbe]{.box}
+
+[`.anm` setzt eine kleine Anmerkung, z. B. unter Code. `::: klein` verkleinert ganze Blöcke.]{.anm}
+
+<!--
+  Formeln in LaTeX: $…$ im Text, $$…$$ als eigene Zeile. Die Software dafür (MathJax)
+  wird beim Rendern eingebettet, Formeln funktionieren also auch ohne Internet.
+-->
+
+## Formeln
+
+Der Mittelwert $\bar{x}$ fasst die Werte $x_1, \dots, x_n$ zusammen:
+
+$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$
+
+. . .
+
+### t-Test für eine Stichprobe
+
+$$t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}}$$
+
+[Unter $H_0$ folgt $t$ einer *t*-Verteilung mit $n - 1$ Freiheitsgraden.]{.anm}
+
+<!-- {.achtung} am Folientitel: Warndreieck, z. B. für Output-Folien ("noch nicht weiterklicken") -->
+
+## Symbole {.achtung}
+
+- `## Titel {.achtung}` setzt das Warndreieck an den Folientitel
+- Im Text: []{.symbol-achtung} mit `[]{.symbol-achtung}` und []{.symbol-ki} mit `[]{.symbol-ki}`
+
+### Zusatzaufgabe mit KI {.ki}
+
+- `{.ki}` hängt den KI-Stern an eine Überschrift oder an [Text]{.ki}
+
+## Nur im Vortrag
+
+::: columns
+::: {.column width="55%"}
+- `{.no-handout}` an einem Bild, Block oder einer Spalte blendet es im Handout aus, der Platz bleibt frei
+- Die rechte Spalte ist nur im Vortrag zu sehen
+- Typisch: Memes, Umfragen, organisatorische Hinweise
+:::
+
+::: {.column width="45%" .no-handout}
+::: kasten
+**Kurze Pause:** Weiter geht es in zehn Minuten.
+:::
+:::
+:::
+
+## Diese Folie fehlt im Handout {.no-handout}
+
+- `## Titel {.no-handout}` entfernt die ganze Folie aus dem Handout
+- Die Foliennummern im PDF bleiben wie im Vortrag, die Nummer dieser Folie wird dort übersprungen
+
+# R-Code und Output
+
+Code wird standardmäßig angezeigt
+
+## Code und Output
+
+<!--
+  R-Code wird mit Output angezeigt (echo: true ist im Format voreingestellt).
+  Nur Output: #| echo: false     Nur Code: #| eval: false
+-->
+
+### Daten vorbereiten
+
+```{r}
+#| eval: false
+daten <- mtcars
+daten$getriebe <- factor(daten$am, levels = c(0, 1),
+                         labels = c("Automatik", "Schaltung"))
+```
+
+[`#| eval: false`: Der Code wird nur gezeigt, nicht ausgeführt.]{.anm}
+
+### Mittelwerte
+
+```{r}
+aggregate(mpg ~ getriebe, data = daten, FUN = mean)
+```
+
+<!--
+  Farben, Theme und Schrift der Grafik kommen aus _resources/R/rptu.R (Setup-Chunk).
+  Die Zeile mit eval sorgt nur dafür, dass die Vorlage auch ohne ggplot2 rendert.
+-->
+
+## Grafiken mit ggplot2
+
+```{r}
+#| eval: !expr requireNamespace("ggplot2", quietly = TRUE)
+#| fig-width: 6
+#| fig-height: 3.6
+ggplot(daten, aes(x = wt, y = mpg, colour = getriebe)) +
+  geom_point(size = 3) +
+  labs(x = "Gewicht (1000 lbs)", y = "Meilen pro Gallone", colour = NULL)
+```
+
+[`source("_resources/R/rptu.R")` im Setup-Chunk setzt Theme, Farben und Schrift.]{.anm}
+
+<!--
+  Markierungen: Chunk in ::: {.markiert m1="…" m2="…"} einpacken. m1, m2, … sind
+  Textstellen aus dem Output (jeweils das erste Vorkommen bekommt Rahmen und Nummer).
+  In der Erklärung ergibt [1]{.nr} die passende Nummer; Fettes direkt danach wird
+  in derselben Farbe gesetzt. Steht eine Stelle nicht im Output, warnt das Rendern.
+-->
+
+## Markierungen im Output
+
+[Hängt der Verbrauch (Meilen pro Gallone) vom Gewicht des Autos ab?]{.frage}
+
+::: {.markiert m1="-5.344472" m2="-9.559044" m3="1.293959e-10"}
+```{r}
+modell <- lm(mpg ~ wt, data = mtcars)
+coef(summary(modell))
+```
+:::
+
+. . .
+
+- [1]{.nr} **Steigung:** pro 1000 lbs mehr Gewicht 5.34 Meilen weniger pro Gallone
+- [2]{.nr} **t-Wert** der Steigung
+- [3]{.nr} ***p*-Wert:** *p* < .001, der Zusammenhang ist signifikant
+
+<!--
+  Übungsfolge: Übungsfolie -> Output-Folie {.achtung} (nur Output, zum Vergleichen)
+  -> Lösung mit markiertem Output und Antwort im Kasten
+-->
+
+## Übung 1
+
+**Datensatz:** *chickwts* (in R enthalten)\
+**Fragestellung:** [Unterscheidet sich das Gewicht der Küken je nach Futter?]{.frage}
+
+### Aufgaben
+
+1. Verschaffen Sie sich einen Überblick über den Datensatz.
+2. Berechnen Sie eine einfaktorielle Varianzanalyse.
+
+### Zusatzaufgabe {.ki}
+
+- Lassen Sie sich von einer KI R-Code für eine passende Grafik erzeugen.
+
+## Output Übung 1 {.achtung}
+
+```{r}
+#| echo: false
+anova(lm(weight ~ feed, data = chickwts))
+```
+
+## Lösung Übung 1
+
+::: {.markiert m1="15.365" m2="5.936e-10"}
+```{r}
+#| echo: false
+anova(lm(weight ~ feed, data = chickwts))
+```
+:::
+
+- [1]{.nr} **F-Wert**
+- [2]{.nr} ***p*-Wert:** *p* < .001
+
+. . .
+
+::: kasten
+**Unterscheidet sich das Gewicht der Küken je nach Futter?** Ja, *F*(5, 65) = 15.37, *p* < .001.
+:::

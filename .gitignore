@@ -1,0 +1,28 @@
+# Gerenderte Folien (Vortrag + Handout) und Zwischendateien
+*.html
+*.pdf
+*_handout.html
+*_files/
+# genau diese Schreibweise, sonst hängt Quarto sie bei jedem Rendern erneut an
+/.quarto/
+
+# Diese HTML/PDF-Dateien gehören dazu:
+# - HTML-Bausteine der Extension
+!_extensions/**/*.html
+# - Website-Quellen (Navbar-Skript, Demo-Foliensatz und Handout)
+!website/*.html
+!website/demo/**
+# - fertige Website für GitHub Pages (main, /docs), inkl. .nojekyll
+!docs/
+!docs/**
+
+# R und Editor
+.Rhistory
+.RData
+.Rproj.user/
+/.luarc.json
+
+# Nur lokal: Notizen und Einstellungen für Claude
+claude_notes/
+CLAUDE.md
+.claude/

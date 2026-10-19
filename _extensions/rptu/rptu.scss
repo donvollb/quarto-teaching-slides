@@ -1,0 +1,724 @@
+/*-- scss:defaults --*/
+
+
+// Farben aus der RPTU-CI (Universitätsfarben)
+$rptu-navy:     #042C58 !default;   // Dunkelblau; eigene Leitfarbe siehe Website (Design anpassen)
+$rptu-hellblau: #6AB2E7;   // Hellblau
+$rptu-blaugrau: #507289;   // Blaugrau
+$rptu-petrol:   #77B6BA;   // Grüngrau
+$rptu-teal:     #006B6B;   // Dunkelgrün
+$rptu-gruen:    #00703C;   // Text-Grün, dunkel (Beamer hellt auf); CI-Hellgrün #26D07C wäre als Text zu hell
+$rptu-rot:      #C00000;   // Text-Rot, dunkel (Beamer hellt auf); CI-Rot wäre #E31B4C
+$rptu-orange:   #FFA252;   // Orange
+$rptu-text:     #1B1F24;
+$rptu-grau:     #6B7A86;
+$rptu-hellgrau: #F3F6F9;
+$rptu-linie:    #E1E7ED;
+
+$rptu-leit:     $rptu-navy;      // Leitfarbe: Titelfolie, Titel, Aufzählungszeichen
+$rptu-akzent:        $rptu-navy !default;                 // Strich über Titeln, Code-/Kastenstreifen
+$rptu-akzent-zahl:   mix($rptu-navy, #fff, 35%) !default; // große Nummern (Abschnitte, Agenda)
+$rptu-akzent-dunkel: rgba(255, 255, 255, 0.6) !default;   // Strich + Untertitel auf der Titelfolie
+$rptu-tint:          rgba($rptu-navy, 0.06) !default;     // Kastenhintergrund, Hervorhebung
+$rptu-titelstrich:   linie !default;                      // Strich an Folientiteln: oben, unten, linie, kombi oder false
+
+// Kontakt links in der Fußzeile: normalerweise über die Metadaten
+// (kontakt: "Name | mail@rptu.de", siehe kontakt.lua); dies ist nur der Ersatzwert,
+// wenn dort nichts angegeben ist
+$rptu-kontakt: "" !default;
+
+// Logos (eingebettet, damit keine Pfade kaputtgehen; Quelle: svg/)
+// Das RPTU-Logo steht nicht unter der MIT-Lizenz (Rechte bei der RPTU, siehe LICENSE).
+// Mit !default per eigener SCSS-Datei ersetzbar, z. B. $logo-weiss: none; zum Abschalten
+$logo-dunkel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='90 185 139 130'%3E%3Cg fill='%23042C58'%3E%3Cpath d='M93,187.9h18c3.4,0,6.2,1.1,8.4,3.3c2.2,2.2,3.3,4.9,3.3,8.1c0,1.4-0.2,2.7-0.6,3.9s-0.9,2.2-1.5,2.9s-1.2,1.4-1.8,1.9c-0.6,0.5-1.1,0.9-1.5,1.1l-0.6,0.3l7.3,13.1h-7.8l-6.6-12.1h-9.2v12.1H93V187.9z M114.1,195.9c-0.9-0.9-2-1.3-3.3-1.3h-10.4v9.1h10.4c1.3,0,2.4-0.4,3.3-1.3s1.3-1.9,1.3-3.2S115,196.8,114.1,195.9'/%3E%3Cpath d='M146.7,277.4c3.5,0,6.4,1.1,8.7,3.3c2.3,2.2,3.5,5,3.5,8.3s-1.2,6-3.5,8.3c-2.3,2.2-5.2,3.3-8.7,3.3h-11.4V312H128v-34.5h18.7V277.4z M135.3,284.1v9.9h11.1c1.5,0,2.7-0.5,3.7-1.4s1.5-2.1,1.5-3.5s-0.5-2.6-1.5-3.5c-1-1-2.2-1.4-3.7-1.4h-11.1V284.1z'/%3E%3Cpolygon points='191.1,232.8 191.1,239.5 179.3,239.5 179.3,267.4 172,267.4 172,239.5 160.2,239.5 160.2,232.8 '/%3E%3Cpath d='M226,253.1v-20.3h-7.3v20.3c0,2.3-0.7,4.2-2.2,5.8c-0.7,0.7-1.5,1.3-2.3,1.7c-0.2,0.1-0.2,0.1-0.4,0.2c-1.1,0.6-1.9,1.7-1.9,3.1c0,1.9,1.5,3.4,3.4,3.4c0.3,0,0.9-0.1,1.3-0.3c1.9-0.7,3.7-1.8,5.2-3.3C224.6,260.7,226,257.2,226,253.1'/%3E%3Cpath d='M195.1,253.1c0,4.2,1.4,7.7,4.2,10.6c1.5,1.5,3.3,2.6,5.2,3.3c0.4,0.2,1,0.3,1.3,0.3c1.9,0,3.4-1.5,3.4-3.4c0-1.4-0.8-2.5-1.9-3.1c-0.2-0.1-0.2-0.1-0.4-0.2c-0.8-0.4-1.6-1-2.3-1.7c-1.5-1.6-2.2-3.5-2.2-5.8v-20.3h-7.3V253.1'/%3E%3C/g%3E%3C/svg%3E") !default;
+$logo-weiss:  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='90 185 139 130'%3E%3Cg fill='%23FFFFFF'%3E%3Cpath d='M93,187.9h18c3.4,0,6.2,1.1,8.4,3.3c2.2,2.2,3.3,4.9,3.3,8.1c0,1.4-0.2,2.7-0.6,3.9s-0.9,2.2-1.5,2.9s-1.2,1.4-1.8,1.9c-0.6,0.5-1.1,0.9-1.5,1.1l-0.6,0.3l7.3,13.1h-7.8l-6.6-12.1h-9.2v12.1H93V187.9z M114.1,195.9c-0.9-0.9-2-1.3-3.3-1.3h-10.4v9.1h10.4c1.3,0,2.4-0.4,3.3-1.3s1.3-1.9,1.3-3.2S115,196.8,114.1,195.9'/%3E%3Cpath d='M146.7,277.4c3.5,0,6.4,1.1,8.7,3.3c2.3,2.2,3.5,5,3.5,8.3s-1.2,6-3.5,8.3c-2.3,2.2-5.2,3.3-8.7,3.3h-11.4V312H128v-34.5h18.7V277.4z M135.3,284.1v9.9h11.1c1.5,0,2.7-0.5,3.7-1.4s1.5-2.1,1.5-3.5s-0.5-2.6-1.5-3.5c-1-1-2.2-1.4-3.7-1.4h-11.1V284.1z'/%3E%3Cpolygon points='191.1,232.8 191.1,239.5 179.3,239.5 179.3,267.4 172,267.4 172,239.5 160.2,239.5 160.2,232.8 '/%3E%3Cpath d='M226,253.1v-20.3h-7.3v20.3c0,2.3-0.7,4.2-2.2,5.8c-0.7,0.7-1.5,1.3-2.3,1.7c-0.2,0.1-0.2,0.1-0.4,0.2c-1.1,0.6-1.9,1.7-1.9,3.1c0,1.9,1.5,3.4,3.4,3.4c0.3,0,0.9-0.1,1.3-0.3c1.9-0.7,3.7-1.8,5.2-3.3C224.6,260.7,226,257.2,226,253.1'/%3E%3Cpath d='M195.1,253.1c0,4.2,1.4,7.7,4.2,10.6c1.5,1.5,3.3,2.6,5.2,3.3c0.4,0.2,1,0.3,1.3,0.3c1.9,0,3.4-1.5,3.4-3.4c0-1.4-0.8-2.5-1.9-3.1c-0.2-0.1-0.2-0.1-0.4-0.2c-0.8-0.4-1.6-1-2.3-1.7c-1.5-1.6-2.2-3.5-2.2-5.8v-20.3h-7.3V253.1'/%3E%3C/g%3E%3C/svg%3E") !default;
+
+$icon-menu: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 3.5h12M2 8h12M2 12.5h12' stroke='%23000' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E");
+
+// Symbole (Quelle: svg/achtung.svg, svg/ki.svg)
+$icon-achtung: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.8 22.6 21.2H1.4Z' fill='%23C00000' stroke='%23C00000' stroke-width='1.6' stroke-linejoin='round'/%3E%3Crect x='10.9' y='8.6' width='2.2' height='7.4' rx='1.1' fill='%23fff'/%3E%3Ccircle cx='12' cy='18.4' r='1.25' fill='%23fff'/%3E%3C/svg%3E");
+$icon-ki: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M10 2C10.8 7 13 9.2 18 10 13 10.8 10.8 13 10 18 9.2 13 7 10.8 2 10 7 9.2 9.2 7 10 2Z' fill='%23042C58'/%3E%3Cpath d='M18.5 13.5C18.9 15.9 19.8 16.8 22.2 17.2 19.8 17.6 18.9 18.5 18.5 20.9 18.1 18.5 17.2 17.6 14.8 17.2 17.2 16.8 18.1 15.9 18.5 13.5Z' fill='%23042C58'/%3E%3C/svg%3E");
+
+// Schrift
+$font-family-sans-serif: "Lato", "LatoWeb", "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "Source Code Pro", Consolas, "Courier New", monospace;
+$presentation-font-size-root: 28px;
+$presentation-line-height: 1.35;
+$presentation-font-smaller: 0.8;
+
+$body-bg: #fff;
+$body-color: $rptu-text;
+$text-muted: $rptu-grau;
+$primary: $rptu-leit;
+$link-color: $rptu-leit;
+$selection-bg: $rptu-petrol;
+
+// Überschriften
+$presentation-heading-font: $font-family-sans-serif;
+$presentation-heading-color: $rptu-navy;
+$presentation-heading-font-weight: 700;
+$presentation-h1-font-size: 1.9em;
+$presentation-h2-font-size: 1.55em;
+$presentation-h3-font-size: 1em;
+$presentation-h4-font-size: 1em;
+$presentation-list-bullet-color: $rptu-leit;
+$presentation-title-slide-text-align: left;
+
+// Code
+$code-block-bg: $rptu-hellgrau;
+$code-block-border-color: $rptu-leit;
+$code-block-font-size: 0.72em;
+$code-block-line-height: 1.35;
+$code-color: $rptu-navy;
+$code-inline-font-size: 0.9em;
+
+// Callouts in Hausfarben
+$callout-color-note: $rptu-leit;
+$callout-color-tip: $rptu-gruen;
+$callout-color-important: $rptu-rot;
+$callout-color-warning: #C98A00;
+$callout-color-caution: #D2691E;
+
+$light-bg-link-color: $rptu-leit;
+$dark-bg-link-color: #fff;
+$light-bg-code-color: $rptu-navy;
+
+
+/*-- scss:rules --*/
+
+// Fußzeile skaliert mit dem Fenster (sie liegt außerhalb der skalierten Folie)
+:root {
+  --rptu-fz: clamp(14px, 1.15vw, 24px);
+}
+
+.reveal {
+  font-weight: 400;
+}
+
+.reveal strong {
+  font-weight: 700;
+}
+
+// ---------- Inhaltsfolien ----------
+
+// Folientitel; Strich bzw. Linie je nach $rptu-titelstrich (Standard: linie)
+.reveal .slides section > h2 {
+  margin: 0 0 0.6em 0;
+  padding: 0.25em 0 0 0;
+  border-bottom: none !important;
+  letter-spacing: -0.01em;
+
+  @if $rptu-titelstrich == oben { &::before {
+    content: "";
+    display: block;
+    width: 48px;
+    height: 5px;
+    border-radius: 3px;
+    background: $rptu-akzent;
+    margin-bottom: 0.3em;
+  } }
+  // unten als Hintergrund, weil h2::after schon für das Achtung-Symbol genutzt wird
+  @if $rptu-titelstrich == unten {
+    padding-bottom: 0.4em;
+    background: linear-gradient($rptu-akzent, $rptu-akzent) no-repeat left bottom / 48px 5px;
+  }
+  // dünne Linie über die ganze Breite
+  @if $rptu-titelstrich == linie {
+    padding-bottom: 0.3em;
+    background: linear-gradient($rptu-akzent, $rptu-akzent) no-repeat left bottom / 100% 1.5px;
+  }
+  // kurzer kräftiger Strich auf einer feinen hellen Linie
+  @if $rptu-titelstrich == kombi {
+    padding-bottom: 0.4em;
+    background:
+      linear-gradient($rptu-akzent, $rptu-akzent) no-repeat left bottom / 48px 4px,
+      linear-gradient(mix($rptu-navy, #fff, 25%), mix($rptu-navy, #fff, 25%)) no-repeat left bottom / 100% 1px;
+  }
+}
+
+// Fettgedruckte Zwischenüberschriften ("Fragestellung", "Parameter", ...)
+.reveal .slides section h3 {
+  font-size: 1em;
+  font-weight: 700;
+  margin: 0.9em 0 0.2em 0;
+  color: $rptu-navy;
+}
+
+// Agenda: ## Heutige Themen {.agenda} -> ### werden nummeriert (01, 02, …)
+.reveal .slides section.agenda {
+  counter-reset: agenda;
+
+  h3 {
+    counter-increment: agenda;
+    font-size: 1.15em;
+    margin: 0.7em 0 0.1em 0;
+    &::before {
+      content: counter(agenda, decimal-leading-zero);
+      display: inline-block;
+      width: 2.4em;
+      color: $rptu-akzent-zahl;
+    }
+  }
+  h3 ~ ul, h3 ~ p { margin-left: 2.75em; }
+}
+.reveal .slides section h2 + h3,
+.reveal .slides section h2 + div > h3:first-child,
+.reveal .column > h3:first-child {
+  margin-top: 0;
+}
+
+// Listen
+.reveal ul {
+  list-style-type: disc;
+}
+.reveal ul ul {
+  list-style-type: "–  ";
+}
+.reveal ul li::marker,
+.reveal ol li::marker {
+  color: $rptu-leit;
+}
+.reveal ol li::marker {
+  font-weight: 700;
+}
+.reveal li {
+  margin-bottom: 0.15em;
+}
+.reveal li > ul,
+.reveal li > ol {
+  font-size: 0.9em;
+  margin-top: 0.1em;
+}
+
+// ---------- Titelfolie ----------
+
+.reveal .slides section.quarto-title-block {
+  top: 0 !important;
+  height: 100%;
+  text-align: left;
+  padding-left: 0.5em;
+
+  .title {
+    color: #fff;
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-top: 2.6em;
+    margin-bottom: 0.25em;
+
+    @if $rptu-titelstrich == oben or $rptu-titelstrich == false { &::before {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 6px;
+      border-radius: 3px;
+      background: $rptu-akzent-dunkel;
+      margin-bottom: 0.45em;
+    } }
+    @if not ($rptu-titelstrich == oben or $rptu-titelstrich == false) { &::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 6px;
+      border-radius: 3px;
+      background: $rptu-akzent-dunkel;
+      margin-top: 0.4em;
+    } }
+  }
+  .subtitle {
+    color: $rptu-akzent-dunkel;
+    font-size: 1.1em;
+    font-weight: 400;
+  }
+  .quarto-title-authors,
+  .quarto-title-author-name,
+  .date {
+    color: #fff;
+    font-size: 0.8em;
+    opacity: 0.85;
+  }
+  .quarto-title-authors {
+    justify-content: flex-start;
+    margin-top: 1.5em;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 60px;
+    right: 110px;
+    width: 160px;
+    height: 150px;
+    background: $logo-weiss no-repeat center / contain;
+    pointer-events: none;
+  }
+}
+
+// ---------- Abschnittsfolien (# Überschrift) ----------
+
+.reveal .slides section.title-slide.level1 {
+  top: 0 !important;
+  height: 100%;
+
+  h1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    margin: 0;
+    font-size: 1.9em;
+    border-bottom: none !important;
+    letter-spacing: -0.015em;
+    color: $rptu-navy;
+    text-align: left;
+  }
+  // Text direkt nach der #-Überschrift: Untertitel unter dem Abschnittstitel
+  > p {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(50% + 2.9em);
+    margin: 0;
+    font-size: 0.85em;
+    color: $rptu-grau;
+    text-align: left;
+  }
+  // Abschnittsnummer (abschnitte.lua) groß über dem Titel
+  &[data-nr]::before {
+    content: attr(data-nr);
+    position: absolute;
+    left: 0;
+    top: 22%;
+    font-size: 3.6em;
+    font-weight: 700;
+    line-height: 1;
+    color: $rptu-akzent-zahl;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 40px;
+    width: 140px;
+    height: 132px;
+    background: $logo-dunkel no-repeat center / contain;
+    pointer-events: none;
+  }
+}
+
+// ---------- Fußzeile ----------
+// Kontakt (links), Kurs | Sitzung (Mitte), Foliennummer (rechts)
+
+.reveal .footer {
+  left: 0;
+  right: 0;
+  bottom: 0 !important;
+  width: 100%;
+  padding: 0.45em 0;
+  background-color: transparent;
+  border-top: 1px solid $rptu-linie;
+  color: $rptu-grau !important;
+  font-size: var(--rptu-fz) !important;
+  line-height: 1.4;
+  text-align: center;
+  z-index: 20;
+
+  p { margin: 0; }
+  a { color: $rptu-grau !important; }
+
+  &::before {
+    content: var(--rptu-kontakt, #{inspect($rptu-kontakt)});   // kontakt.lua; inspect() behält die Anführungszeichen
+    position: absolute;
+    left: max(var(--rptu-rand, 1.2em), 12px);   // bündig mit dem Folieninhalt (fusszeile.html)
+  }
+
+  // auf dunklen Folien (Titelfolie) hell
+  &.has-dark-background {
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-top-color: rgba(255, 255, 255, 0.2);
+    a { color: rgba(255, 255, 255, 0.7) !important; }
+  }
+}
+// In schmalen Fenstern (z. B. kleiner iframe) schrumpft die Schrift nicht unter 14px,
+// Kontakt und footer: würden sich überlappen; dann nur footer: und Foliennummer
+@media (max-width: 1000px) {
+  html:not(.print-pdf) .reveal .footer::before {
+    display: none;
+  }
+}
+// Vortrag: reveal markiert .reveal bei dunkler Folie (im Druck pro Seite, s. u.)
+html:not(.print-pdf) .reveal.has-dark-background .footer {
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  a { color: rgba(255, 255, 255, 0.7) !important; }
+}
+
+// Kopier-Knopf an Codeblöcken nur im Vortrag, nicht im PDF
+html.print-pdf .code-copy-button {
+  display: none !important;
+}
+
+// Folienmenü (auch Taste "m"): kleiner grauer Knopf unten links im Rand vor dem
+// Kontakt, mittig im Abstand zwischen Fensterrand und Folieninhalt
+.reveal .slide-menu-button {
+  left: calc(max(var(--rptu-rand, 1.2em), 12px) / 2) !important;
+  bottom: 0 !important;
+  transform: translateX(-50%);
+  padding: 0.45em 0 !important;
+  font-size: var(--rptu-fz) !important;
+  line-height: 1.4 !important;
+  opacity: 0.7;
+  z-index: 30;
+
+  a { color: $rptu-grau !important; }
+  // eigenes Symbol (drei Striche) in Schriftfarbe statt des festen Quarto-Bilds
+  .fas::before {
+    width: 1.1em !important;
+    height: 1.1em !important;
+    vertical-align: -0.2em;
+    transform: translateY(0.15em);
+    background: currentColor !important;
+    -webkit-mask: $icon-menu no-repeat center / contain;
+    mask: $icon-menu no-repeat center / contain;
+  }
+  &:hover { opacity: 1; }
+}
+.reveal.has-dark-background .slide-menu-button a {
+  color: #fff !important;
+}
+
+.reveal .slide-number {
+  left: auto !important;
+  right: max(var(--rptu-rand, 1.2em), 12px) !important;
+  bottom: 0 !important;
+  padding: 0.45em 0 !important;
+  background: transparent !important;
+  color: $rptu-navy !important;
+  font-weight: 700;
+  font-family: $font-family-sans-serif !important;
+  font-size: var(--rptu-fz) !important;
+  line-height: 1.4 !important;
+  z-index: 30;
+}
+
+.reveal.has-dark-background .slide-number {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+// PDF-Druck (?print-pdf): Fußzeile wird pro Seite kopiert (siehe druck.html),
+// Größe fest statt fensterabhängig
+.reveal .pdf-page .footer {
+  position: absolute !important;
+  display: block !important;
+  font-size: 14px !important;
+}
+
+.reveal .pdf-page .slide-number-pdf {
+  font-size: 14px !important;
+}
+
+// Im Druck behält .reveal die Klasse der ersten (dunklen) Folie für alle Seiten;
+// die Farben deshalb pro Seite festlegen
+html.print-pdf .reveal.has-dark-background .slide-number {
+  color: $rptu-navy !important;
+}
+
+html.print-pdf .reveal .pdf-page:has(.has-dark-background) {
+  .slide-number, .footer, .footer a { color: rgba(255, 255, 255, 0.7) !important; }
+  .footer { border-top-color: rgba(255, 255, 255, 0.2); }
+}
+
+// reveal.js macht jede Druckseite 1px niedriger als das Papier (gegen leere
+// Seiten); der Streifen darunter ist weiß wie die Inhaltsfolien
+html.print-pdf body {
+  background: #fff !important;
+}
+
+// ---------- Code ----------
+
+.reveal div.sourceCode {
+  border: none;
+  border-left: 4px solid $rptu-akzent;
+  border-radius: 6px;
+  background-color: $rptu-hellgrau;
+  margin: 0.4em 0 0.6em 0;
+}
+.reveal div.sourceCode pre code {
+  padding: 0.45em 0.7em;
+}
+
+// R-Ausgabe: weiß mit dünnem Rahmen, klar von Code unterscheidbar
+.reveal .cell-output pre,
+.reveal .cell-output-stdout pre {
+  border: 1px solid $rptu-linie;
+  border-radius: 6px;
+  background: #fff;
+  margin: 0.2em 0 0.6em 0;
+}
+.reveal .cell-output pre code,
+.reveal .cell-output-stdout pre code {
+  color: #33393E;
+  padding: 0.45em 0.7em;
+  font-size: 1em;
+  max-height: 480px;
+}
+
+.reveal code {
+  font-weight: 400;
+}
+
+// Markierungen im R-Output (markieren.lua): ::: {.markiert m1="…" m2="…"}
+// farbiger Rahmen + Nummer im Output, [1]{.nr} **Begriff** in der Erklärung.
+// Dunkle Töne, damit sie auch am Beamer kräftig bleiben.
+$rptu-markierungen: (
+  1: $rptu-navy,
+  2: $rptu-teal,
+  3: #B35900,   // Orange, abgedunkelt
+  4: #4C3575,   // Violett (CI)
+  5: #A3206F,   // Pink, abgedunkelt
+  6: $rptu-blaugrau
+) !default;
+
+.reveal .markierung {
+  position: relative;
+  border: 2.5px solid;
+  border-radius: 5px;
+  padding: 1px 3px;
+}
+.reveal .markierung::after {
+  content: attr(data-nr);
+  position: absolute;
+  top: -0.75em;
+  right: -0.65em;
+  font-size: 13px !important;
+}
+.reveal .markierung::after,
+.reveal .nr {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  border-radius: 50%;
+  color: #fff;
+  font-family: $font-family-sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.25em;
+  text-align: center;
+}
+.reveal .nr {
+  font-size: 0.75em;
+  vertical-align: 0.1em;
+  margin-right: 0.35em;
+}
+// Listenpunkte, die mit einer Nummer beginnen: Nummer statt Aufzählungszeichen
+.reveal ul > li:has(> .nr:first-child) {
+  list-style-type: none;
+  margin-left: -1.1em;
+}
+// Ausgabe-Box: Platz für die Nummern über der ersten Zeile; mehr Zeilenabstand,
+// damit die Nummern nicht auf dem Text der Zeile darüber sitzen
+// (.highlighted = englischer Alias für .markiert)
+.reveal .markiert .cell-output pre code,
+.reveal .highlighted .cell-output pre code {
+  overflow: visible;
+  line-height: 1.9;
+}
+
+@each $nr, $farbe in $rptu-markierungen {
+  .reveal .markierung.m#{$nr} {
+    border-color: $farbe;
+    background: rgba($farbe, 0.08);
+  }
+  .reveal .markierung.m#{$nr}::after,
+  .reveal .nr.m#{$nr} {
+    background: $farbe;
+  }
+  .reveal .nr-text.m#{$nr} {
+    color: $farbe;
+  }
+}
+
+// ---------- Tabellen ----------
+
+.reveal table {
+  font-size: 0.75em;
+  border-collapse: collapse;
+}
+.reveal table th {
+  font-weight: 700;
+  border-bottom: 2px solid $rptu-leit !important;
+}
+.reveal table td,
+.reveal table th {
+  padding: 0.3em 0.7em !important;
+}
+.reveal table tbody tr:nth-child(odd) {
+  background-color: $rptu-hellgrau;
+}
+
+// Semesterplan (optional, Beispiel: _resources/semesterplan.qmd): HTML-Tabelle mit
+// den Zeilenklassen s1, s2, … (Sitzungen), pause (Ferien o. Ä.), wechsel (Linie,
+// z. B. beim Wechsel der Lehrperson), teil2 (ausgegraut) und der Zelle td.person
+// (Name, mit rowspan).
+// Einbinden mit ::: {.semesterplan aktuell="3"} ... ::: -> Sitzung 3 wird hervorgehoben
+// (englisch: ::: {.schedule current="3"})
+.reveal .semesterplan table,
+.reveal .schedule table {
+  font-size: 0.68em;
+  width: 100%;
+
+  tbody tr { background: none !important; }
+  td { border-bottom: 1px solid #E3E8EC; }
+  th:nth-child(1) { width: 2.5em; }
+  th:nth-child(2) { width: 4.5em; }
+  th:nth-child(4) { width: 7em; }
+  th:nth-child(5) { width: 7em; }
+
+  // Ferien, Lektürewoche
+  tr.pause td {
+    text-align: center;
+    font-style: italic;
+    color: $rptu-grau;
+    padding: 0.1em !important;
+  }
+  // Übergang zur zweiten Lehrperson
+  tr.wechsel td {
+    border-top: 2px solid $rptu-leit;
+  }
+  tr.teil2 td {
+    color: $rptu-grau;
+  }
+  td.person {
+    font-size: 0.85em;
+    color: $rptu-leit !important;
+    font-weight: 700 !important;
+    text-align: right;
+    vertical-align: middle;
+    border-bottom: none;
+    background: #fff;
+  }
+}
+@for $i from 1 through 20 {
+  .reveal .semesterplan[data-aktuell="#{$i}"] tr.s#{$i},
+  .reveal .schedule[data-current="#{$i}"] tr.s#{$i},
+  .reveal .semesterplan[data-current="#{$i}"] tr.s#{$i},
+  .reveal .schedule[data-aktuell="#{$i}"] tr.s#{$i} {
+    background-color: $rptu-tint !important;
+    td { font-weight: 700; color: $rptu-text; }
+  }
+}
+
+// ---------- Hilfsklassen ----------
+// Jeweils deutscher Name und englischer Alias (beide gültig):
+//   .gruen/.green  .rot/.red  .akzent/.accent  .grau/.grey  .anm/.note
+//   .frage/.question  .klein/.small-text  .kasten/.info-box  .achtung/.warning
+//   .ki/.ai  .symbol-achtung/.symbol-warning  .symbol-ki/.symbol-ai
+//   .markiert/.highlighted (markieren.lua)  .semesterplan/.schedule (oben)
+
+// Farben: [Text]{.gruen}, [Text]{.rot}, [Text]{.akzent}
+.reveal .gruen,  .reveal .green  { color: $rptu-gruen; }
+.reveal .rot,    .reveal .red    { color: $rptu-rot; }
+.reveal .akzent, .reveal .accent { color: $rptu-leit; }
+.reveal .grau,   .reveal .grey   { color: $rptu-grau; }
+
+// Anmerkung (klein, kursiv, schiefer), z.B. unter Code
+.reveal .anm,
+.reveal .note {
+  font-size: 0.7em;
+  font-style: italic;
+  color: $rptu-leit;
+}
+
+// Fragestellung: kursiv
+.reveal .frage,
+.reveal .question {
+  font-style: italic;
+}
+
+// Warndreieck neben dem Folientitel: ## Output Übung 1 {.achtung}
+// = Output vergleichen, aber noch nicht weiterschalten
+.reveal .slides section.achtung > h2::after,
+.reveal .slides section.warning > h2::after {
+  content: "";
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin-left: 0.4em;
+  vertical-align: -0.08em;
+  background: $icon-achtung no-repeat center / contain;
+}
+
+// KI-Symbol hinter Überschrift oder Text: ### Zusatzaufgabe {.ki} bzw. [KI erlaubt]{.ki}
+.reveal .ki::after,
+.reveal .ai::after {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin-left: 0.3em;
+  vertical-align: -0.12em;
+  background: $icon-ki no-repeat center / contain;
+}
+
+// Symbole einzeln im Text: []{.symbol-achtung} bzw. []{.symbol-ki}
+.reveal .symbol-achtung,
+.reveal .symbol-warning,
+.reveal .symbol-ki,
+.reveal .symbol-ai {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.12em;
+}
+.reveal .symbol-achtung,
+.reveal .symbol-warning { background: $icon-achtung no-repeat center / contain; }
+.reveal .symbol-ki,
+.reveal .symbol-ai      { background: $icon-ki no-repeat center / contain; }
+
+// Hervorgehobener Kasten
+.reveal .kasten,
+.reveal .info-box {
+  background-color: $rptu-tint;
+  border-left: 4px solid $rptu-akzent;
+  border-radius: 6px;
+  padding: 0.5em 0.8em;
+  margin: 0.6em 0;
+}
+
+// Box in Leitfarbe (wie die Variablen-Boxen in Pfaddiagrammen)
+.reveal .box {
+  display: inline-block;
+  background-color: $rptu-leit;
+  color: #fff;
+  font-weight: 700;
+  padding: 0.3em 0.9em;
+  border-radius: 6px;
+}
+
+// Text klein: ::: {.klein} ... :::
+.reveal .klein,
+.reveal .small-text {
+  font-size: 0.8em;
+}
+
+// .no-handout im Handout: Platz bleibt frei (siehe handout.lua)
+.reveal .handout-blank {
+  visibility: hidden !important;
+}
+
+// Abbildungen
+.reveal .slides section img {
+  max-height: 520px;
+}
+// Einzelne Grafik auf einer Folie: Quarto setzt r-stretch (füllt den Restplatz),
+// fig-align greift dann nicht; deshalb hier mittig setzen (per Verschiebung, weil
+// reveal.js mit display: block die Höhe falsch berechnet, das Bild hätte Höhe 0)
+.reveal .slides section img.r-stretch {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.reveal figcaption,
+.reveal .caption {
+  color: $rptu-grau;
+}

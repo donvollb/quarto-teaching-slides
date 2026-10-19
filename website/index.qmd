@@ -1,0 +1,9 @@
+---
+title: "quarto-teaching-slides"
+sidebar: false
+toc: false
+include-in-header:
+  - text: '<meta http-equiv="refresh" content="0; url=de/index.html">'
+---
+
+Weiter zur [Dokumentation](de/index.qmd).

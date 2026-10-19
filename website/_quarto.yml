@@ -1,0 +1,73 @@
+# Tutorial-Website für quarto-teaching-slides (vorerst nur Deutsch; die englischen
+# Seiten liegen in der lokalen Sicherung und können später wieder dazukommen)
+#
+# Rendern:   quarto render website        (aus dem Repo-Wurzelverzeichnis)
+#            bzw. quarto render           (im Ordner website/)
+# Ausgabe:   ../docs  (GitHub Pages: "Deploy from a branch", main, /docs)
+# Demo und Bilder aktualisieren: Rscript website/demo-aktualisieren.R
+# Veröffentlichen: siehe VEROEFFENTLICHEN.md
+
+project:
+  type: website
+  output-dir: ../docs
+  render:
+    - index.qmd
+    - de/*.qmd
+  resources:
+    - demo/
+    - .nojekyll
+
+website:
+  title: "quarto-teaching-slides"
+  site-url: "https://donvollb.github.io/quarto-teaching-slides/"
+  repo-url: "https://github.com/donvollb/quarto-teaching-slides"
+  search: true
+  page-navigation: true
+  navbar:
+    background: "#042C58"
+    foreground: "#FFFFFF"
+    left:
+      - text: "Demo"
+        href: de/demo.qmd
+    right:
+      - icon: github
+        href: "https://github.com/donvollb/quarto-teaching-slides"
+        aria-label: "GitHub"
+  sidebar:
+    - title: "Dokumentation"
+      style: docked
+      contents:
+        - section: "Loslegen"
+          contents:
+            - de/index.qmd
+            - de/installation.qmd
+            - de/getting-started.qmd
+            - de/demo.qmd
+        - section: "Anleitungen"
+          contents:
+            - de/slides.qmd
+            - de/handout.qmd
+            - de/r-code.qmd
+            - de/highlighting.qmd
+            - de/schedule.qmd
+            - de/design.qmd
+        - section: "Nachschlagen"
+          contents:
+            - de/reference.qmd
+            - de/faq.qmd
+  page-footer:
+    center: >-
+      © 2026 Dominik Vollbracht ·
+      [MIT-Lizenz](https://github.com/donvollb/quarto-teaching-slides/blob/main/LICENSE)
+      (ausgenommen Schriften und RPTU-Logo) · kein offizielles Angebot der RPTU
+
+format:
+  html:
+    theme: [cosmo, ../_extensions/rptu/fonts.scss, styles.scss]
+    toc: true
+    toc-depth: 2
+    toc-title: "Auf dieser Seite"
+    code-copy: true
+    link-external-newwindow: true
+
+lang: de

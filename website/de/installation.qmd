@@ -1,0 +1,198 @@
+---
+title: "Installation"
+subtitle: "Neues Projekt aus der Vorlage oder Extension in ein bestehendes Projekt"
+---
+
+Es gibt zwei Wege:
+
+- **Neues Projekt aus der Vorlage** (empfohlen), z. B. für eine neue
+  Lehrveranstaltung: [Weg A](#weg-a)
+- **Bestehendes Quarto-Projekt** um das Format ergänzen: [Weg B](#weg-b)
+
+## Voraussetzungen {#voraussetzungen}
+
+| Wofür | Was |
+|-------|-----|
+| Vortrag (HTML) | [Quarto](https://quarto.org) ab Version 1.7 |
+| R-Code auf Folien | R mit den Paketen `knitr` und `rmarkdown` |
+| Handout (PDF) | R mit dem Paket `chromote` und Google Chrome |
+| Grafiken im Folien-Design (optional) | R-Pakete `ggplot2` und `ragg`, siehe [R-Code und Grafiken](r-code.qmd#grafiken) |
+
+R ist für das Handout auch dann nötig, wenn die Folien keinen R-Code enthalten: Das
+PDF erzeugt ein R-Skript. R gibt es bei [CRAN](https://cran.r-project.org), RStudio bei
+[Posit](https://posit.co/download/rstudio-desktop/). Die R-Pakete in der R-Konsole
+installieren:
+
+```r
+install.packages(c("rmarkdown", "chromote"))
+```
+
+### Quarto prüfen {#quarto-pruefen}
+
+Befehle, die mit `quarto` beginnen, gehören ins **Terminal**, nicht in die R-Konsole.
+In RStudio liegt das Terminal im Reiter *Terminal* neben *Console* (Tastenkürzel
+Alt+Umschalt+R).
+
+```bash
+quarto --version
+```
+
+Erscheint eine Versionsnummer ab 1.7, ist alles bereit. Erscheint eine Fehlermeldung
+oder eine ältere Version, Quarto von
+[quarto.org](https://quarto.org/docs/get-started/) installieren und RStudio neu
+starten. RStudio bringt zwar ein eigenes Quarto mit, das im Terminal aber oft nicht
+gefunden wird oder älter ist.
+
+### Chrome für das Handout {#chrome}
+
+`chromote` findet Google Chrome in der Regel selbst. Ob das klappt, zeigt in der
+R-Konsole:
+
+```r
+chromote::find_chrome()
+```
+
+Erscheint ein Pfad zu Chrome, ist alles bereit. Fehlt `chromote` oder Chrome, entsteht
+nur der Vortrag, und das Rendern meldet, dass das Handout fehlt.
+
+Ohne Chrome lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B.
+Microsoft Edge. Dazu den Pfad zur Programmdatei in die Datei `.Renviron` im
+Benutzerordner schreiben und R danach neu starten. Die Datei lässt sich z. B. mit
+`usethis::edit_r_environ()` öffnen (R-Paket `usethis`). Ob der Druck mit Edge
+funktioniert, ist noch nicht geklärt; getestet ist er mit Google Chrome.
+
+```
+CHROMOTE_CHROME="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
+```
+
+## Weg A: neues Projekt aus der Vorlage {#weg-a}
+
+**1. Leeren Ordner anlegen** und im Terminal dorthin wechseln, z. B.:
+
+```bash
+cd "C:/Lehre/statistik-ws26"
+```
+
+**2. Vorlage holen:**
+
+```bash
+quarto use template donvollb/quarto-teaching-slides
+```
+
+Quarto fragt zuerst, ob die Autoren der Vorlage vertrauenswürdig sind, denn Vorlagen
+können beim Rendern Code ausführen. Mit `Y` bestätigen. Ist der Ordner nicht leer,
+fragt Quarto zusätzlich, ob es einen Unterordner anlegen soll.
+
+Aus R heraus geht dasselbe mit dem R-Paket `quarto`:
+`quarto::quarto_use_template("donvollb/quarto-teaching-slides", dir = "C:/Lehre/statistik-ws26")`.
+
+**3. Ergebnis:** Im Ordner liegen jetzt die folgenden Dateien. Die Beispieldatei
+heißt wie der Ordner.
+
+```
+statistik-ws26/
+├── _quarto.yml              # Einstellungen für alle Foliensätze, u. a. der Kontakt
+├── _rptu-post-render.R      # erzeugt nach jedem Rendern das Handout
+├── _extensions/
+│   └── donvollb/rptu/       # die Extension (Format, Design, Filter)
+├── _resources/
+│   ├── semesterplan.qmd     # Beispiel-Semesterplan
+│   └── R/rptu.R             # Farben und Theme für R-Grafiken (optional)
+└── statistik-ws26.qmd       # Beispiel-Foliensatz mit allen Elementen
+```
+
+**4. Kontakt eintragen:** In der `_quarto.yml` steht der Platzhalter
+`kontakt: "Name | Mailadresse"` für den Kontakt links in der Fußzeile. Ihn durch den
+eigenen Kontakt ersetzen, z. B.:
+
+```yaml
+kontakt: "Vorname Nachname | vorname.nachname@rptu.de"
+```
+
+Für RStudio lässt sich anschließend ein RStudio-Projekt für den Ordner anlegen
+(*File → New Project → Existing Directory*). Weiter geht es mit dem
+[ersten Foliensatz](getting-started.qmd).
+
+::: {.callout-note}
+## Warum ein Projekt?
+Das Handout erzeugt ein R-Skript, das Quarto nach jedem Rendern startet. Diesen
+Schritt (`post-render`) kann nur ein Projekt in seiner `_quarto.yml` festlegen, nicht
+die Extension selbst. Deshalb gibt es die Vorlage.
+:::
+
+## Weg B: bestehendes Quarto-Projekt {#weg-b}
+
+Im Projektordner (dort, wo die `_quarto.yml` liegt):
+
+```bash
+quarto add donvollb/quarto-teaching-slides
+```
+
+Die Extension landet in `_extensions/donvollb/rptu/`. Dann in der `_quarto.yml` das
+Skript für das Handout und den Kontakt eintragen:
+
+```yaml
+project:
+  post-render: _extensions/donvollb/rptu/post-render.R
+
+kontakt: "Vorname Nachname | vorname.nachname@rptu.de"
+```
+
+Steht dort schon ein anderes post-render-Skript, beide als Liste eintragen:
+
+```yaml
+project:
+  post-render:
+    - mein-skript.R
+    - _extensions/donvollb/rptu/post-render.R
+```
+
+Hat der Ordner noch keine `_quarto.yml`, reicht eine mit diesem Inhalt. `lang: de`
+stellt Bedienelemente und Datum auf Deutsch um, `date-format` legt fest, wie das Datum
+auf der Titelfolie erscheint:
+
+```yaml
+project:
+  type: default
+  post-render: _extensions/donvollb/rptu/post-render.R
+
+lang: de
+date-format: "DD.MM.YYYY"
+kontakt: "Vorname Nachname | vorname.nachname@rptu.de"
+```
+
+Optional lassen sich aus dem
+[Repository](https://github.com/donvollb/quarto-teaching-slides) der
+[Semesterplan](https://github.com/donvollb/quarto-teaching-slides/blob/main/_resources/semesterplan.qmd)
+und das Skript für [R-Grafiken](r-code.qmd#grafiken) kopieren.
+
+::: {.callout-tip}
+## Ohne festen Pfad
+Wer den Pfad nicht eintragen möchte, kopiert
+[`_rptu-post-render.R`](https://github.com/donvollb/quarto-teaching-slides/blob/main/_rptu-post-render.R)
+in den Projektordner und trägt `post-render: _rptu-post-render.R` ein. Das Skript
+sucht die Extension selbst.
+:::
+
+### Wo die Extension liegen muss {#fundort}
+
+- Quarto sucht den Ordner `_extensions/` nur im Ordner der qmd-Datei und im
+  Projektordner (dem Ordner mit der `_quarto.yml`). Ein übergeordneter Ordner ohne
+  `_quarto.yml` reicht nicht.
+- Liegt die Extension nur neben der qmd-Datei, ohne Projekt, stimmt zwar das Design,
+  aber das Skript nach dem Rendern läuft nicht: Es entsteht kein Handout, die
+  HTML-Datei bleibt größer (ca. 3,5 statt 0,7 MB), und Formeln brauchen beim
+  Präsentieren Internet.
+- Empfehlung: ein Projekt pro Lehrveranstaltung, die Extension im Projektordner.
+
+## Aktualisieren
+
+Im Projektordner:
+
+```bash
+quarto update extension donvollb/quarto-teaching-slides
+```
+
+Aktualisiert wird nur die Extension in `_extensions/`. Die eigene `_quarto.yml`, die
+Foliensätze und die Dateien aus der Vorlage (`_rptu-post-render.R`, `_resources/`)
+bleiben unverändert.
