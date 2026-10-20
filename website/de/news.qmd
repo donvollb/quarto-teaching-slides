@@ -1,0 +1,7 @@
+---
+title: "Neuigkeiten"
+subtitle: "Änderungen der einzelnen Versionen"
+toc: false
+---
+
+{{< include ../../NEWS.md >}}

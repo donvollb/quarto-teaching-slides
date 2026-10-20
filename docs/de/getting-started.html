@@ -262,6 +262,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Probleme und FAQ</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../de/news.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neuigkeiten</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -533,16 +539,16 @@ Warnung
 <p><code>quarto render</code> ohne Dateinamen rendert alle Foliensätze des Projekts. Auch der Render-Knopf in RStudio erzeugt Vortrag und Handout; ist dort „Render on Save“ eingeschaltet, geschieht das nach jedem Speichern.</p>
 <section id="ohne-handout" class="level3">
 <h3 class="anchored" data-anchor-id="ohne-handout">Schneller ohne Handout</h3>
-<p>Mit Handout dauert jedes Rendern etwa doppelt so lange, denn der Foliensatz wird ein zweites Mal gerendert und dann gedruckt. Beim Arbeiten an den Folien reicht oft der Vortrag. Dafür gibt es eine Umgebungsvariable, also eine Einstellung, die für alle Programme gilt, die aus diesem Terminal bzw. dieser R-Sitzung starten: Ist <code>RPTU_HANDOUT_RENDER</code> auf <code>1</code> gesetzt, entsteht kein Handout.</p>
+<p>Mit Handout dauert jedes Rendern etwa doppelt so lange, denn der Foliensatz wird ein zweites Mal gerendert und dann gedruckt. Beim Arbeiten an den Folien reicht oft der Vortrag. Dafür gibt es eine Umgebungsvariable, also eine Einstellung, die für alle Programme gilt, die aus diesem Terminal bzw. dieser R-Sitzung starten: Ist <code>RPTU_NO_HANDOUT</code> auf <code>1</code> gesetzt, entsteht kein Handout.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Terminal: Git Bash, macOS, Linux</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="va">RPTU_HANDOUT_RENDER</span><span class="op">=</span>1 <span class="ex">quarto</span> render 01_einfuehrung/01_folien.qmd</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="va">RPTU_NO_HANDOUT</span><span class="op">=</span>1 <span class="ex">quarto</span> render 01_einfuehrung/01_folien.qmd</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Terminal: PowerShell (gilt bis zum Schließen des Terminals)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="va">$env</span><span class="op">:</span><span class="va">RPTU_HANDOUT_RENDER</span> <span class="op">=</span> <span class="st">"1"</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="va">$env</span><span class="op">:</span><span class="va">RPTU_NO_HANDOUT</span> <span class="op">=</span> <span class="st">"1"</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>quarto render 01_einfuehrung<span class="op">/</span>01_folien<span class="op">.</span><span class="fu">qmd</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># R-Konsole, mit dem R-Paket quarto</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RPTU_HANDOUT_RENDER =</span> <span class="st">"1"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">RPTU_NO_HANDOUT =</span> <span class="st">"1"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">"01_einfuehrung/01_folien.qmd"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.unsetenv</span>(<span class="st">"RPTU_HANDOUT_RENDER"</span>)   <span class="co"># danach wieder mit Handout</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.unsetenv</span>(<span class="st">"RPTU_NO_HANDOUT"</span>)   <span class="co"># danach wieder mit Handout</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

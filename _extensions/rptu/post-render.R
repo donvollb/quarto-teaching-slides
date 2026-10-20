@@ -20,6 +20,7 @@
 #    als <name>.pdf gedruckt und die Zwischen-HTML wieder gelöscht.
 #    Braucht Google Chrome (oder Chromium/Edge) und das R-Paket chromote.
 #    Für Edge/Chromium: Umgebungsvariable CHROMOTE_CHROME auf die .exe setzen.
+#    Ohne Handout (schneller): Umgebungsvariable RPTU_NO_HANDOUT=1 setzen.
 
 # Liste der gerenderten Dateien (bei sehr vielen Dateien gibt Quarto sie als Datei weiter)
 liste <- Sys.getenv("QUARTO_USE_FILE_FOR_PROJECT_OUTPUT_FILES")
@@ -119,8 +120,10 @@ pdf_hinweis <- function(pdf) {
           linie, "\n")
 }
 
-# nicht erneut auslösen, wenn wir selbst gerade das Handout rendern
-if (Sys.getenv("RPTU_HANDOUT_RENDER") != "1") {
+# RPTU_NO_HANDOUT=1: kein Handout. Setzt das Skript auch selbst, während es das
+# Handout rendert, damit es sich nicht erneut auslöst. (RPTU_HANDOUT_RENDER ist
+# der frühere Name und gilt weiterhin.)
+if (Sys.getenv("RPTU_NO_HANDOUT") != "1" && Sys.getenv("RPTU_HANDOUT_RENDER") != "1") {
   for (f in dateien[!grepl("_handout[.]html$", dateien)]) {
     qmd <- sub("[.]html$", ".qmd", f)
     if (!file.exists(qmd)) next
@@ -144,21 +147,20 @@ if (Sys.getenv("RPTU_HANDOUT_RENDER") != "1") {
       next
     }
     message("post-render: erzeuge ", pdf)
-    Sys.setenv(RPTU_HANDOUT_RENDER = "1")
+    Sys.setenv(RPTU_NO_HANDOUT = "1")
     status <- system2(quarto_bin(), c("render", shQuote(basename(qmd)), "-M", "handout:true",
                                   "--output", shQuote(tmp)))
-    Sys.unsetenv("RPTU_HANDOUT_RENDER")
+    Sys.unsetenv("RPTU_NO_HANDOUT")
     if (status == 0 && file.exists(tmp)) {
-      ok <- tryCatch({ als_pdf_drucken(tmp, pdf); TRUE },
-                     error = function(e) {
-                       if (pdf_gesperrt(pdf)) pdf_hinweis(pdf)
-                       else message("\npost-render: PDF-Druck fehlgeschlagen: ", conditionMessage(e), "\n")
-                       FALSE
-                     })
-      if (ok) unlink(tmp)
+      tryCatch(als_pdf_drucken(tmp, pdf),
+               error = function(e) {
+                 if (pdf_gesperrt(pdf)) pdf_hinweis(pdf)
+                 else message("\npost-render: PDF-Druck fehlgeschlagen: ", conditionMessage(e), "\n")
+               })
     } else {
       warning("post-render: Handout-Rendern fehlgeschlagen für ", qmd)
     }
+    unlink(tmp) # Zwischendatei auch nach einem Fehler entfernen
     setwd(alt)
   }
 }

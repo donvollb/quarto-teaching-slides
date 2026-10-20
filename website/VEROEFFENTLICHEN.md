@@ -9,12 +9,15 @@ Diese Datei wird nicht gerendert (sie steht nicht in `render:` der
   - `index.qmd`: leitet auf `de/index.html` weiter
   - `de/*.qmd`: die Seiten (vorerst nur Deutsch; englische Seiten können später unter
     `en/` mit denselben Dateinamen dazukommen)
-  - `bilder/`: Folien- und Element-Bilder, `demo/`: gerenderter Beispiel-Foliensatz
-    (HTML) und Handout (PDF)
+  - `de/news.qmd`: bindet `NEWS.md` aus dem Repo-Wurzelverzeichnis ein
+  - `bilder/`: Folien- und Element-Bilder
   - `styles.scss`: Dunkelblau, Lato (aus `../_extensions/rptu/fonts.scss`), keine
     Google-Fonts
 - Ausgabe: `docs/` im Repo-Wurzelverzeichnis (`output-dir: ../docs`), inkl.
   `.nojekyll`. `docs/` wird committet (siehe `.gitignore`).
+- Demo (gerenderter Beispiel-Foliensatz und Handout): liegt nur in `docs/demo/`.
+  `demo-aktualisieren.R` schreibt sie dorthin; `quarto render website` lässt sie
+  liegen.
 
 ## Website aktualisieren
 
@@ -32,12 +35,16 @@ Diese Datei wird nicht gerendert (sie steht nicht in `render:` der
    ```
 
    Seiten, die entfallen oder umbenannt wurden, bleiben in `docs/` liegen; dann
-   `docs/` vorher löschen (wird vollständig neu erzeugt, inkl. `.nojekyll`).
+   `docs/` vorher löschen (wird vollständig neu erzeugt, inkl. `.nojekyll`) und
+   zuerst Schritt 1 ausführen, denn die Demo entsteht nur dort.
 
-3. Prüfen, z. B. `docs/index.html` im Browser öffnen. (Suche und Demo-iframe
+3. Bei einer neuen Version: Eintrag in `NEWS.md` und `version:` in
+   `_extensions/rptu/_extension.yml` anpassen.
+
+4. Prüfen, z. B. `docs/index.html` im Browser öffnen. (Suche und Demo-iframe
    funktionieren erst über einen Webserver vollständig, z. B. `quarto preview website`.)
 
-4. Committen und pushen, inkl. `docs/`.
+5. Committen und pushen, inkl. `docs/`.
 
 ## Erstes Veröffentlichen auf GitHub Pages
 

@@ -85,12 +85,19 @@ return {
     end,
     Pandoc = function(doc)
       -- Foliennummer wie im Vortrag merken (data-folie), damit sie im Handout
-      -- trotz entfallener Folien stimmt (druck.html setzt sie im PDF ein)
+      -- trotz entfallener Folien stimmt (druck.html setzt sie im PDF ein).
+      -- Ebenso die Abschnittsnummer (nr, sonst zählt abschnitte.lua erst nach
+      -- dem Entfernen und die Nummern rücken auf)
       local nr = doc.meta.title and 1 or 0
+      local abschnitt = 0
       for _, b in ipairs(doc.blocks) do
         if b.t == "Header" and b.level <= 2 then
           nr = nr + 1
           b.attributes["folie"] = tostring(nr)
+        end
+        if b.t == "Header" and b.level == 1 and not b.attributes["nr"] then
+          abschnitt = abschnitt + 1
+          b.attributes["nr"] = string.format("%02d", abschnitt)
         end
       end
       if handout then

@@ -4,8 +4,8 @@
 #   Rscript website/demo-aktualisieren.R
 #
 # 1. rendert template.qmd im Repo-Wurzelverzeichnis (Vortrag + Handout-PDF),
-# 2. kopiert template.html und template.pdf nach website/demo/
-#    (beispiel.html, beispiel.pdf),
+# 2. kopiert template.html und template.pdf direkt in die fertige Website nach
+#    docs/demo/ (beispiel.html, beispiel.pdf; quarto render website lässt sie dort),
 # 3. erzeugt aus der Demo Bilder einzelner Folien und Elemente für website/bilder/
 #    (dazu eine Handout-Seite aus dem PDF),
 # 4. löscht die Ausgaben im Wurzelverzeichnis wieder.
@@ -20,9 +20,9 @@ web_dir <- if (length(skript) == 1) dirname(normalizePath(skript)) else normaliz
 wurzel <- dirname(web_dir)
 stopifnot(file.exists(file.path(wurzel, "template.qmd")))
 
-demo_dir <- file.path(web_dir, "demo")
+demo_dir <- file.path(wurzel, "docs", "demo")
 bild_dir <- file.path(web_dir, "bilder")
-dir.create(demo_dir, showWarnings = FALSE)
+dir.create(demo_dir, showWarnings = FALSE, recursive = TRUE)
 dir.create(bild_dir, showWarnings = FALSE)
 
 # --- 1. + 2. Rendern und kopieren ----------------------------------------------
@@ -37,7 +37,7 @@ kopiert <- file.copy(file.path(wurzel, c("template.html", "template.pdf")),
                      file.path(demo_dir, c("beispiel.html", "beispiel.pdf")), overwrite = TRUE)
 unlink(file.path(wurzel, c("template.html", "template.pdf", "template_handout.html")))
 if (!all(kopiert)) {
-  stop("Demo nicht vollständig kopiert (ist website/demo/beispiel.pdf noch geöffnet?)")
+  stop("Demo nicht vollständig kopiert (ist docs/demo/beispiel.pdf noch geöffnet?)")
 }
 message("Demo kopiert nach ", demo_dir)
 

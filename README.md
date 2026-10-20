@@ -75,7 +75,8 @@ kontakt: "Vorname Nachname | vorname.nachname@rptu.de"
 Ein Foliensatz braucht im Kopf `format: rptu-revealjs`. Ein vollständiges Beispiel mit
 allen Elementen ist [`template.qmd`](template.qmd). Alles Weitere (Folien gestalten,
 Handout, Markierungen, Semesterplan, Design, FAQ) steht auf der
-[Website](https://donvollb.github.io/quarto-teaching-slides/de/).
+[Website](https://donvollb.github.io/quarto-teaching-slides/de/). Änderungen der
+einzelnen Versionen: [NEWS.md](NEWS.md).
 
 ## Inhalt des Repositorys
 

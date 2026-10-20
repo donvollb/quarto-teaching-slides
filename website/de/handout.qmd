@@ -37,7 +37,7 @@ Manches gehört nur in den Raum: Memes, Umfragen, organisatorische Hinweise. Die
 | an einem Block (`::: {.no-handout}`) | Block unsichtbar, Platz bleibt frei |
 | an einer Spalte (`::: {.column width="40%" .no-handout}`) | Spalte unsichtbar, Platz bleibt frei |
 | an einer Folie (`## Titel {.no-handout}`) | ganze Folie entfällt |
-| an einer Abschnittsfolie (`# Titel {.no-handout}`) | Abschnittsfolie entfällt; die Nummern der folgenden Abschnitte rücken im Handout auf |
+| an einer Abschnittsfolie (`# Titel {.no-handout}`) | Abschnittsfolie entfällt; die Nummern der übrigen Abschnitte bleiben wie im Vortrag |
 
 Weil der Platz frei bleibt, sieht jede Folie in beiden Versionen gleich aus:
 

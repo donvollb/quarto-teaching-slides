@@ -3,6 +3,7 @@
 # ohnehin aus; die Extension installiert Quarto separat)
 claude_notes
 CLAUDE.md
+NEWS.md
 *.html
 *.pdf
 website

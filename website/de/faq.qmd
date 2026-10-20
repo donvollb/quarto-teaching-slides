@@ -17,11 +17,8 @@ Der Reihe nach prüfen:
 - Ist das R-Paket `chromote` installiert und findet es Chrome? Siehe
   [Chrome für das Handout](installation.qmd#chrome). Beim Rendern erscheint sonst
   „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.
-- Ist `RPTU_HANDOUT_RENDER` noch auf `1` gesetzt (siehe
+- Ist `RPTU_NO_HANDOUT` noch auf `1` gesetzt (siehe
   [Schneller ohne Handout](getting-started.qmd#ohne-handout))?
-
-Ist der Druck fehlgeschlagen, bleibt eine Zwischendatei `…_handout.html` liegen. Sie
-kann gelöscht werden.
 
 ## Das Handout ist nicht aktuell {#pdf-alt}
 

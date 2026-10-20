@@ -52,8 +52,7 @@ Farbe.
 - Überlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne
   Rahmen.
 - Die Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau.
-  Mehr als sechs Markierungen pro Chunk sind nicht vorgesehen: Ab der siebten fehlen
-  Farbe und sichtbare Nummer.
+  Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.).
 - Markierungen funktionieren auch mit `#| echo: false` (nur Output).
 - Markierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer
   Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den

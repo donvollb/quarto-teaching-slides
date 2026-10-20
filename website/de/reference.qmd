@@ -43,7 +43,7 @@ deutet Quarto bei Tabellen um).
 | Attribut | Wo | Wirkung |
 |----------|----|---------|
 | `nr="00"` | an `# Titel` | eigene Nummer für eine Abschnittsfolie |
-| `m1="…"` bis `m6="…"` | an `.markiert` | Textstellen im Output, je mit eigener Farbe und Nummer |
+| `m1="…"`, `m2="…"`, … | an `.markiert` | Textstellen im Output, je mit Farbe und Nummer (sechs Farben, ab `m7` wiederholt) |
 | `aktuell="3"` bzw. `current="3"` | an `.semesterplan` bzw. `.schedule` | hervorgehobene Sitzung, 1 bis 20 |
 
 ## Metadaten
@@ -92,6 +92,6 @@ Kontakt, wenn weder `kontakt:` noch `contact:` angegeben ist (Standard: leer).
 
 | Variable | Wirkung |
 |----------|---------|
-| `RPTU_HANDOUT_RENDER=1` | kein Handout, nur der Vortrag, siehe [Schneller ohne Handout](getting-started.qmd#ohne-handout) |
+| `RPTU_NO_HANDOUT=1` | kein Handout, nur der Vortrag, siehe [Schneller ohne Handout](getting-started.qmd#ohne-handout) |
 | `CHROMOTE_CHROME` | Pfad zu dem Browser, der das Handout druckt, siehe [Installation](installation.qmd#chrome) |
 | `QUARTO_BIN_PATH` | setzt RStudio; das Skript für das Handout startet damit dasselbe Quarto |

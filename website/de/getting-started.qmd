@@ -186,22 +186,22 @@ Mit Handout dauert jedes Rendern etwa doppelt so lange, denn der Foliensatz wird
 zweites Mal gerendert und dann gedruckt. Beim Arbeiten an den Folien reicht oft der
 Vortrag. Dafür gibt es eine Umgebungsvariable, also eine Einstellung, die für alle
 Programme gilt, die aus diesem Terminal bzw. dieser R-Sitzung starten: Ist
-`RPTU_HANDOUT_RENDER` auf `1` gesetzt, entsteht kein Handout.
+`RPTU_NO_HANDOUT` auf `1` gesetzt, entsteht kein Handout.
 
 ```bash
 # Terminal: Git Bash, macOS, Linux
-RPTU_HANDOUT_RENDER=1 quarto render 01_einfuehrung/01_folien.qmd
+RPTU_NO_HANDOUT=1 quarto render 01_einfuehrung/01_folien.qmd
 ```
 
 ```powershell
 # Terminal: PowerShell (gilt bis zum Schließen des Terminals)
-$env:RPTU_HANDOUT_RENDER = "1"
+$env:RPTU_NO_HANDOUT = "1"
 quarto render 01_einfuehrung/01_folien.qmd
 ```
 
 ```r
 # R-Konsole, mit dem R-Paket quarto
-Sys.setenv(RPTU_HANDOUT_RENDER = "1")
+Sys.setenv(RPTU_NO_HANDOUT = "1")
 quarto::quarto_render("01_einfuehrung/01_folien.qmd")
-Sys.unsetenv("RPTU_HANDOUT_RENDER")   # danach wieder mit Handout
+Sys.unsetenv("RPTU_NO_HANDOUT")   # danach wieder mit Handout
 ```

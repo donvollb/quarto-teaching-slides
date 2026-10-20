@@ -262,6 +262,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Probleme und FAQ</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../de/news.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Neuigkeiten</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -349,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Gesucht wird der Text <strong>wörtlich</strong>, markiert wird sein <strong>erstes</strong> Vorkommen im Output. Erzeugt der Chunk mehrere Outputs, gilt das für jeden einzeln.</li>
 <li>Steht eine Stelle nicht im Output (z. B. weil sich Zahlen geändert haben), warnt das Rendern: <code>WARNUNG (markieren.lua): Markierung m2 "…" nicht im Output gefunden</code>.</li>
 <li>Überlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne Rahmen.</li>
-<li>Die Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau. Mehr als sechs Markierungen pro Chunk sind nicht vorgesehen: Ab der siebten fehlen Farbe und sichtbare Nummer.</li>
+<li>Die Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau. Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.).</li>
 <li>Markierungen funktionieren auch mit <code>#| echo: false</code> (nur Output).</li>
 <li>Markierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den nötigen Teil ausgeben, siehe <a href="../de/r-code.html#breiter-output">Breiter Output</a>.</li>
 </ul>

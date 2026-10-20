@@ -5,6 +5,7 @@
 #            bzw. quarto render           (im Ordner website/)
 # Ausgabe:   ../docs  (GitHub Pages: "Deploy from a branch", main, /docs)
 # Demo und Bilder aktualisieren: Rscript website/demo-aktualisieren.R
+#            (schreibt die Demo direkt nach ../docs/demo/, Quarto lässt sie dort liegen)
 # Veröffentlichen: siehe VEROEFFENTLICHEN.md
 
 project:
@@ -14,7 +15,6 @@ project:
     - index.qmd
     - de/*.qmd
   resources:
-    - demo/
     - .nojekyll
 
 website:
@@ -55,6 +55,7 @@ website:
           contents:
             - de/reference.qmd
             - de/faq.qmd
+            - de/news.qmd
   page-footer:
     center: >-
       © 2026 Dominik Vollbracht ·

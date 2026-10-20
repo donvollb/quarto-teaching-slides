@@ -524,7 +524,10 @@ $rptu-markierungen: (
   line-height: 1.9;
 }
 
-@each $nr, $farbe in $rptu-markierungen {
+// Ab m7 wiederholen sich die Farben (m7 wie m1 usw.)
+$markierung-farben: map-values($rptu-markierungen);
+@for $nr from 1 through 30 {
+  $farbe: nth($markierung-farben, ($nr - 1) % length($markierung-farben) + 1);
   .reveal .markierung.m#{$nr} {
     border-color: $farbe;
     background: rgba($farbe, 0.08);
@@ -711,9 +714,11 @@ $rptu-markierungen: (
   max-height: 520px;
 }
 // Einzelne Grafik auf einer Folie: Quarto setzt r-stretch (füllt den Restplatz),
-// fig-align greift dann nicht; deshalb hier mittig setzen (per Verschiebung, weil
-// reveal.js mit display: block die Höhe falsch berechnet, das Bild hätte Höhe 0)
-.reveal .slides section img.r-stretch {
+// ohne fig-align steht sie dann links; deshalb hier mittig setzen (per Verschiebung,
+// weil reveal.js mit display: block die Höhe falsch berechnet, das Bild hätte Höhe 0).
+// Mit fig-align (Klasse quarto-figure-center/-left/-right) richtet Quarto das Bild
+// selbst aus; dort nicht zusätzlich verschieben
+.reveal .slides section img.r-stretch:not([class*="quarto-figure-"]) {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
