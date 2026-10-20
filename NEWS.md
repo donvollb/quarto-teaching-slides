@@ -1,3 +1,16 @@
+## 0.2.0 (20.10.2026)
+
+- Markierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B.
+  `::: {.markiert m1="…" m2="…" farben="gruen navy"}` (englisch `colors=`). Die
+  Nummern `[1]{.nr}` auf derselben Folie übernehmen die Farben. Mit
+  `markierung-rollen:` (englisch `highlight-roles:`) in der `_quarto.yml` lassen sich
+  Begriffen feste Farben zuordnen, z. B. `intercept: gruen`. Ohne Angabe bleibt alles
+  wie bisher.
+- Handout: Fragmente mit `fragment-index` oder mit Stilklassen wie `.fade-up` und
+  einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der
+  Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente
+  vollständig auf ihrer Folie. Der Vortrag ist unverändert.
+
 ## 0.1.1 (20.10.2026)
 
 - Abschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine

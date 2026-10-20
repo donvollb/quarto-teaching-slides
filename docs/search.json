@@ -172,7 +172,7 @@
     "href": "de/reference.html#attribute",
     "title": "Referenz",
     "section": "Attribute",
-    "text": "Attribute\n\n\n\n\n\n\n\n\nAttribut\nWo\nWirkung\n\n\n\n\nnr=\"00\"\nan # Titel\neigene Nummer für eine Abschnittsfolie\n\n\nm1=\"…\", m2=\"…\", …\nan .markiert\nTextstellen im Output, je mit Farbe und Nummer (sechs Farben, ab m7 wiederholt)\n\n\naktuell=\"3\" bzw. current=\"3\"\nan .semesterplan bzw. .schedule\nhervorgehobene Sitzung, 1 bis 20",
+    "text": "Attribute\n\n\n\nAttribut\nWo\nWirkung\n\n\n\n\nnr=\"00\"\nan # Titel\neigene Nummer für eine Abschnittsfolie\n\n\nm1=\"…\", m2=\"…\", …\nan .markiert\nTextstellen im Output, je mit Farbe und Nummer (sechs Farben, ab m7 wiederholt)\n\n\nfarben=\"gruen navy\" bzw. colors=\nan .markiert\neigene Farben für m1, m2, …: Farbnamen oder Rollen, siehe Farben selbst wählen\n\n\n\nFarbnamen für farben=: navy, hellblau, blaugrau, petrol, teal, gruen, orange, violett, pink, rot, grau. | aktuell=\"3\" bzw. current=\"3\" | an .semesterplan bzw. .schedule | hervorgehobene Sitzung, 1 bis 20 |",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -184,7 +184,7 @@
     "href": "de/reference.html#metadaten",
     "title": "Referenz",
     "section": "Metadaten",
-    "text": "Metadaten\n\n\n\nEintrag\nWo\nWirkung\n\n\n\n\nkontakt: bzw. contact:\n_quarto.yml oder Kopf\nKontakt links in der Fußzeile; \"\" lässt ihn leer. kontakt: hat immer Vorrang vor contact:, auch wenn es nur in der _quarto.yml steht\n\n\nfooter:\nunter format: rptu-revealjs:\nMitte der Fußzeile\n\n\ntitle, subtitle, date, author\nKopf\nTitelfolie, siehe Erster Foliensatz\n\n\ndate-format:\n_quarto.yml\nDarstellung des Datums (Vorlage: DD.MM.YYYY)\n\n\nlang:\n_quarto.yml\nSprache der Foliensätze (Vorlage: de)\n\n\nhandout: true\nwird vom Skript gesetzt\nerzeugt die Handout-Fassung; nicht selbst eintragen",
+    "text": "Metadaten\n\n\n\nEintrag\nWo\nWirkung\n\n\n\n\nkontakt: bzw. contact:\n_quarto.yml oder Kopf\nKontakt links in der Fußzeile; \"\" lässt ihn leer. kontakt: hat immer Vorrang vor contact:, auch wenn es nur in der _quarto.yml steht\n\n\nfooter:\nunter format: rptu-revealjs:\nMitte der Fußzeile\n\n\ntitle, subtitle, date, author\nKopf\nTitelfolie, siehe Erster Foliensatz\n\n\ndate-format:\n_quarto.yml\nDarstellung des Datums (Vorlage: DD.MM.YYYY)\n\n\nlang:\n_quarto.yml\nSprache der Foliensätze (Vorlage: de)\n\n\nmarkierung-rollen: bzw. highlight-roles:\n_quarto.yml oder Kopf\nRollen für farben=, z. B. intercept: gruen, siehe Farbrollen\n\n\nhandout: true\nwird vom Skript gesetzt\nerzeugt die Handout-Fassung; nicht selbst eintragen",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -232,7 +232,7 @@
     "href": "de/news.html",
     "title": "Neuigkeiten",
     "section": "",
-    "text": "Abschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit .no-handout entfällt. Bisher rückten die folgenden Nummern auf.\nMarkierungen ab m7: Die sechs Farben wiederholen sich (m7 wie m1 usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.\nEinzelne Bilder mit fig-align (center, left, right) stehen wieder an der richtigen Stelle. Bisher wurden sie zusätzlich nach rechts verschoben, bei right bis über den Folienrand. Bilder ohne fig-align stehen weiterhin mittig.\nSchlägt der Druck des Handouts fehl, wird die Zwischendatei …_handout.html trotzdem gelöscht.\nNeue Umgebungsvariable RPTU_NO_HANDOUT=1, um nur den Vortrag zu erzeugen. Der bisherige Name RPTU_HANDOUT_RENDER funktioniert weiterhin.",
+    "text": "Markierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B. ::: {.markiert m1=\"…\" m2=\"…\" farben=\"gruen navy\"} (englisch colors=). Die Nummern [1]{.nr} auf derselben Folie übernehmen die Farben. Mit markierung-rollen: (englisch highlight-roles:) in der _quarto.yml lassen sich Begriffen feste Farben zuordnen, z. B. intercept: gruen. Ohne Angabe bleibt alles wie bisher.\nHandout: Fragmente mit fragment-index oder mit Stilklassen wie .fade-up und einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente vollständig auf ihrer Folie. Der Vortrag ist unverändert.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -244,7 +244,7 @@
     "href": "de/news.html#section",
     "title": "Neuigkeiten",
     "section": "",
-    "text": "Abschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit .no-handout entfällt. Bisher rückten die folgenden Nummern auf.\nMarkierungen ab m7: Die sechs Farben wiederholen sich (m7 wie m1 usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.\nEinzelne Bilder mit fig-align (center, left, right) stehen wieder an der richtigen Stelle. Bisher wurden sie zusätzlich nach rechts verschoben, bei right bis über den Folienrand. Bilder ohne fig-align stehen weiterhin mittig.\nSchlägt der Druck des Handouts fehl, wird die Zwischendatei …_handout.html trotzdem gelöscht.\nNeue Umgebungsvariable RPTU_NO_HANDOUT=1, um nur den Vortrag zu erzeugen. Der bisherige Name RPTU_HANDOUT_RENDER funktioniert weiterhin.",
+    "text": "Markierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B. ::: {.markiert m1=\"…\" m2=\"…\" farben=\"gruen navy\"} (englisch colors=). Die Nummern [1]{.nr} auf derselben Folie übernehmen die Farben. Mit markierung-rollen: (englisch highlight-roles:) in der _quarto.yml lassen sich Begriffen feste Farben zuordnen, z. B. intercept: gruen. Ohne Angabe bleibt alles wie bisher.\nHandout: Fragmente mit fragment-index oder mit Stilklassen wie .fade-up und einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente vollständig auf ihrer Folie. Der Vortrag ist unverändert.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -254,6 +254,18 @@
   {
     "objectID": "de/news.html#section-1",
     "href": "de/news.html#section-1",
+    "title": "Neuigkeiten",
+    "section": "0.1.1 (20.10.2026)",
+    "text": "0.1.1 (20.10.2026)\n\nAbschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit .no-handout entfällt. Bisher rückten die folgenden Nummern auf.\nMarkierungen ab m7: Die sechs Farben wiederholen sich (m7 wie m1 usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.\nEinzelne Bilder mit fig-align (center, left, right) stehen wieder an der richtigen Stelle. Bisher wurden sie zusätzlich nach rechts verschoben, bei right bis über den Folienrand. Bilder ohne fig-align stehen weiterhin mittig.\nSchlägt der Druck des Handouts fehl, wird die Zwischendatei …_handout.html trotzdem gelöscht.\nNeue Umgebungsvariable RPTU_NO_HANDOUT=1, um nur den Vortrag zu erzeugen. Der bisherige Name RPTU_HANDOUT_RENDER funktioniert weiterhin.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Neuigkeiten"
+    ]
+  },
+  {
+    "objectID": "de/news.html#section-2",
+    "href": "de/news.html#section-2",
     "title": "Neuigkeiten",
     "section": "0.1.0 (19.10.2026)",
     "text": "0.1.0 (19.10.2026)\nErste Version.\n\nFormat rptu-revealjs: Folien im Design der RPTU; jedes Rendern erzeugt den Vortrag (HTML) und ein Handout (PDF) ohne schrittweise Einblendungen und ohne Inhalte, die mit .no-handout nur für den Vortrag gekennzeichnet sind.\nAbschnittsfolien mit Nummern, Agenda, Fußzeile mit Kontakt, Veranstaltung und Foliennummer.\nMarkierungen im R-Output, Kästen, Hervorhebungen, Symbole, Semesterplan.\nFormeln auch ohne Internet (MathJax wird eingebettet).\nOptional: ggplot2-Theme theme_rptu() mit Farben und Schrift der Folien.\nDeutsche Klassennamen mit englischen Aliassen.\nProjektvorlage für quarto use template und Website mit Anleitungen.",
@@ -563,7 +575,7 @@
     "href": "de/design.html#scss",
     "title": "Design anpassen",
     "section": "Eigene SCSS-Datei",
-    "text": "Eigene SCSS-Datei\nFarben, Linien und Logo legt das Theme der Extension fest. Ein Teil seiner Variablen lässt sich in einer eigenen SCSS-Datei überschreiben.\n1. Datei anlegen, z. B. eigenes.scss im Projektordner:\n/*-- scss:defaults --*/\n$rptu-titelstrich: kombi;\n2. In der _quarto.yml eintragen, damit sie für alle Foliensätze gilt:\nformat:\n  rptu-revealjs:\n    theme: [default,\n            _extensions/donvollb/rptu/fonts.scss,\n            _extensions/donvollb/rptu/rptu.scss,\n            eigenes.scss]\ntheme: ersetzt die Theme-Liste der Extension vollständig. Deshalb gehören ihre beiden Dateien mit in die Liste, und zwar vor die eigene Datei. Die Pfade gelten relativ zur _quarto.yml; im Kopf eines einzelnen Foliensatzes relativ zu dessen qmd-Datei. Die Extension liegt nach Weg A und B in _extensions/donvollb/rptu/.\n\n\n\nVariable\nBedeutung\nStandard\n\n\n\n\n$rptu-navy\nLeitfarbe: Titel, Linien, Aufzählungszeichen, Kästen\n#042C58 (Dunkelblau)\n\n\n$rptu-titelstrich\nTitellinie: linie (dünne Linie über die ganze Breite), oben (kurzer Strich über dem Titel), unten (kurzer Strich darunter), kombi (kurzer Strich auf feiner Linie), false (keine)\nlinie\n\n\n$rptu-akzent\nFarbe der Titellinie und der Streifen an Code und Kästen (die Textfarbe .akzent folgt dagegen der Leitfarbe)\nLeitfarbe\n\n\n$rptu-akzent-zahl\nFarbe der großen Nummern (Abschnitte, Agenda)\nLeitfarbe, aufgehellt\n\n\n$rptu-akzent-dunkel\nStrich und Untertitel auf der Titelfolie\nWeiß, halb transparent\n\n\n$rptu-tint\nHintergrund von Kästen und der aktuellen Sitzung im Semesterplan\nLeitfarbe, sehr hell\n\n\n$rptu-markierungen\nFarben der Markierungen 1 bis 6\nDunkelblau, Dunkelgrün, …\n\n\n$logo-weiss, $logo-dunkel\nLogo auf Titel- bzw. Abschnittsfolien, siehe unten\nRPTU-Logo\n\n\n\nDie übrigen Farben (z. B. Textfarben Grün und Rot) und die Schriften lassen sich nicht überschreiben.",
+    "text": "Eigene SCSS-Datei\nFarben, Linien und Logo legt das Theme der Extension fest. Ein Teil seiner Variablen lässt sich in einer eigenen SCSS-Datei überschreiben.\n1. Datei anlegen, z. B. eigenes.scss im Projektordner:\n/*-- scss:defaults --*/\n$rptu-titelstrich: kombi;\n2. In der _quarto.yml eintragen, damit sie für alle Foliensätze gilt:\nformat:\n  rptu-revealjs:\n    theme: [default,\n            _extensions/donvollb/rptu/fonts.scss,\n            _extensions/donvollb/rptu/rptu.scss,\n            eigenes.scss]\ntheme: ersetzt die Theme-Liste der Extension vollständig. Deshalb gehören ihre beiden Dateien mit in die Liste, und zwar vor die eigene Datei. Die Pfade gelten relativ zur _quarto.yml; im Kopf eines einzelnen Foliensatzes relativ zu dessen qmd-Datei. Die Extension liegt nach Weg A und B in _extensions/donvollb/rptu/.\n\n\n\nVariable\nBedeutung\nStandard\n\n\n\n\n$rptu-navy\nLeitfarbe: Titel, Linien, Aufzählungszeichen, Kästen\n#042C58 (Dunkelblau)\n\n\n$rptu-titelstrich\nTitellinie: linie (dünne Linie über die ganze Breite), oben (kurzer Strich über dem Titel), unten (kurzer Strich darunter), kombi (kurzer Strich auf feiner Linie), false (keine)\nlinie\n\n\n$rptu-akzent\nFarbe der Titellinie und der Streifen an Code und Kästen (die Textfarbe .akzent folgt dagegen der Leitfarbe)\nLeitfarbe\n\n\n$rptu-akzent-zahl\nFarbe der großen Nummern (Abschnitte, Agenda)\nLeitfarbe, aufgehellt\n\n\n$rptu-akzent-dunkel\nStrich und Untertitel auf der Titelfolie\nWeiß, halb transparent\n\n\n$rptu-tint\nHintergrund von Kästen und der aktuellen Sitzung im Semesterplan\nLeitfarbe, sehr hell\n\n\n$rptu-markierungen\nFarben der Markierungen 1 bis 6\nDunkelblau, Dunkelgrün, …\n\n\n$rptu-markierung-farben\nFarbwerte der Namen für farben= (nur die Werte; neue Namen kennt der Filter nicht)\nnavy: #042C58, gruen: #00703C, …\n\n\n$logo-weiss, $logo-dunkel\nLogo auf Titel- bzw. Abschnittsfolien, siehe unten\nRPTU-Logo\n\n\n\nDie übrigen Farben (z. B. Textfarben Grün und Rot) und die Schriften lassen sich nicht überschreiben.",
     "crumbs": [
       "Demo",
       "Anleitungen",
@@ -707,7 +719,19 @@
     "href": "de/highlighting.html#regeln",
     "title": "Markierungen",
     "section": "Regeln",
-    "text": "Regeln\n\nGesucht wird der Text wörtlich, markiert wird sein erstes Vorkommen im Output. Erzeugt der Chunk mehrere Outputs, gilt das für jeden einzeln.\nSteht eine Stelle nicht im Output (z. B. weil sich Zahlen geändert haben), warnt das Rendern: WARNUNG (markieren.lua): Markierung m2 \"…\" nicht im Output gefunden.\nÜberlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne Rahmen.\nDie Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau. Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.).\nMarkierungen funktionieren auch mit #| echo: false (nur Output).\nMarkierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den nötigen Teil ausgeben, siehe Breiter Output.",
+    "text": "Regeln\n\nGesucht wird der Text wörtlich, markiert wird sein erstes Vorkommen im Output. Erzeugt der Chunk mehrere Outputs, gilt das für jeden einzeln.\nSteht eine Stelle nicht im Output (z. B. weil sich Zahlen geändert haben), warnt das Rendern: WARNUNG (markieren.lua): Markierung m2 \"…\" nicht im Output gefunden.\nÜberlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne Rahmen.\nDie Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau. Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.). Andere Farben: siehe Farben selbst wählen.\nMarkierungen funktionieren auch mit #| echo: false (nur Output).\nMarkierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den nötigen Teil ausgeben, siehe Breiter Output.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Markierungen"
+    ]
+  },
+  {
+    "objectID": "de/highlighting.html#farben",
+    "href": "de/highlighting.html#farben",
+    "title": "Markierungen",
+    "section": "Farben selbst wählen",
+    "text": "Farben selbst wählen\nNormalerweise hängt die Farbe an der Nummer: m1 ist dunkelblau, m2 dunkelgrün usw. Soll ein Begriff über mehrere Folien dieselbe Farbe behalten, z. B. der Achsenabschnitt immer grün wie in einer Grafik, legt farben= die Farben der Reihe nach fest:\n::: {.markiert m1=\"-5.344472\" m2=\"37.285126\" farben=\"navy gruen\"}\n```{r}\ncoef(summary(modell))\n```\n:::\n\n- [1]{.nr} **Steigung**\n- [2]{.nr} **Achsenabschnitt**\n\nDer erste Name färbt m1, der zweite m2 usw. Fehlen Namen, behalten die übrigen Markierungen ihre Standardfarbe.\nDie Nummern [1]{.nr} und der Fettdruck danach übernehmen diese Farben bis zur nächsten Folie. Stehen zwei markierte Blöcke auf einer Folie, gilt für jede Nummer der letzte Block davor.\nEnglischer Name des Attributs: colors=.\n\nFarbnamen: navy (Dunkelblau), hellblau, blaugrau, petrol (Grüngrau), teal (Dunkelgrün), gruen (wie .gruen), orange, violett, pink, rot (wie .rot), grau. Die Namen entsprechen rptu_farben für Grafiken; Orange ist für Rahmen und Schrift etwas dunkler.\n\nFarbrollen\nWer dieselben Begriffe in vielen Foliensätzen markiert, kann ihnen in der _quarto.yml (oder im Kopf eines Foliensatzes) einmal eine Farbe zuordnen:\nmarkierung-rollen:\n  intercept: gruen\n  slope: navy\nDanach geht farben=\"slope intercept\". Englischer Name: highlight-roles:. Ein unbekannter Name führt beim Rendern zu einer Warnung, die Markierung behält dann ihre Standardfarbe: WARNUNG (markieren.lua): unbekannte Farbe oder Rolle \"…\" in farben= (m1 bleibt in der Standardfarbe).",
     "crumbs": [
       "Demo",
       "Anleitungen",

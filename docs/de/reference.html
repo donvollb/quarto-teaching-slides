@@ -391,11 +391,6 @@ ul.task-list li input[type="checkbox"] {
 <section id="attribute" class="level2">
 <h2 class="anchored" data-anchor-id="attribute">Attribute</h2>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 43%">
-<col style="width: 17%">
-<col style="width: 39%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Attribut</th>
@@ -415,12 +410,13 @@ ul.task-list li input[type="checkbox"] {
 <td>Textstellen im Output, je mit Farbe und Nummer (sechs Farben, ab <code>m7</code> wiederholt)</td>
 </tr>
 <tr class="odd">
-<td><code>aktuell="3"</code> bzw. <code>current="3"</code></td>
-<td>an <code>.semesterplan</code> bzw. <code>.schedule</code></td>
-<td>hervorgehobene Sitzung, 1 bis 20</td>
+<td><code>farben="gruen navy"</code> bzw. <code>colors=</code></td>
+<td>an <code>.markiert</code></td>
+<td>eigene Farben für <code>m1</code>, <code>m2</code>, …: Farbnamen oder Rollen, siehe <a href="../de/highlighting.html#farben">Farben selbst wählen</a></td>
 </tr>
 </tbody>
 </table>
+<p>Farbnamen für <code>farben=</code>: <code>navy</code>, <code>hellblau</code>, <code>blaugrau</code>, <code>petrol</code>, <code>teal</code>, <code>gruen</code>, <code>orange</code>, <code>violett</code>, <code>pink</code>, <code>rot</code>, <code>grau</code>. | <code>aktuell="3"</code> bzw. <code>current="3"</code> | an <code>.semesterplan</code> bzw. <code>.schedule</code> | hervorgehobene Sitzung, 1 bis 20 |</p>
 </section>
 <section id="metadaten" class="level2">
 <h2 class="anchored" data-anchor-id="metadaten">Metadaten</h2>
@@ -459,6 +455,11 @@ ul.task-list li input[type="checkbox"] {
 <td>Sprache der Foliensätze (Vorlage: <code>de</code>)</td>
 </tr>
 <tr class="even">
+<td><code>markierung-rollen:</code> bzw. <code>highlight-roles:</code></td>
+<td><code>_quarto.yml</code> oder Kopf</td>
+<td>Rollen für <code>farben=</code>, z. B. <code>intercept: gruen</code>, siehe <a href="../de/highlighting.html#farbrollen">Farbrollen</a></td>
+</tr>
+<tr class="odd">
 <td><code>handout: true</code></td>
 <td>wird vom Skript gesetzt</td>
 <td>erzeugt die Handout-Fassung; nicht selbst eintragen</td>

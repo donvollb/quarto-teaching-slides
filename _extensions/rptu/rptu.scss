@@ -541,6 +541,40 @@ $markierung-farben: map-values($rptu-markierungen);
   }
 }
 
+// Farben selbst wählen: ::: {.markiert m1="…" farben="gruen navy"} (markieren.lua
+// setzt dann farbe-<name> statt m<n>). Namen wie die Palette in _resources/R/rptu.R.
+// Beim Ergänzen eigener Namen auch FARBEN in markieren.lua erweitern.
+$rptu-markierung-farben: (
+  navy:     $rptu-navy,
+  hellblau: $rptu-hellblau,
+  blaugrau: $rptu-blaugrau,
+  petrol:   $rptu-petrol,
+  teal:     $rptu-teal,
+  gruen:    $rptu-gruen,
+  orange:   #B35900,   // abgedunkelt wie m3
+  violett:  #4C3575,
+  pink:     #A3206F,
+  rot:      $rptu-rot,
+  grau:     $rptu-grau
+) !default;
+// helle Farben: Nummer in dunkler Schrift statt weiß
+$rptu-markierung-hell: (hellblau, petrol) !default;
+
+@each $name, $farbe in $rptu-markierung-farben {
+  .reveal .markierung.farbe-#{$name} {
+    border-color: $farbe;
+    background: rgba($farbe, 0.08);
+  }
+  .reveal .markierung.farbe-#{$name}::after,
+  .reveal .nr.farbe-#{$name} {
+    background: $farbe;
+    @if index($rptu-markierung-hell, $name) { color: $rptu-text; }
+  }
+  .reveal .nr-text.farbe-#{$name} {
+    color: $farbe;
+  }
+}
+
 // ---------- Tabellen ----------
 
 .reveal table {

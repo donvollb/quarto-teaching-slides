@@ -44,6 +44,10 @@ deutet Quarto bei Tabellen um).
 |----------|----|---------|
 | `nr="00"` | an `# Titel` | eigene Nummer für eine Abschnittsfolie |
 | `m1="…"`, `m2="…"`, … | an `.markiert` | Textstellen im Output, je mit Farbe und Nummer (sechs Farben, ab `m7` wiederholt) |
+| `farben="gruen navy"` bzw. `colors=` | an `.markiert` | eigene Farben für `m1`, `m2`, …: Farbnamen oder Rollen, siehe [Farben selbst wählen](highlighting.qmd#farben) |
+
+Farbnamen für `farben=`: `navy`, `hellblau`, `blaugrau`, `petrol`, `teal`, `gruen`,
+`orange`, `violett`, `pink`, `rot`, `grau`.
 | `aktuell="3"` bzw. `current="3"` | an `.semesterplan` bzw. `.schedule` | hervorgehobene Sitzung, 1 bis 20 |
 
 ## Metadaten
@@ -55,6 +59,7 @@ deutet Quarto bei Tabellen um).
 | `title`, `subtitle`, `date`, `author` | Kopf | Titelfolie, siehe [Erster Foliensatz](getting-started.qmd#kopf) |
 | `date-format:` | `_quarto.yml` | Darstellung des Datums (Vorlage: `DD.MM.YYYY`) |
 | `lang:` | `_quarto.yml` | Sprache der Foliensätze (Vorlage: `de`) |
+| `markierung-rollen:` bzw. `highlight-roles:` | `_quarto.yml` oder Kopf | Rollen für `farben=`, z. B. `intercept: gruen`, siehe [Farbrollen](highlighting.qmd#farbrollen) |
 | `handout: true` | wird vom Skript gesetzt | erzeugt die Handout-Fassung; nicht selbst eintragen |
 
 ## Voreinstellungen des Formats {#formatoptionen}

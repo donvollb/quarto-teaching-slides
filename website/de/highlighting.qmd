@@ -52,11 +52,58 @@ Farbe.
 - Überlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne
   Rahmen.
 - Die Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau.
-  Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.).
+  Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.). Andere
+  Farben: siehe [Farben selbst wählen](#farben).
 - Markierungen funktionieren auch mit `#| echo: false` (nur Output).
 - Markierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer
   Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den
   nötigen Teil ausgeben, siehe [Breiter Output](r-code.qmd#breiter-output).
+
+## Farben selbst wählen {#farben}
+
+Normalerweise hängt die Farbe an der Nummer: `m1` ist dunkelblau, `m2` dunkelgrün
+usw. Soll ein Begriff über mehrere Folien dieselbe Farbe behalten, z. B. der
+Achsenabschnitt immer grün wie in einer Grafik, legt `farben=` die Farben der Reihe
+nach fest:
+
+````markdown
+::: {.markiert m1="-5.344472" m2="37.285126" farben="navy gruen"}
+```{{r}}
+coef(summary(modell))
+```
+:::
+
+- [1]{.nr} **Steigung**
+- [2]{.nr} **Achsenabschnitt**
+````
+
+- Der erste Name färbt `m1`, der zweite `m2` usw. Fehlen Namen, behalten die übrigen
+  Markierungen ihre Standardfarbe.
+- Die Nummern `[1]{.nr}` und der Fettdruck danach übernehmen diese Farben bis zur
+  nächsten Folie. Stehen zwei markierte Blöcke auf einer Folie, gilt für jede Nummer
+  der letzte Block davor.
+- Englischer Name des Attributs: `colors=`.
+
+**Farbnamen:** `navy` (Dunkelblau), `hellblau`, `blaugrau`, `petrol` (Grüngrau), `teal`
+(Dunkelgrün), `gruen` (wie `.gruen`), `orange`, `violett`, `pink`, `rot` (wie `.rot`),
+`grau`. Die Namen entsprechen `rptu_farben` für [Grafiken](r-code.qmd#grafiken);
+Orange ist für Rahmen und Schrift etwas dunkler.
+
+### Farbrollen
+
+Wer dieselben Begriffe in vielen Foliensätzen markiert, kann ihnen in der `_quarto.yml`
+(oder im Kopf eines Foliensatzes) einmal eine Farbe zuordnen:
+
+```yaml
+markierung-rollen:
+  intercept: gruen
+  slope: navy
+```
+
+Danach geht `farben="slope intercept"`. Englischer Name: `highlight-roles:`. Ein
+unbekannter Name führt beim Rendern zu einer Warnung, die Markierung behält dann ihre
+Standardfarbe:
+`WARNUNG (markieren.lua): unbekannte Farbe oder Rolle "…" in farben= (m1 bleibt in der Standardfarbe)`.
 
 ## Übungsfolge {#uebungsfolge}
 

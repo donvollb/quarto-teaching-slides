@@ -283,6 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#so-gehts" id="toc-so-gehts" class="nav-link active" data-scroll-target="#so-gehts">So geht’s</a></li>
   <li><a href="#arbeitsablauf" id="toc-arbeitsablauf" class="nav-link" data-scroll-target="#arbeitsablauf">Arbeitsablauf</a></li>
   <li><a href="#regeln" id="toc-regeln" class="nav-link" data-scroll-target="#regeln">Regeln</a></li>
+  <li><a href="#farben" id="toc-farben" class="nav-link" data-scroll-target="#farben">Farben selbst wählen</a></li>
   <li><a href="#uebungsfolge" id="toc-uebungsfolge" class="nav-link" data-scroll-target="#uebungsfolge">Übungsfolge</a></li>
   </ul>
 </nav>
@@ -355,10 +356,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Gesucht wird der Text <strong>wörtlich</strong>, markiert wird sein <strong>erstes</strong> Vorkommen im Output. Erzeugt der Chunk mehrere Outputs, gilt das für jeden einzeln.</li>
 <li>Steht eine Stelle nicht im Output (z. B. weil sich Zahlen geändert haben), warnt das Rendern: <code>WARNUNG (markieren.lua): Markierung m2 "…" nicht im Output gefunden</code>.</li>
 <li>Überlappen sich zwei Stellen, bleibt die im Output weiter hinten stehende ohne Rahmen.</li>
-<li>Die Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau. Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.).</li>
+<li>Die Farben: 1 Dunkelblau, 2 Dunkelgrün, 3 Orange, 4 Violett, 5 Pink, 6 Blaugrau. Ab der siebten Markierung wiederholen sie sich (7 wie 1, 8 wie 2 usw.). Andere Farben: siehe <a href="#farben">Farben selbst wählen</a>.</li>
 <li>Markierungen funktionieren auch mit <code>#| echo: false</code> (nur Output).</li>
 <li>Markierter Output hat mehr Zeilenabstand, damit die Nummern Platz haben. Langer Output passt dann eventuell nicht mehr mit Erklärung auf eine Folie; dann nur den nötigen Teil ausgeben, siehe <a href="../de/r-code.html#breiter-output">Breiter Output</a>.</li>
 </ul>
+</section>
+<section id="farben" class="level2">
+<h2 class="anchored" data-anchor-id="farben">Farben selbst wählen</h2>
+<p>Normalerweise hängt die Farbe an der Nummer: <code>m1</code> ist dunkelblau, <code>m2</code> dunkelgrün usw. Soll ein Begriff über mehrere Folien dieselbe Farbe behalten, z. B. der Achsenabschnitt immer grün wie in einer Grafik, legt <code>farben=</code> die Farben der Reihe nach fest:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>::: {.markiert m1="-5.344472" m2="37.285126" farben="navy gruen"}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(<span class="fu">summary</span>(modell))</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">1</span><span class="co">]</span>{.nr} **Steigung**</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">2</span><span class="co">]</span>{.nr} **Achsenabschnitt**</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Der erste Name färbt <code>m1</code>, der zweite <code>m2</code> usw. Fehlen Namen, behalten die übrigen Markierungen ihre Standardfarbe.</li>
+<li>Die Nummern <code>[1]{.nr}</code> und der Fettdruck danach übernehmen diese Farben bis zur nächsten Folie. Stehen zwei markierte Blöcke auf einer Folie, gilt für jede Nummer der letzte Block davor.</li>
+<li>Englischer Name des Attributs: <code>colors=</code>.</li>
+</ul>
+<p><strong>Farbnamen:</strong> <code>navy</code> (Dunkelblau), <code>hellblau</code>, <code>blaugrau</code>, <code>petrol</code> (Grüngrau), <code>teal</code> (Dunkelgrün), <code>gruen</code> (wie <code>.gruen</code>), <code>orange</code>, <code>violett</code>, <code>pink</code>, <code>rot</code> (wie <code>.rot</code>), <code>grau</code>. Die Namen entsprechen <code>rptu_farben</code> für <a href="../de/r-code.html#grafiken">Grafiken</a>; Orange ist für Rahmen und Schrift etwas dunkler.</p>
+<section id="farbrollen" class="level3">
+<h3 class="anchored" data-anchor-id="farbrollen">Farbrollen</h3>
+<p>Wer dieselben Begriffe in vielen Foliensätzen markiert, kann ihnen in der <code>_quarto.yml</code> (oder im Kopf eines Foliensatzes) einmal eine Farbe zuordnen:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">markierung-rollen</span><span class="kw">:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">intercept</span><span class="kw">:</span><span class="at"> gruen</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">slope</span><span class="kw">:</span><span class="at"> navy</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Danach geht <code>farben="slope intercept"</code>. Englischer Name: <code>highlight-roles:</code>. Ein unbekannter Name führt beim Rendern zu einer Warnung, die Markierung behält dann ihre Standardfarbe: <code>WARNUNG (markieren.lua): unbekannte Farbe oder Rolle "…" in farben= (m1 bleibt in der Standardfarbe)</code>.</p>
+</section>
 </section>
 <section id="uebungsfolge" class="level2">
 <h2 class="anchored" data-anchor-id="uebungsfolge">Übungsfolge</h2>
@@ -368,44 +395,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Output-Folie</strong> mit <code>{.achtung}</code>: nur der Output (<code>#| echo: false</code>), damit die Studierenden ihr Ergebnis vergleichen können. Das Warndreieck sagt: noch nicht weiterklicken.</li>
 <li><strong>Lösungsfolie:</strong> markierter Output, Erklärung und die Antwort im Kasten.</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übung 1</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>**Datensatz:** *chickwts* (in R enthalten)\</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>**Fragestellung:** <span class="co">[</span><span class="ot">Unterscheidet sich das Gewicht der Küken je nach Futter?</span><span class="co">]</span>{.frage}</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgaben</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Verschaffen Sie sich einen Überblick über den Datensatz.</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Berechnen Sie eine einfaktorielle Varianzanalyse.</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zusatzaufgabe {.ki}</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lassen Sie sich von einer KI R-Code für eine passende Grafik erzeugen.</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output Übung 1 {.achtung}</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(weight <span class="sc">~</span> feed, <span class="at">data =</span> chickwts))</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lösung Übung 1</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>::: {.markiert m1="15.365" m2="5.936e-10"}</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(weight <span class="sc">~</span> feed, <span class="at">data =</span> chickwts))</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">1</span><span class="co">]</span>{.nr} **F-Wert**</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">2</span><span class="co">]</span>{.nr} ***p*-Wert:** *p* &lt; .001</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>. . .</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>::: kasten</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>**Unterscheidet sich das Gewicht der Küken je nach Futter?** Ja, *F*(5, 65) = 15.37, *p* &lt; .001.</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Übung 1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>**Datensatz:** *chickwts* (in R enthalten)\</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>**Fragestellung:** <span class="co">[</span><span class="ot">Unterscheidet sich das Gewicht der Küken je nach Futter?</span><span class="co">]</span>{.frage}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">### Aufgaben</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Verschaffen Sie sich einen Überblick über den Datensatz.</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Berechnen Sie eine einfaktorielle Varianzanalyse.</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zusatzaufgabe {.ki}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lassen Sie sich von einer KI R-Code für eine passende Grafik erzeugen.</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output Übung 1 {.achtung}</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(weight <span class="sc">~</span> feed, <span class="at">data =</span> chickwts))</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Lösung Übung 1</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>::: {.markiert m1="15.365" m2="5.936e-10"}</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(<span class="fu">lm</span>(weight <span class="sc">~</span> feed, <span class="at">data =</span> chickwts))</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">1</span><span class="co">]</span>{.nr} **F-Wert**</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">2</span><span class="co">]</span>{.nr} ***p*-Wert:** *p* &lt; .001</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>. . .</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>::: kasten</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>**Unterscheidet sich das Gewicht der Küken je nach Futter?** Ja, *F*(5, 65) = 15.37, *p* &lt; .001.</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../bilder/folie-loesung.png" class="folienbild img-fluid figure-img" style="width:70.0%"></p>

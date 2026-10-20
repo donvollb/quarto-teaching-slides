@@ -4,7 +4,8 @@
 --   ![](bild.png){.no-handout}       Bild wird ausgeblendet, sein Platz bleibt frei
 --   ::: {.no-handout} ... :::        Block/Spalte wird ausgeblendet, Platz bleibt frei
 --   ## Titel {.no-handout}           ganze Folie entfällt
---   Animationen entfallen: Pausen (. . .), .fragment und .incremental
+--   Animationen entfallen: Pausen (. . .), .fragment (samt fragment-index und
+--   Stilklassen wie .fade-up) und .incremental
 --
 -- Freie Flächen (Klasse .handout-blank, visibility: hidden) halten das Layout
 -- in beiden Versionen gleich. Das PDF erzeugt post-render.R.
@@ -51,11 +52,41 @@ end
 
 local ANIMATION = { fragment = true, incremental = true, nonincremental = true }
 
+-- Stilklassen der Fragmente in reveal.js (wirken nur zusammen mit .fragment)
+local FRAGMENT_STIL = {
+  ["fade-in"] = true, ["fade-out"] = true, ["fade-up"] = true, ["fade-down"] = true,
+  ["fade-left"] = true, ["fade-right"] = true, ["fade-in-then-out"] = true,
+  ["fade-in-then-semi-out"] = true, ["semi-fade-out"] = true, ["current-visible"] = true,
+  grow = true, shrink = true, strike = true,
+  ["highlight-red"] = true, ["highlight-green"] = true, ["highlight-blue"] = true,
+  ["highlight-current-red"] = true, ["highlight-current-green"] = true,
+  ["highlight-current-blue"] = true,
+}
+
+-- Entfernt Animationsklassen, bei Fragmenten auch deren Stilklassen, und den
+-- fragment-index. Gibt zurück, ob sich etwas geändert hat.
+local function animation_entfernen(el)
+  local vorher = #el.classes
+  local fragment = el.classes:includes("fragment")
+  el.classes = klassen_entfernen(el.classes, ANIMATION)
+  if fragment then el.classes = klassen_entfernen(el.classes, FRAGMENT_STIL) end
+  local index = el.attributes["fragment-index"] ~= nil
+  el.attributes["fragment-index"] = nil
+  return index or #el.classes ~= vorher
+end
+
 local function element(el)
   if not handout or el.classes == nil then return nil end
-  el.classes = klassen_entfernen(el.classes, ANIMATION)
+  local geaendert = animation_entfernen(el)
   if el.classes:includes("no-handout") then
     el.classes:insert("handout-blank")
+  end
+  -- Ein Div, das nur der Animation diente, auspacken: Bliebe es mit einer
+  -- Überschrift darin stehen, schriebe Pandoc es als <section> und reveal.js
+  -- machte daraus eine eigene Folie
+  if el.t == "Div" and geaendert and el.identifier == "" and #el.classes == 0
+      and #el.attributes == 0 then
+    return el.content
   end
   return el
 end
@@ -81,7 +112,7 @@ return {
     Div = element,
     Header = function(h)
       -- no-handout-Folien werden unten im Ganzen entfernt
-      if handout then h.classes = klassen_entfernen(h.classes, ANIMATION); return h end
+      if handout then animation_entfernen(h); return h end
     end,
     Pandoc = function(doc)
       -- Foliennummer wie im Vortrag merken (data-folie), damit sie im Handout
