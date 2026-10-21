@@ -283,6 +283,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#abschnitte" id="toc-abschnitte" class="nav-link active" data-scroll-target="#abschnitte">Abschnitte</a></li>
   <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
   <li><a href="#folien-und-zwischenüberschriften" id="toc-folien-und-zwischenüberschriften" class="nav-link" data-scroll-target="#folien-und-zwischenüberschriften">Folien und Zwischenüberschriften</a></li>
+  <li><a href="#vor-titel" id="toc-vor-titel" class="nav-link" data-scroll-target="#vor-titel">Folien vor der Titelfolie</a></li>
   <li><a href="#zwei-spalten" id="toc-zwei-spalten" class="nav-link" data-scroll-target="#zwei-spalten">Zwei Spalten</a></li>
   <li><a href="#bilder" id="toc-bilder" class="nav-link" data-scroll-target="#bilder">Bilder</a></li>
   <li><a href="#formeln" id="toc-formeln" class="nav-link" data-scroll-target="#formeln">Formeln</a></li>
@@ -331,16 +332,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>Eine Nummer lässt sich auch selbst setzen, z. B. <code># Rückblick {nr="00"}</code>. Die fortlaufende Zählung der übrigen Abschnitte ändert sich dadurch nicht.</p>
+<section id="abschnitt-anzeige" class="level3">
+<h3 class="anchored" data-anchor-id="abschnitt-anzeige">Aktueller Abschnitt über dem Folientitel</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abschnitt-anzeige</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Im Kopf eines Foliensatzes oder in der <code>_quarto.yml</code> (englisch <code>section-indicator: true</code>) zeigt jede Folie klein über ihrem Titel Nummer und Namen ihres Abschnitts, z. B. „02 Deskriptive Statistik“, im Vortrag wie im Handout. Der Folieninhalt verschiebt sich dadurch nicht. Ohne den Eintrag bleibt die Anzeige aus. Folien vor dem ersten Abschnitt (etwa die Agenda) bleiben ohne Anzeige.</p>
+<p>Für lange Abschnittstitel gibt es eine Kurzform: <code># Lineare Regression mit mehreren Prädiktoren {kurz="Multiple Regression"}</code> (englisch <code>short=</code>). Die Abschnittsfolie zeigt weiter den vollen Titel.</p>
+</section>
 </section>
 <section id="agenda" class="level2">
 <h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heutige Themen {.agenda}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deskriptive Statistik</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lage- und Streuungsmaße</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grafiken mit ggplot2</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Heutige Themen {.agenda}</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Deskriptive Statistik</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lage- und Streuungsmaße</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Grafiken mit ggplot2</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>{.agenda}</code> nummeriert die <code>###</code>-Überschriften dieser Folie (01, 02, …). Listen und Text darunter werden passend eingerückt.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -351,35 +358,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="folien-und-zwischenüberschriften" class="level2">
 <h2 class="anchored" data-anchor-id="folien-und-zwischenüberschriften">Folien und Zwischenüberschriften</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ablauf der Sitzungen</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Theorie</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inhalte wiederholen und vertiefen</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Praxis</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verfahren in R anwenden</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ablauf der Sitzungen</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Theorie</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Inhalte wiederholen und vertiefen</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">### Praxis</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Verfahren in R anwenden</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>## Titel</code> beginnt eine neue Folie mit Titellinie, <code>###</code> setzt eine fette Zwischenüberschrift.</p>
+</section>
+<section id="vor-titel" class="level2">
+<h2 class="anchored" data-anchor-id="vor-titel">Folien vor der Titelfolie</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Vorbereitung {.no-handout .vor-titel}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Skript öffnen und das Paket <span class="in">`ggplot2`</span> laden</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Eine Folie mit <code>.vor-titel</code> (englisch <code>.before-title</code>) steht im Vortrag vor der Titelfolie, egal wo sie im Foliensatz steht. Der Vortrag beginnt dann mit ihr, z. B. mit Hinweisen zur Vorbereitung, die schon laufen, während die Studierenden ankommen. Mehrere solche Folien behalten ihre Reihenfolge.</p>
+<p>Die Nummern ändern sich dadurch nicht: Die Titelfolie bleibt Folie 1, alle anderen behalten Nummer und Adresse (<code>#/…</code>). Die Folien davor haben keine Nummer und keine Adresse; wer den Vortrag ohne Adresse öffnet, landet auf der ersten von ihnen.</p>
+<p>Ins Handout gehören solche Folien meist nicht, deshalb zusätzlich <code>.no-handout</code>. Ohne <code>.no-handout</code> erscheinen sie im Handout an ihrer Stelle im Foliensatz, ohne Nummer.</p>
 </section>
 <section id="zwei-spalten" class="level2">
 <h2 class="anchored" data-anchor-id="zwei-spalten">Zwei Spalten</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zwei Spalten</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>::: columns</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>::: {.column width="55%"}</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Links</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Text oder Code</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>::: {.column width="45%"}</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(weight <span class="sc">~</span> feed, <span class="at">data =</span> chickwts)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Zwei Spalten</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>::: columns</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>::: {.column width="55%"}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Links</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Text oder Code</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>::: {.column width="45%"}</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(weight <span class="sc">~</span> feed, <span class="at">data =</span> chickwts)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Jede Spalte ist ein eigener Block in <code>::: columns</code>. Die Breiten sollten zusammen höchstens 100 % ergeben. Jeder Block endet mit <code>:::</code>; ein fehlendes <code>:::</code> verschiebt den Rest der Folie in die Spalte.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -391,14 +407,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="bilder" class="level2">
 <h2 class="anchored" data-anchor-id="bilder">Bilder</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](bilder/streudiagramm.png)</span>{width="60%"}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](bilder/streudiagramm.png)</span>{width="60%"}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Bilder werden wie in jedem Quarto-Dokument eingebunden; der Pfad gilt relativ zur qmd-Datei. Mehr Möglichkeiten stehen in der <a href="https://quarto.org/docs/presentations/revealjs/#images">Quarto-Dokumentation</a>.</p>
 </section>
 <section id="formeln" class="level2">
 <h2 class="anchored" data-anchor-id="formeln">Formeln</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Der Mittelwert $\bar{x}$ ist definiert als</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Der Mittelwert $\bar{x}$ ist definiert als</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>$$\bar{x} = \frac{1}{n} \sum_{i=1}^{n} x_i$$</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Formeln werden in LaTeX geschrieben: zwischen <code>$…$</code> im Text, zwischen <code>$$…$$</code> als eigene Zeile. Sie funktionieren auch ohne Internetverbindung, denn die Software für Formeln (MathJax) wird eingebettet. Ein Foliensatz mit Formeln wird dadurch etwa 3 MB größer.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -409,20 +425,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="schrittweise-einblendungen" class="level2">
 <h2 class="anchored" data-anchor-id="schrittweise-einblendungen">Schrittweise Einblendungen</h2>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Sofort sichtbar.</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>. . .</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>Erscheint beim nächsten Klick.</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>::: incremental</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Punkt für Punkt</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>erscheint diese Liste</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>::: fragment</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>Dieser Block erscheint als Ganzes beim Klick.</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Sofort sichtbar.</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>. . .</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Erscheint beim nächsten Klick.</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>::: incremental</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Punkt für Punkt</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>erscheint diese Liste</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>::: fragment</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>Dieser Block erscheint als Ganzes beim Klick.</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>. . .</code> auf einer eigenen Zeile ist eine Pause: Alles danach erscheint beim nächsten Klick. Das funktioniert auch nach <code>###</code>-Überschriften und in Spalten.</li>
 <li><code>::: incremental</code> blendet eine Liste Punkt für Punkt ein, <code>::: fragment</code> einen ganzen Block.</li>
@@ -431,32 +447,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sprechernotizen" class="level2">
 <h2 class="anchored" data-anchor-id="sprechernotizen">Sprechernotizen</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ergebnisse</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mittelwert und Streuung</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>::: notes</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>Auf die Ausreißer in Gruppe B hinweisen.</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Ergebnisse</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mittelwert und Streuung</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>::: notes</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>Auf die Ausreißer in Gruppe B hinweisen.</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Sprechernotizen erscheinen nur in der Referentenansicht (Taste <code>S</code>), nicht auf der Folie und nicht im Handout.</p>
 </section>
 <section id="kasten" class="level2">
 <h2 class="anchored" data-anchor-id="kasten">Kasten</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: kasten</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>**Merke:** Ein Kasten hebt einen Block hervor, z. B. die Antwort auf eine</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>Fragestellung.</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>::: kasten</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>**Merke:** Ein Kasten hebt einen Block hervor, z. B. die Antwort auf eine</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Fragestellung.</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="../bilder/el-kasten.png" class="element img-fluid"></p>
 </section>
 <section id="text-hervorheben" class="level2">
 <h2 class="anchored" data-anchor-id="text-hervorheben">Text hervorheben</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Grün</span><span class="co">]</span>{.gruen}, <span class="co">[</span><span class="ot">Rot</span><span class="co">]</span>{.rot}, <span class="co">[</span><span class="ot">Akzent</span><span class="co">]</span>{.akzent} und <span class="co">[</span><span class="ot">Grau</span><span class="co">]</span>{.grau}</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Unterscheidet sich der Verbrauch je nach Getriebe?</span><span class="co">]</span>{.frage}</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>Ein wichtiges <span class="co">[</span><span class="ot">Wort</span><span class="co">]</span>{.box} im Satz</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Kleine Anmerkung, z. B. unter Code</span><span class="co">]</span>{.anm}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Grün</span><span class="co">]</span>{.gruen}, <span class="co">[</span><span class="ot">Rot</span><span class="co">]</span>{.rot}, <span class="co">[</span><span class="ot">Akzent</span><span class="co">]</span>{.akzent} und <span class="co">[</span><span class="ot">Grau</span><span class="co">]</span>{.grau}</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Unterscheidet sich der Verbrauch je nach Getriebe?</span><span class="co">]</span>{.frage}</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>Ein wichtiges <span class="co">[</span><span class="ot">Wort</span><span class="co">]</span>{.box} im Satz</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">Kleine Anmerkung, z. B. unter Code</span><span class="co">]</span>{.anm}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 47%">
@@ -500,11 +516,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="symbole" class="level2">
 <h2 class="anchored" data-anchor-id="symbole">Symbole</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output Übung 1 {.achtung}</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zusatzaufgabe mit KI {.ki}</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>Im Text: []{.symbol-achtung} und []{.symbol-ki}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Output Übung 1 {.achtung}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">### Zusatzaufgabe mit KI {.ki}</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>Im Text: []{.symbol-achtung} und []{.symbol-ki}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>{.achtung}</code> setzt ein rotes Warndreieck hinter den Folientitel. Gedacht ist es für Output-Folien in einer <a href="../de/highlighting.html#uebungsfolge">Übungsfolge</a>.</li>
 <li><code>{.ki}</code> setzt einen KI-Stern hinter eine Überschrift oder ein Stück Text, z. B. für Zusatzaufgaben mit KI.</li>

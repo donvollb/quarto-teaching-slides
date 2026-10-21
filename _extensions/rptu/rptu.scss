@@ -306,6 +306,29 @@ $light-bg-code-color: $rptu-navy;
   }
 }
 
+// Aktueller Abschnitt klein über dem Folientitel (abschnitt-anzeige: true,
+// abschnitte.lua); liegt im oberen Rand und verschiebt den Folieninhalt nicht
+.reveal .slides section[data-abschnitt]:not(.title-slide) {
+  &::before, &::after {
+    position: absolute;
+    top: -0.95em;
+    font-size: 0.5em;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+  &::before {
+    content: attr(data-abschnitt-nr);
+    left: 0;
+    font-weight: 700;
+    color: $rptu-akzent-zahl;
+  }
+  &::after {
+    content: attr(data-abschnitt);
+    left: 1.7em;
+    color: $rptu-grau;
+  }
+}
+
 // ---------- Fußzeile ----------
 // Kontakt (links), Kurs | Sitzung (Mitte), Foliennummer (rechts)
 
@@ -403,6 +426,11 @@ html.print-pdf .code-copy-button {
 
 .reveal.has-dark-background .slide-number {
   color: rgba(255, 255, 255, 0.7) !important;
+}
+
+// Folien vor der Titelfolie (.vor-titel, vortitel.html) haben keine Nummer
+.reveal.rptu-vor-titel .slide-number {
+  visibility: hidden !important;
 }
 
 // PDF-Druck (?print-pdf): Fußzeile wird pro Seite kopiert (siehe druck.html),

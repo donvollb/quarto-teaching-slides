@@ -23,6 +23,22 @@ grauen Untertitel.
 Eine Nummer lässt sich auch selbst setzen, z. B. `# Rückblick {nr="00"}`. Die
 fortlaufende Zählung der übrigen Abschnitte ändert sich dadurch nicht.
 
+### Aktueller Abschnitt über dem Folientitel {#abschnitt-anzeige}
+
+```yaml
+abschnitt-anzeige: true
+```
+
+Im Kopf eines Foliensatzes oder in der `_quarto.yml` (englisch
+`section-indicator: true`) zeigt jede Folie klein über ihrem Titel Nummer und Namen
+ihres Abschnitts, z. B. „02 Deskriptive Statistik“, im Vortrag wie im Handout. Der
+Folieninhalt verschiebt sich dadurch nicht. Ohne den Eintrag bleibt die Anzeige aus.
+Folien vor dem ersten Abschnitt (etwa die Agenda) bleiben ohne Anzeige.
+
+Für lange Abschnittstitel gibt es eine Kurzform: `# Lineare Regression mit mehreren
+Prädiktoren {kurz="Multiple Regression"}` (englisch `short=`). Die Abschnittsfolie
+zeigt weiter den vollen Titel.
+
 ## Agenda
 
 ```markdown
@@ -56,6 +72,26 @@ Text darunter werden passend eingerückt.
 
 `## Titel` beginnt eine neue Folie mit Titellinie, `###` setzt eine fette
 Zwischenüberschrift.
+
+## Folien vor der Titelfolie {#vor-titel}
+
+```markdown
+## Vorbereitung {.no-handout .vor-titel}
+
+- Skript öffnen und das Paket `ggplot2` laden
+```
+
+Eine Folie mit `.vor-titel` (englisch `.before-title`) steht im Vortrag vor der
+Titelfolie, egal wo sie im Foliensatz steht. Der Vortrag beginnt dann mit ihr, z. B.
+mit Hinweisen zur Vorbereitung, die schon laufen, während die Studierenden ankommen.
+Mehrere solche Folien behalten ihre Reihenfolge.
+
+Die Nummern ändern sich dadurch nicht: Die Titelfolie bleibt Folie 1, alle anderen
+behalten Nummer und Adresse (`#/…`). Die Folien davor haben keine Nummer und keine
+Adresse; wer den Vortrag ohne Adresse öffnet, landet auf der ersten von ihnen.
+
+Ins Handout gehören solche Folien meist nicht, deshalb zusätzlich `.no-handout`. Ohne
+`.no-handout` erscheinen sie im Handout an ihrer Stelle im Foliensatz, ohne Nummer.
 
 ## Zwei Spalten
 

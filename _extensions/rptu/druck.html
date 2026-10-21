@@ -43,6 +43,8 @@
         var nummer = seite.querySelector('.slide-number-pdf');
         var mitNr = seite.querySelector('section[data-folie]');
         if (nummer && mitNr) nummer.textContent = mitNr.getAttribute('data-folie');
+        // Folien vor der Titelfolie (.vor-titel) haben keine Nummer
+        else if (nummer && seite.querySelector('section.vor-titel, section.before-title')) nummer.textContent = '';
       });
       original.style.display = 'none';
     }

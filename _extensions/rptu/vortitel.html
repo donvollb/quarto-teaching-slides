@@ -1,0 +1,131 @@
+<script>
+// Folien vor der Titelfolie: ## Vorbereitung {.no-handout .vor-titel} (englisch .before-title)
+//
+// Im Vortrag stehen diese Folien vor der Titelfolie (Reihenfolge wie im Quelltext),
+// und der Vortrag beginnt ohne Adresse (#/…) mit der ersten davon. Sie zählen nicht
+// mit (data-visibility="uncounted") und zeigen keine Foliennummer (Klasse
+// rptu-vor-titel an .reveal, siehe rptu.scss): Die Titelfolie bleibt Folie 1, alle
+// anderen behalten Nummer und Adresse. Die Adresse (hash-type: number) schreibt
+// deshalb dieses Skript statt reveal.js; die Titelfolie bekommt #/0.
+// Im Druck (?print-pdf) und im Handout bleibt alles an seiner Stelle (Nummern aus
+// handout.lua, druck.html). Ohne .vor-titel-Folie ändert sich nichts.
+(function () {
+  if (/print-pdf/i.test(window.location.search)) return;
+  var folien = document.querySelector('.reveal .slides');
+  if (!folien || !window.Reveal) return;
+  function vor(s) {
+    return s && (s.classList.contains('vor-titel') || s.classList.contains('before-title'));
+  }
+  // Folien auch aus einem Stapel (## unter # liegen in reveal.js untereinander)
+  var vorne = [].slice.call(folien.querySelectorAll('section.vor-titel, section.before-title'));
+  if (!vorne.length) return;
+  // Vorschau-Fenster der Speaker-Ansicht: gleiche Reihenfolge, Folie gibt das Hauptfenster vor
+  var empfaenger = /receiver/i.test(window.location.search);
+  var k = vorne.length;
+
+  // Alle Folien mit Position (h, v) in der aktuellen Reihenfolge
+  function positionen() {
+    var liste = [];
+    [].forEach.call(folien.children, function (s) {
+      if (s.tagName !== 'SECTION') return;
+      var h = liste.length ? liste[liste.length - 1].h + 1 : 0;
+      if (s.classList.contains('stack')) {
+        [].forEach.call(s.querySelectorAll(':scope > section'), function (u, v) {
+          liste.push({ s: u, h: h, v: v });
+        });
+      } else {
+        liste.push({ s: s, h: h, v: 0 });
+      }
+    });
+    return liste;
+  }
+  var alt = positionen();
+
+  // 1. Folien vor die Titelfolie (bzw. vor die erste übrige Folie) setzen
+  var titel = folien.querySelector(':scope > section.quarto-title-block') ||
+    [].filter.call(folien.children, function (s) { return s.tagName === 'SECTION' && !vor(s); })[0];
+  vorne.forEach(function (s) {
+    s.setAttribute('data-visibility', 'uncounted');
+    if (titel) folien.insertBefore(s, titel);
+  });
+  // Ist das Folienmenü schon aufgebaut, dessen Einträge anpassen
+  var neu = positionen();
+  var eintraege = [].slice.call(document.querySelectorAll('.slide-menu-items li[data-slide-h]'));
+  if (eintraege.length) {
+    eintraege.forEach(function (li) {
+      var h = parseInt(li.getAttribute('data-slide-h'), 10), v = parseInt(li.getAttribute('data-slide-v'), 10) || 0;
+      var a = alt.filter(function (p) { return p.h === h && p.v === v; })[0];
+      var n = a && neu.filter(function (p) { return p.s === a.s; })[0];
+      if (n) { li.setAttribute('data-slide-h', n.h); li.setAttribute('data-slide-v', n.v); }
+    });
+    eintraege.sort(function (a, b) {
+      return (a.getAttribute('data-slide-h') - b.getAttribute('data-slide-h')) ||
+        (a.getAttribute('data-slide-v') - b.getAttribute('data-slide-v'));
+    }).forEach(function (li) { li.parentNode.appendChild(li); });
+  }
+
+  var cfg, basis, verlauf, eigeneAdresse;
+
+  // Adresse wie ohne die vorgezogenen Folien; diese selbst bekommen keine
+  function adresse(s) {
+    var id = s.getAttribute('id');
+    if (id) return '#/' + encodeURIComponent(id);
+    if (vor(s)) return '';
+    var i = Reveal.getIndices(s);
+    var a = '#/' + (i.h - k + basis);
+    if (i.v > 0) a += '/' + (i.v + basis);
+    return a;
+  }
+  function schreiben(neuerEintrag) {
+    var s = Reveal.getCurrentSlide();
+    if (!s) return;
+    var ziel = adresse(s);
+    if (ziel === window.location.hash) return;
+    var url = ziel || window.location.pathname + window.location.search;
+    if (neuerEintrag && verlauf) history.pushState(null, '', url);
+    else history.replaceState(null, '', url);
+  }
+  function lesen(hash) {
+    var teile = hash.replace(/^#\/?/, '').split('/');
+    var a = decodeURIComponent(teile[0] || '');
+    if (a === '') return Reveal.slide(0, 0);
+    if (/^\d+$/.test(a)) {
+      var v = teile[1] ? parseInt(teile[1], 10) - basis : 0;
+      return Reveal.slide(Math.max(0, parseInt(a, 10) - basis + k), Math.max(0, v || 0));
+    }
+    var el = document.getElementById(a);
+    var s = el && el.closest('.reveal .slides section');
+    if (s) { var i = Reveal.getIndices(s); Reveal.slide(i.h, i.v); }
+  }
+  function markieren() {
+    document.querySelector('.reveal').classList.toggle('rptu-vor-titel', vor(Reveal.getCurrentSlide()));
+  }
+
+  // 2. Nach dem Start von reveal.js: Reihenfolge übernehmen, Startfolie, Adresse
+  function bereit() {
+    Reveal.sync();
+    cfg = Reveal.getConfig();
+    basis = cfg.hashOneBasedIndex ? 1 : 0;
+    verlauf = !!cfg.history;
+    eigeneAdresse = !empfaenger && (cfg.hash || cfg.history);
+    if (eigeneAdresse) {
+      // reveal.js läse und schriebe die Adresse nach seiner eigenen Zählung
+      Reveal.configure({ hash: false, history: false, respondToHashChanges: false });
+      window.addEventListener('hashchange', function () { lesen(window.location.hash); });
+      // Adresse beim Öffnen; reveal.js kann sie beim Start schon umgeschrieben haben
+      var nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+      var url = (nav && nav.name) || window.location.href;
+      lesen(url.indexOf('#') < 0 ? '' : url.slice(url.indexOf('#')));
+      schreiben(false);
+    } else if (!empfaenger) {
+      Reveal.slide(0, 0);
+    }
+    markieren();
+    Reveal.on('slidechanged', function () {
+      markieren();
+      if (eigeneAdresse) schreiben(true);
+    });
+  }
+  if (Reveal.isReady()) bereit(); else Reveal.on('ready', bereit);
+})();
+</script>

@@ -264,20 +264,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">0.3.0 (21.10.2026)</h2>
+<h2 class="anchored" data-anchor-id="section">0.4.0 (21.10.2026)</h2>
+<ul>
+<li>Folien vor der Titelfolie: <code>## Vorbereitung {.no-handout .vor-titel}</code> (englisch <code>.before-title</code>) steht im Vortrag vor der Titelfolie, und der Vortrag beginnt mit dieser Folie. Die Titelfolie bleibt Folie 1, alle anderen Folien behalten Nummer und Adresse; die vorgezogenen Folien haben keine Nummer. Im Handout bleiben sie (ohne <code>.no-handout</code>) an ihrer Stelle, ebenfalls ohne Nummer. Eigene Skripte, die solche Folien verschieben, sind damit überflüssig und sollten entfernt werden.</li>
+<li>Abschnittsanzeige: Mit <code>abschnitt-anzeige: true</code> (englisch <code>section-indicator: true</code>) steht über jedem Folientitel klein Nummer und Name des Abschnitts. Für lange Abschnittstitel gibt es die Kurzform <code># Titel {kurz="…"}</code> (englisch <code>short=</code>). Ohne den Eintrag bleibt alles wie bisher.</li>
+</ul>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">0.3.0 (21.10.2026)</h2>
 <ul>
 <li>Markierungen: In <code>markierung-rollen:</code> (englisch <code>highlight-roles:</code>) geht statt eines Farbnamens auch ein eigener Farbwert, z. B. <code>fixed: "#3470A8"</code>. Rahmen, Nummer und Fettdruck sehen aus wie bei den Farbnamen; bei hellen Farben wird die Nummer automatisch dunkel gesetzt.</li>
 </ul>
 </section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1">0.2.0 (20.10.2026)</h2>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">0.2.0 (20.10.2026)</h2>
 <ul>
 <li>Markierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B. <code>::: {.markiert m1="…" m2="…" farben="gruen navy"}</code> (englisch <code>colors=</code>). Die Nummern <code>[1]{.nr}</code> auf derselben Folie übernehmen die Farben. Mit <code>markierung-rollen:</code> (englisch <code>highlight-roles:</code>) in der <code>_quarto.yml</code> lassen sich Begriffen feste Farben zuordnen, z. B. <code>intercept: gruen</code>. Ohne Angabe bleibt alles wie bisher.</li>
 <li>Handout: Fragmente mit <code>fragment-index</code> oder mit Stilklassen wie <code>.fade-up</code> und einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente vollständig auf ihrer Folie. Der Vortrag ist unverändert.</li>
 </ul>
 </section>
-<section id="section-2" class="level2">
-<h2 class="anchored" data-anchor-id="section-2">0.1.1 (20.10.2026)</h2>
+<section id="section-3" class="level2">
+<h2 class="anchored" data-anchor-id="section-3">0.1.1 (20.10.2026)</h2>
 <ul>
 <li>Abschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit <code>.no-handout</code> entfällt. Bisher rückten die folgenden Nummern auf.</li>
 <li>Markierungen ab <code>m7</code>: Die sechs Farben wiederholen sich (<code>m7</code> wie <code>m1</code> usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.</li>
@@ -286,8 +293,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Neue Umgebungsvariable <code>RPTU_NO_HANDOUT=1</code>, um nur den Vortrag zu erzeugen. Der bisherige Name <code>RPTU_HANDOUT_RENDER</code> funktioniert weiterhin.</li>
 </ul>
 </section>
-<section id="section-3" class="level2">
-<h2 class="anchored" data-anchor-id="section-3">0.1.0 (19.10.2026)</h2>
+<section id="section-4" class="level2">
+<h2 class="anchored" data-anchor-id="section-4">0.1.0 (19.10.2026)</h2>
 <p>Erste Version.</p>
 <ul>
 <li>Format <code>rptu-revealjs</code>: Folien im Design der RPTU; jedes Rendern erzeugt den Vortrag (HTML) und ein Handout (PDF) ohne schrittweise Einblendungen und ohne Inhalte, die mit <code>.no-handout</code> nur für den Vortrag gekennzeichnet sind.</li>

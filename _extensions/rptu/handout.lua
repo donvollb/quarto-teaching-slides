@@ -118,11 +118,13 @@ return {
       -- Foliennummer wie im Vortrag merken (data-folie), damit sie im Handout
       -- trotz entfallener Folien stimmt (druck.html setzt sie im PDF ein).
       -- Ebenso die Abschnittsnummer (nr, sonst zählt abschnitte.lua erst nach
-      -- dem Entfernen und die Nummern rücken auf)
+      -- dem Entfernen und die Nummern rücken auf). Folien vor der Titelfolie
+      -- (.vor-titel) zählen nicht mit und bleiben ohne Nummer (vortitel.html)
       local nr = doc.meta.title and 1 or 0
       local abschnitt = 0
       for _, b in ipairs(doc.blocks) do
-        if b.t == "Header" and b.level <= 2 then
+        if b.t == "Header" and b.level <= 2 and not (b.classes:includes("vor-titel")
+            or b.classes:includes("before-title")) then
           nr = nr + 1
           b.attributes["folie"] = tostring(nr)
         end

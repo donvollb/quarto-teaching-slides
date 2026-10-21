@@ -11,8 +11,12 @@
 > produces the presentation as a single HTML file **and** a handout PDF without
 > animations (printed with headless Chrome via the R package `chromote`). Extras:
 > numbered section slides, agenda slides, footer with contact / course / slide
-> number, coloured highlights in R output, a course schedule table, and
-> `.no-handout` for content that should only appear in the lecture. Class names are
+> number, coloured highlights in R output (palette names or custom colour values via
+> `highlight-roles:`, e.g. `fixed: "#3470A8"`), a course schedule table, an optional
+> section label above slide titles (`section-indicator: true`), slides shown before
+> the title slide (`.before-title`, e.g. a preparation slide while students arrive;
+> slide numbers stay unchanged), and `.no-handout` for content that should only
+> appear in the lecture. Class names are
 > German with English aliases. Requires Quarto ≥ 1.7; the PDF additionally needs R
 > with `chromote` and Google Chrome.
 > **Documentation (currently German only):** <https://donvollb.github.io/quarto-teaching-slides/>.
@@ -30,6 +34,9 @@ entstanden in Übungen mit viel R-Code:
   als HTML-Datei und ein Handout als PDF (ohne schrittweise Einblendungen und ohne `.no-handout`).
 - **Für Übungen mit R:** Markierungen im R-Output, Agenda, Kästen, Warndreieck für
   Output-Folien, KI-Symbol, Semesterplan.
+- **Für den Vortrag:** Folien vor der Titelfolie (`.vor-titel`), z. B. zur Vorbereitung,
+  während die Studierenden ankommen; auf Wunsch der aktuelle Abschnitt über jedem
+  Folientitel.
 - Deutsche Klassennamen mit englischen Aliassen (z. B. `.kasten` = `.info-box`).
 
 <p>

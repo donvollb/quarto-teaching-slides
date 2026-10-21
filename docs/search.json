@@ -16,7 +16,7 @@
     "href": "de/slides.html#abschnitte",
     "title": "Folien gestalten",
     "section": "Abschnitte",
-    "text": "Abschnitte\n# Deskriptive Statistik\n\nLage- und Streuungsmaße\n# Titel erzeugt eine Abschnittsfolie mit großer Nummer und Logo. Die Abschnitte werden fortlaufend nummeriert (01, 02, …). Text direkt unter der Überschrift wird zum grauen Untertitel.\n\n\n\nAbschnittsfolie\n\n\nEine Nummer lässt sich auch selbst setzen, z. B. # Rückblick {nr=\"00\"}. Die fortlaufende Zählung der übrigen Abschnitte ändert sich dadurch nicht.",
+    "text": "Abschnitte\n# Deskriptive Statistik\n\nLage- und Streuungsmaße\n# Titel erzeugt eine Abschnittsfolie mit großer Nummer und Logo. Die Abschnitte werden fortlaufend nummeriert (01, 02, …). Text direkt unter der Überschrift wird zum grauen Untertitel.\n\n\n\nAbschnittsfolie\n\n\nEine Nummer lässt sich auch selbst setzen, z. B. # Rückblick {nr=\"00\"}. Die fortlaufende Zählung der übrigen Abschnitte ändert sich dadurch nicht.\n\nAktueller Abschnitt über dem Folientitel\nabschnitt-anzeige: true\nIm Kopf eines Foliensatzes oder in der _quarto.yml (englisch section-indicator: true) zeigt jede Folie klein über ihrem Titel Nummer und Namen ihres Abschnitts, z. B. „02 Deskriptive Statistik“, im Vortrag wie im Handout. Der Folieninhalt verschiebt sich dadurch nicht. Ohne den Eintrag bleibt die Anzeige aus. Folien vor dem ersten Abschnitt (etwa die Agenda) bleiben ohne Anzeige.\nFür lange Abschnittstitel gibt es eine Kurzform: # Lineare Regression mit mehreren Prädiktoren {kurz=\"Multiple Regression\"} (englisch short=). Die Abschnittsfolie zeigt weiter den vollen Titel.",
     "crumbs": [
       "Demo",
       "Anleitungen",
@@ -41,6 +41,18 @@
     "title": "Folien gestalten",
     "section": "Folien und Zwischenüberschriften",
     "text": "Folien und Zwischenüberschriften\n## Ablauf der Sitzungen\n\n### Theorie\n\n- Inhalte wiederholen und vertiefen\n\n### Praxis\n\n- Verfahren in R anwenden\n## Titel beginnt eine neue Folie mit Titellinie, ### setzt eine fette Zwischenüberschrift.",
+    "crumbs": [
+      "Demo",
+      "Anleitungen",
+      "Folien gestalten"
+    ]
+  },
+  {
+    "objectID": "de/slides.html#vor-titel",
+    "href": "de/slides.html#vor-titel",
+    "title": "Folien gestalten",
+    "section": "Folien vor der Titelfolie",
+    "text": "Folien vor der Titelfolie\n## Vorbereitung {.no-handout .vor-titel}\n\n- Skript öffnen und das Paket `ggplot2` laden\nEine Folie mit .vor-titel (englisch .before-title) steht im Vortrag vor der Titelfolie, egal wo sie im Foliensatz steht. Der Vortrag beginnt dann mit ihr, z. B. mit Hinweisen zur Vorbereitung, die schon laufen, während die Studierenden ankommen. Mehrere solche Folien behalten ihre Reihenfolge.\nDie Nummern ändern sich dadurch nicht: Die Titelfolie bleibt Folie 1, alle anderen behalten Nummer und Adresse (#/…). Die Folien davor haben keine Nummer und keine Adresse; wer den Vortrag ohne Adresse öffnet, landet auf der ersten von ihnen.\nIns Handout gehören solche Folien meist nicht, deshalb zusätzlich .no-handout. Ohne .no-handout erscheinen sie im Handout an ihrer Stelle im Foliensatz, ohne Nummer.",
     "crumbs": [
       "Demo",
       "Anleitungen",
@@ -160,7 +172,7 @@
     "href": "de/reference.html#klassen",
     "title": "Referenz",
     "section": "Klassen",
-    "text": "Klassen\nFast alle Klassen haben einen deutschen und einen gleichwertigen englischen Namen; beide lassen sich mischen.\n\n\n\n\nDeutsch\nEnglisch\nWirkung\nMehr\n\n\n\n\n## Titel {.agenda}\n–\nnummeriert die ###-Überschriften der Folie\nAgenda\n\n\n::: kasten\n::: info-box\nBlock mit getöntem Hintergrund\nKasten\n\n\n[Text]{.box}\n–\nWort weiß auf dunkelblauem Grund\nText hervorheben\n\n\n{.gruen} {.rot} {.akzent} {.grau}\n{.green} {.red} {.accent} {.grey}\nTextfarbe\nText hervorheben\n\n\n[Text]{.frage}\n{.question}\nkursiv, für Fragestellungen\nText hervorheben\n\n\n[Text]{.anm}\n{.note}\nkleine, kursive Anmerkung\nText hervorheben\n\n\n::: klein\n::: small-text\nkleinere Schrift für einen Block\nText hervorheben\n\n\n## Titel {.achtung}\n{.warning}\nWarndreieck am Folientitel (Output-Folie)\nSymbole\n\n\n{.ki}\n{.ai}\nKI-Stern hinter Überschrift oder Text\nSymbole\n\n\n[]{.symbol-achtung}\n[]{.symbol-warning}\nWarndreieck allein im Text\nSymbole\n\n\n[]{.symbol-ki}\n[]{.symbol-ai}\nKI-Stern allein im Text\nSymbole\n\n\n{.no-handout}\n–\nim Handout ausblenden (Folie entfällt, sonst bleibt der Platz frei)\nVortrag und Handout\n\n\n::: {.markiert m1=\"…\"}\n::: {.highlighted m1=\"…\"}\nStellen im R-Output einrahmen\nMarkierungen\n\n\n[1]{.nr}\n–\nNummer einer Markierung in der Erklärung\nMarkierungen\n\n\n::: {.semesterplan aktuell=\"3\"}\n::: {.schedule current=\"3\"}\nSemesterplan mit hervorgehobener Sitzung\nSemesterplan\n\n\n\n\nAus Quarto stammen ::: columns / ::: column, ::: incremental, ::: fragment und ::: notes, siehe Folien gestalten.\nDie englischen Namen weichen bewusst von Namen ab, die Quarto schon belegt: .info-box statt .callout-… (das wäre ein Quarto-Callout) und .small-text statt .small (das deutet Quarto bei Tabellen um).",
+    "text": "Klassen\nFast alle Klassen haben einen deutschen und einen gleichwertigen englischen Namen; beide lassen sich mischen.\n\n\n\n\nDeutsch\nEnglisch\nWirkung\nMehr\n\n\n\n\n## Titel {.agenda}\n–\nnummeriert die ###-Überschriften der Folie\nAgenda\n\n\n::: kasten\n::: info-box\nBlock mit getöntem Hintergrund\nKasten\n\n\n[Text]{.box}\n–\nWort weiß auf dunkelblauem Grund\nText hervorheben\n\n\n{.gruen} {.rot} {.akzent} {.grau}\n{.green} {.red} {.accent} {.grey}\nTextfarbe\nText hervorheben\n\n\n[Text]{.frage}\n{.question}\nkursiv, für Fragestellungen\nText hervorheben\n\n\n[Text]{.anm}\n{.note}\nkleine, kursive Anmerkung\nText hervorheben\n\n\n::: klein\n::: small-text\nkleinere Schrift für einen Block\nText hervorheben\n\n\n## Titel {.achtung}\n{.warning}\nWarndreieck am Folientitel (Output-Folie)\nSymbole\n\n\n{.ki}\n{.ai}\nKI-Stern hinter Überschrift oder Text\nSymbole\n\n\n[]{.symbol-achtung}\n[]{.symbol-warning}\nWarndreieck allein im Text\nSymbole\n\n\n[]{.symbol-ki}\n[]{.symbol-ai}\nKI-Stern allein im Text\nSymbole\n\n\n{.no-handout}\n–\nim Handout ausblenden (Folie entfällt, sonst bleibt der Platz frei)\nVortrag und Handout\n\n\n## Titel {.vor-titel}\n{.before-title}\nFolie steht im Vortrag vor der Titelfolie, ohne Nummer\nFolien vor der Titelfolie\n\n\n::: {.markiert m1=\"…\"}\n::: {.highlighted m1=\"…\"}\nStellen im R-Output einrahmen\nMarkierungen\n\n\n[1]{.nr}\n–\nNummer einer Markierung in der Erklärung\nMarkierungen\n\n\n::: {.semesterplan aktuell=\"3\"}\n::: {.schedule current=\"3\"}\nSemesterplan mit hervorgehobener Sitzung\nSemesterplan\n\n\n\n\nAus Quarto stammen ::: columns / ::: column, ::: incremental, ::: fragment und ::: notes, siehe Folien gestalten.\nDie englischen Namen weichen bewusst von Namen ab, die Quarto schon belegt: .info-box statt .callout-… (das wäre ein Quarto-Callout) und .small-text statt .small (das deutet Quarto bei Tabellen um).",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -172,7 +184,7 @@
     "href": "de/reference.html#attribute",
     "title": "Referenz",
     "section": "Attribute",
-    "text": "Attribute\n\n\n\nAttribut\nWo\nWirkung\n\n\n\n\nnr=\"00\"\nan # Titel\neigene Nummer für eine Abschnittsfolie\n\n\nm1=\"…\", m2=\"…\", …\nan .markiert\nTextstellen im Output, je mit Farbe und Nummer (sechs Farben, ab m7 wiederholt)\n\n\nfarben=\"gruen navy\" bzw. colors=\nan .markiert\neigene Farben für m1, m2, …: Farbnamen oder Rollen, siehe Farben selbst wählen\n\n\n\nFarbnamen für farben=: navy, hellblau, blaugrau, petrol, teal, gruen, orange, violett, pink, rot, grau. | aktuell=\"3\" bzw. current=\"3\" | an .semesterplan bzw. .schedule | hervorgehobene Sitzung, 1 bis 20 |",
+    "text": "Attribute\n\n\n\nAttribut\nWo\nWirkung\n\n\n\n\nnr=\"00\"\nan # Titel\neigene Nummer für eine Abschnittsfolie\n\n\nkurz=\"…\" bzw. short=\nan # Titel\nKurzform des Abschnitts für die Abschnittsanzeige\n\n\nm1=\"…\", m2=\"…\", …\nan .markiert\nTextstellen im Output, je mit Farbe und Nummer (sechs Farben, ab m7 wiederholt)\n\n\nfarben=\"gruen navy\" bzw. colors=\nan .markiert\neigene Farben für m1, m2, …: Farbnamen oder Rollen, siehe Farben selbst wählen\n\n\naktuell=\"3\" bzw. current=\"3\"\nan .semesterplan bzw. .schedule\nhervorgehobene Sitzung, 1 bis 20\n\n\n\nFarbnamen für farben=: navy, hellblau, blaugrau, petrol, teal, gruen, orange, violett, pink, rot, grau.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -184,7 +196,7 @@
     "href": "de/reference.html#metadaten",
     "title": "Referenz",
     "section": "Metadaten",
-    "text": "Metadaten\n\n\n\nEintrag\nWo\nWirkung\n\n\n\n\nkontakt: bzw. contact:\n_quarto.yml oder Kopf\nKontakt links in der Fußzeile; \"\" lässt ihn leer. kontakt: hat immer Vorrang vor contact:, auch wenn es nur in der _quarto.yml steht\n\n\nfooter:\nunter format: rptu-revealjs:\nMitte der Fußzeile\n\n\ntitle, subtitle, date, author\nKopf\nTitelfolie, siehe Erster Foliensatz\n\n\ndate-format:\n_quarto.yml\nDarstellung des Datums (Vorlage: DD.MM.YYYY)\n\n\nlang:\n_quarto.yml\nSprache der Foliensätze (Vorlage: de)\n\n\nmarkierung-rollen: bzw. highlight-roles:\n_quarto.yml oder Kopf\nRollen für farben=: Farbname oder eigener Farbwert, z. B. intercept: gruen, fixed: \"#3470A8\", siehe Farbrollen\n\n\nhandout: true\nwird vom Skript gesetzt\nerzeugt die Handout-Fassung; nicht selbst eintragen",
+    "text": "Metadaten\n\n\n\nEintrag\nWo\nWirkung\n\n\n\n\nkontakt: bzw. contact:\n_quarto.yml oder Kopf\nKontakt links in der Fußzeile; \"\" lässt ihn leer. kontakt: hat immer Vorrang vor contact:, auch wenn es nur in der _quarto.yml steht\n\n\nfooter:\nunter format: rptu-revealjs:\nMitte der Fußzeile\n\n\ntitle, subtitle, date, author\nKopf\nTitelfolie, siehe Erster Foliensatz\n\n\ndate-format:\n_quarto.yml\nDarstellung des Datums (Vorlage: DD.MM.YYYY)\n\n\nlang:\n_quarto.yml\nSprache der Foliensätze (Vorlage: de)\n\n\nabschnitt-anzeige: true bzw. section-indicator: true\n_quarto.yml oder Kopf\nNummer und Name des Abschnitts klein über jedem Folientitel, siehe Abschnittsanzeige\n\n\nmarkierung-rollen: bzw. highlight-roles:\n_quarto.yml oder Kopf\nRollen für farben=: Farbname oder eigener Farbwert, z. B. intercept: gruen, fixed: \"#3470A8\", siehe Farbrollen\n\n\nhandout: true\nwird vom Skript gesetzt\nerzeugt die Handout-Fassung; nicht selbst eintragen",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -232,7 +244,7 @@
     "href": "de/news.html",
     "title": "Neuigkeiten",
     "section": "",
-    "text": "Markierungen: In markierung-rollen: (englisch highlight-roles:) geht statt eines Farbnamens auch ein eigener Farbwert, z. B. fixed: \"#3470A8\". Rahmen, Nummer und Fettdruck sehen aus wie bei den Farbnamen; bei hellen Farben wird die Nummer automatisch dunkel gesetzt.",
+    "text": "Folien vor der Titelfolie: ## Vorbereitung {.no-handout .vor-titel} (englisch .before-title) steht im Vortrag vor der Titelfolie, und der Vortrag beginnt mit dieser Folie. Die Titelfolie bleibt Folie 1, alle anderen Folien behalten Nummer und Adresse; die vorgezogenen Folien haben keine Nummer. Im Handout bleiben sie (ohne .no-handout) an ihrer Stelle, ebenfalls ohne Nummer. Eigene Skripte, die solche Folien verschieben, sind damit überflüssig und sollten entfernt werden.\nAbschnittsanzeige: Mit abschnitt-anzeige: true (englisch section-indicator: true) steht über jedem Folientitel klein Nummer und Name des Abschnitts. Für lange Abschnittstitel gibt es die Kurzform # Titel {kurz=\"…\"} (englisch short=). Ohne den Eintrag bleibt alles wie bisher.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -244,7 +256,7 @@
     "href": "de/news.html#section",
     "title": "Neuigkeiten",
     "section": "",
-    "text": "Markierungen: In markierung-rollen: (englisch highlight-roles:) geht statt eines Farbnamens auch ein eigener Farbwert, z. B. fixed: \"#3470A8\". Rahmen, Nummer und Fettdruck sehen aus wie bei den Farbnamen; bei hellen Farben wird die Nummer automatisch dunkel gesetzt.",
+    "text": "Folien vor der Titelfolie: ## Vorbereitung {.no-handout .vor-titel} (englisch .before-title) steht im Vortrag vor der Titelfolie, und der Vortrag beginnt mit dieser Folie. Die Titelfolie bleibt Folie 1, alle anderen Folien behalten Nummer und Adresse; die vorgezogenen Folien haben keine Nummer. Im Handout bleiben sie (ohne .no-handout) an ihrer Stelle, ebenfalls ohne Nummer. Eigene Skripte, die solche Folien verschieben, sind damit überflüssig und sollten entfernt werden.\nAbschnittsanzeige: Mit abschnitt-anzeige: true (englisch section-indicator: true) steht über jedem Folientitel klein Nummer und Name des Abschnitts. Für lange Abschnittstitel gibt es die Kurzform # Titel {kurz=\"…\"} (englisch short=). Ohne den Eintrag bleibt alles wie bisher.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -255,8 +267,8 @@
     "objectID": "de/news.html#section-1",
     "href": "de/news.html#section-1",
     "title": "Neuigkeiten",
-    "section": "0.2.0 (20.10.2026)",
-    "text": "0.2.0 (20.10.2026)\n\nMarkierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B. ::: {.markiert m1=\"…\" m2=\"…\" farben=\"gruen navy\"} (englisch colors=). Die Nummern [1]{.nr} auf derselben Folie übernehmen die Farben. Mit markierung-rollen: (englisch highlight-roles:) in der _quarto.yml lassen sich Begriffen feste Farben zuordnen, z. B. intercept: gruen. Ohne Angabe bleibt alles wie bisher.\nHandout: Fragmente mit fragment-index oder mit Stilklassen wie .fade-up und einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente vollständig auf ihrer Folie. Der Vortrag ist unverändert.",
+    "section": "0.3.0 (21.10.2026)",
+    "text": "0.3.0 (21.10.2026)\n\nMarkierungen: In markierung-rollen: (englisch highlight-roles:) geht statt eines Farbnamens auch ein eigener Farbwert, z. B. fixed: \"#3470A8\". Rahmen, Nummer und Fettdruck sehen aus wie bei den Farbnamen; bei hellen Farben wird die Nummer automatisch dunkel gesetzt.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -267,8 +279,8 @@
     "objectID": "de/news.html#section-2",
     "href": "de/news.html#section-2",
     "title": "Neuigkeiten",
-    "section": "0.1.1 (20.10.2026)",
-    "text": "0.1.1 (20.10.2026)\n\nAbschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit .no-handout entfällt. Bisher rückten die folgenden Nummern auf.\nMarkierungen ab m7: Die sechs Farben wiederholen sich (m7 wie m1 usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.\nEinzelne Bilder mit fig-align (center, left, right) stehen wieder an der richtigen Stelle. Bisher wurden sie zusätzlich nach rechts verschoben, bei right bis über den Folienrand. Bilder ohne fig-align stehen weiterhin mittig.\nSchlägt der Druck des Handouts fehl, wird die Zwischendatei …_handout.html trotzdem gelöscht.\nNeue Umgebungsvariable RPTU_NO_HANDOUT=1, um nur den Vortrag zu erzeugen. Der bisherige Name RPTU_HANDOUT_RENDER funktioniert weiterhin.",
+    "section": "0.2.0 (20.10.2026)",
+    "text": "0.2.0 (20.10.2026)\n\nMarkierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B. ::: {.markiert m1=\"…\" m2=\"…\" farben=\"gruen navy\"} (englisch colors=). Die Nummern [1]{.nr} auf derselben Folie übernehmen die Farben. Mit markierung-rollen: (englisch highlight-roles:) in der _quarto.yml lassen sich Begriffen feste Farben zuordnen, z. B. intercept: gruen. Ohne Angabe bleibt alles wie bisher.\nHandout: Fragmente mit fragment-index oder mit Stilklassen wie .fade-up und einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente vollständig auf ihrer Folie. Der Vortrag ist unverändert.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -278,6 +290,18 @@
   {
     "objectID": "de/news.html#section-3",
     "href": "de/news.html#section-3",
+    "title": "Neuigkeiten",
+    "section": "0.1.1 (20.10.2026)",
+    "text": "0.1.1 (20.10.2026)\n\nAbschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit .no-handout entfällt. Bisher rückten die folgenden Nummern auf.\nMarkierungen ab m7: Die sechs Farben wiederholen sich (m7 wie m1 usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.\nEinzelne Bilder mit fig-align (center, left, right) stehen wieder an der richtigen Stelle. Bisher wurden sie zusätzlich nach rechts verschoben, bei right bis über den Folienrand. Bilder ohne fig-align stehen weiterhin mittig.\nSchlägt der Druck des Handouts fehl, wird die Zwischendatei …_handout.html trotzdem gelöscht.\nNeue Umgebungsvariable RPTU_NO_HANDOUT=1, um nur den Vortrag zu erzeugen. Der bisherige Name RPTU_HANDOUT_RENDER funktioniert weiterhin.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Neuigkeiten"
+    ]
+  },
+  {
+    "objectID": "de/news.html#section-4",
+    "href": "de/news.html#section-4",
     "title": "Neuigkeiten",
     "section": "0.1.0 (19.10.2026)",
     "text": "0.1.0 (19.10.2026)\nErste Version.\n\nFormat rptu-revealjs: Folien im Design der RPTU; jedes Rendern erzeugt den Vortrag (HTML) und ein Handout (PDF) ohne schrittweise Einblendungen und ohne Inhalte, die mit .no-handout nur für den Vortrag gekennzeichnet sind.\nAbschnittsfolien mit Nummern, Agenda, Fußzeile mit Kontakt, Veranstaltung und Foliennummer.\nMarkierungen im R-Output, Kästen, Hervorhebungen, Symbole, Semesterplan.\nFormeln auch ohne Internet (MathJax wird eingebettet).\nOptional: ggplot2-Theme theme_rptu() mit Farben und Schrift der Folien.\nDeutsche Klassennamen mit englischen Aliassen.\nProjektvorlage für quarto use template und Website mit Anleitungen.",

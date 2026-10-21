@@ -26,6 +26,7 @@ beide lassen sich mischen.
 | `[]{.symbol-achtung}` | `[]{.symbol-warning}` | Warndreieck allein im Text | [Symbole](slides.qmd#symbole) |
 | `[]{.symbol-ki}` | `[]{.symbol-ai}` | KI-Stern allein im Text | [Symbole](slides.qmd#symbole) |
 | `{.no-handout}` | – | im Handout ausblenden (Folie entfällt, sonst bleibt der Platz frei) | [Vortrag und Handout](handout.qmd#no-handout) |
+| `## Titel {.vor-titel}` | `{.before-title}` | Folie steht im Vortrag vor der Titelfolie, ohne Nummer | [Folien vor der Titelfolie](slides.qmd#vor-titel) |
 | `::: {.markiert m1="…"}` | `::: {.highlighted m1="…"}` | Stellen im R-Output einrahmen | [Markierungen](highlighting.qmd) |
 | `[1]{.nr}` | – | Nummer einer Markierung in der Erklärung | [Markierungen](highlighting.qmd) |
 | `::: {.semesterplan aktuell="3"}` | `::: {.schedule current="3"}` | Semesterplan mit hervorgehobener Sitzung | [Semesterplan](schedule.qmd) |
@@ -43,12 +44,13 @@ deutet Quarto bei Tabellen um).
 | Attribut | Wo | Wirkung |
 |----------|----|---------|
 | `nr="00"` | an `# Titel` | eigene Nummer für eine Abschnittsfolie |
+| `kurz="…"` bzw. `short=` | an `# Titel` | Kurzform des Abschnitts für die [Abschnittsanzeige](slides.qmd#abschnitt-anzeige) |
 | `m1="…"`, `m2="…"`, … | an `.markiert` | Textstellen im Output, je mit Farbe und Nummer (sechs Farben, ab `m7` wiederholt) |
 | `farben="gruen navy"` bzw. `colors=` | an `.markiert` | eigene Farben für `m1`, `m2`, …: Farbnamen oder Rollen, siehe [Farben selbst wählen](highlighting.qmd#farben) |
+| `aktuell="3"` bzw. `current="3"` | an `.semesterplan` bzw. `.schedule` | hervorgehobene Sitzung, 1 bis 20 |
 
 Farbnamen für `farben=`: `navy`, `hellblau`, `blaugrau`, `petrol`, `teal`, `gruen`,
 `orange`, `violett`, `pink`, `rot`, `grau`.
-| `aktuell="3"` bzw. `current="3"` | an `.semesterplan` bzw. `.schedule` | hervorgehobene Sitzung, 1 bis 20 |
 
 ## Metadaten
 
@@ -59,6 +61,7 @@ Farbnamen für `farben=`: `navy`, `hellblau`, `blaugrau`, `petrol`, `teal`, `gru
 | `title`, `subtitle`, `date`, `author` | Kopf | Titelfolie, siehe [Erster Foliensatz](getting-started.qmd#kopf) |
 | `date-format:` | `_quarto.yml` | Darstellung des Datums (Vorlage: `DD.MM.YYYY`) |
 | `lang:` | `_quarto.yml` | Sprache der Foliensätze (Vorlage: `de`) |
+| `abschnitt-anzeige: true` bzw. `section-indicator: true` | `_quarto.yml` oder Kopf | Nummer und Name des Abschnitts klein über jedem Folientitel, siehe [Abschnittsanzeige](slides.qmd#abschnitt-anzeige) |
 | `markierung-rollen:` bzw. `highlight-roles:` | `_quarto.yml` oder Kopf | Rollen für `farben=`: Farbname oder eigener Farbwert, z. B. `intercept: gruen`, `fixed: "#3470A8"`, siehe [Farbrollen](highlighting.qmd#farbrollen) |
 | `handout: true` | wird vom Skript gesetzt | erzeugt die Handout-Fassung; nicht selbst eintragen |
 

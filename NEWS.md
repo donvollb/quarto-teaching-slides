@@ -1,3 +1,16 @@
+## 0.4.0 (21.10.2026)
+
+- Folien vor der Titelfolie: `## Vorbereitung {.no-handout .vor-titel}` (englisch
+  `.before-title`) steht im Vortrag vor der Titelfolie, und der Vortrag beginnt mit
+  dieser Folie. Die Titelfolie bleibt Folie 1, alle anderen Folien behalten Nummer und
+  Adresse; die vorgezogenen Folien haben keine Nummer. Im Handout bleiben sie (ohne
+  `.no-handout`) an ihrer Stelle, ebenfalls ohne Nummer. Eigene Skripte, die solche
+  Folien verschieben, sind damit überflüssig und sollten entfernt werden.
+- Abschnittsanzeige: Mit `abschnitt-anzeige: true` (englisch `section-indicator: true`)
+  steht über jedem Folientitel klein Nummer und Name des Abschnitts. Für lange
+  Abschnittstitel gibt es die Kurzform `# Titel {kurz="…"}` (englisch `short=`). Ohne
+  den Eintrag bleibt alles wie bisher.
+
 ## 0.3.0 (21.10.2026)
 
 - Markierungen: In `markierung-rollen:` (englisch `highlight-roles:`) geht statt eines

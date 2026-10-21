@@ -1,6 +1,6 @@
 title: RPTU Folien
 author: Dominik Vollbracht <dominik@vollbracht.email>
-version: 0.3.0
+version: 0.4.0
 quarto-required: ">=1.7.0"
 contributes:
   formats:
@@ -14,7 +14,7 @@ contributes:
         - abschnitte.lua
         - markieren.lua
         - kontakt.lua
-      include-after-body: [druck.html, fusszeile.html]
+      include-after-body: [druck.html, fusszeile.html, vortitel.html]
       embed-resources: true
       width: 1280
       height: 720
