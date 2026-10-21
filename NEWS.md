@@ -1,3 +1,10 @@
+## 0.3.0 (21.10.2026)
+
+- Markierungen: In `markierung-rollen:` (englisch `highlight-roles:`) geht statt eines
+  Farbnamens auch ein eigener Farbwert, z. B. `fixed: "#3470A8"`. Rahmen, Nummer und
+  Fettdruck sehen aus wie bei den Farbnamen; bei hellen Farben wird die Nummer
+  automatisch dunkel gesetzt.
+
 ## 0.2.0 (20.10.2026)
 
 - Markierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B.

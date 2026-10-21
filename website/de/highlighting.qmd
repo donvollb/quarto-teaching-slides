@@ -105,6 +105,23 @@ unbekannter Name führt beim Rendern zu einer Warnung, die Markierung behält da
 Standardfarbe:
 `WARNUNG (markieren.lua): unbekannte Farbe oder Rolle "…" in farben= (m1 bleibt in der Standardfarbe)`.
 
+Statt eines Farbnamens geht in den Rollen auch ein eigener Farbwert, z. B. passend zu
+einer Grafik:
+
+```yaml
+markierung-rollen:
+  intercept: gruen
+  fixed: "#3470A8"
+```
+
+- Der Farbwert braucht Anführungszeichen, sonst liest YAML ihn als Kommentar. Möglich
+  sind sechs- und dreistellige Werte (`"#3470A8"`, `"#37A"`).
+- Rahmen, heller Hintergrund, Nummer und Fettdruck sehen aus wie bei den Farbnamen.
+  Bei hellen Farben wird die Nummer automatisch dunkel statt weiß gesetzt.
+- Helle Farben sind als Schrift und am Beamer schlecht lesbar; kräftige, eher dunkle
+  Töne funktionieren am besten.
+- Eigene Farbwerte gibt es nur über Rollen, nicht direkt in `farben=`.
+
 ## Übungsfolge {#uebungsfolge}
 
 Ein bewährter Ablauf für Übungen mit R, über drei Folien:

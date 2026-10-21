@@ -57,7 +57,7 @@ Extension liegt nach [Weg A und B](installation.qmd) in `_extensions/donvollb/rp
 | `$rptu-akzent-dunkel` | Strich und Untertitel auf der Titelfolie | Weiß, halb transparent |
 | `$rptu-tint` | Hintergrund von Kästen und der aktuellen Sitzung im Semesterplan | Leitfarbe, sehr hell |
 | `$rptu-markierungen` | Farben der [Markierungen](highlighting.qmd) 1 bis 6 | Dunkelblau, Dunkelgrün, … |
-| `$rptu-markierung-farben` | Farbwerte der Namen für [`farben=`](highlighting.qmd#farben) (nur die Werte; neue Namen kennt der Filter nicht) | `navy: #042C58`, `gruen: #00703C`, … |
+| `$rptu-markierung-farben` | Farbwerte der Namen für [`farben=`](highlighting.qmd#farben) (nur die Werte; neue Namen kennt der Filter nicht, eigene Farbwerte gehen über [Farbrollen](highlighting.qmd#farbrollen)) | `navy: #042C58`, `gruen: #00703C`, … |
 | `$logo-weiss`, `$logo-dunkel` | Logo auf Titel- bzw. Abschnittsfolien, siehe unten | RPTU-Logo |
 
 Die übrigen Farben (z. B. Textfarben Grün und Rot) und die Schriften lassen sich nicht

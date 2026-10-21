@@ -544,6 +544,8 @@ $markierung-farben: map-values($rptu-markierungen);
 // Farben selbst wählen: ::: {.markiert m1="…" farben="gruen navy"} (markieren.lua
 // setzt dann farbe-<name> statt m<n>). Namen wie die Palette in _resources/R/rptu.R.
 // Beim Ergänzen eigener Namen auch FARBEN in markieren.lua erweitern.
+// Eigene Farbwerte in markierung-rollen (fixed: "#3470A8") erzeugt markieren.lua als
+// <style> im Dokument (farbe-rolle-<rolle>), mit denselben Regeln wie hier.
 $rptu-markierung-farben: (
   navy:     $rptu-navy,
   hellblau: $rptu-hellblau,

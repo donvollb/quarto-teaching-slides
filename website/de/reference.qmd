@@ -59,7 +59,7 @@ Farbnamen für `farben=`: `navy`, `hellblau`, `blaugrau`, `petrol`, `teal`, `gru
 | `title`, `subtitle`, `date`, `author` | Kopf | Titelfolie, siehe [Erster Foliensatz](getting-started.qmd#kopf) |
 | `date-format:` | `_quarto.yml` | Darstellung des Datums (Vorlage: `DD.MM.YYYY`) |
 | `lang:` | `_quarto.yml` | Sprache der Foliensätze (Vorlage: `de`) |
-| `markierung-rollen:` bzw. `highlight-roles:` | `_quarto.yml` oder Kopf | Rollen für `farben=`, z. B. `intercept: gruen`, siehe [Farbrollen](highlighting.qmd#farbrollen) |
+| `markierung-rollen:` bzw. `highlight-roles:` | `_quarto.yml` oder Kopf | Rollen für `farben=`: Farbname oder eigener Farbwert, z. B. `intercept: gruen`, `fixed: "#3470A8"`, siehe [Farbrollen](highlighting.qmd#farbrollen) |
 | `handout: true` | wird vom Skript gesetzt | erzeugt die Handout-Fassung; nicht selbst eintragen |
 
 ## Voreinstellungen des Formats {#formatoptionen}

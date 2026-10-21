@@ -22,18 +22,54 @@
 --   markierung-rollen:                                          (Alias: highlight-roles)
 --     intercept: gruen
 --     slope: navy
+--     fixed: "#3470A8"     (eigener Farbwert -> Klasse farbe-rolle-fixed, CSS im Dokument)
 
 -- Farbnamen (wie $rptu-markierung-farben in rptu.scss)
 local FARBEN = {
   navy = true, hellblau = true, blaugrau = true, petrol = true, teal = true, gruen = true,
   orange = true, violett = true, pink = true, rot = true, grau = true,
 }
+local TEXT = "#1B1F24"    -- $rptu-text: Nummer auf hellen Farben
 
 local rollen = {}         -- Rolle -> Farbname (aus den Metadaten)
+local eigene = {}         -- Farbname "rolle-<rolle>" -> Hexwert (eigene Farben der Rollen)
 local folien_farben = {}  -- Nummer -> Farbname, gilt bis zur nächsten Folie
 
 local function warnung(text)
   io.stderr:write("WARNUNG (markieren.lua): " .. text .. "\n")
+end
+
+-- "#3470A8" bzw. "#37A" -> r, g, b (0–255); sonst nil
+local function hex_rgb(s)
+  local h = s:match("^#(%x+)$")
+  if h and #h == 3 then h = h:gsub(".", "%0%0") end
+  if not h or #h ~= 6 then return nil end
+  return tonumber(h:sub(1, 2), 16), tonumber(h:sub(3, 4), 16), tonumber(h:sub(5, 6), 16)
+end
+
+-- relative Leuchtdichte nach WCAG
+local function leuchtdichte(r, g, b)
+  local function kanal(c)
+    c = c / 255
+    return c <= 0.03928 and c / 12.92 or ((c + 0.055) / 1.055) ^ 2.4
+  end
+  return 0.2126 * kanal(r) + 0.7152 * kanal(g) + 0.0722 * kanal(b)
+end
+
+-- CSS für eine eigene Farbe, wie die Schleife über $rptu-markierung-farben in rptu.scss.
+-- Nummer dunkel statt weiß, wenn dunkle Schrift mehr Kontrast hat (wie hellblau, petrol)
+local function farbe_css(name, hex)
+  local r, g, b = hex_rgb(hex)
+  local l = leuchtdichte(r, g, b)
+  local hell = (l + 0.05) / (leuchtdichte(hex_rgb(TEXT)) + 0.05) > 1.05 / (l + 0.05)
+  local k = "farbe-" .. name
+  return table.concat({
+    string.format(".reveal .markierung.%s { border-color: %s; background: rgba(%d, %d, %d, 0.08); }",
+      k, hex, r, g, b),
+    string.format(".reveal .markierung.%s::after, .reveal .nr.%s { background: %s;%s }",
+      k, k, hex, hell and (" color: " .. TEXT .. ";") or ""),
+    string.format(".reveal .nr-text.%s { color: %s; }", k, hex),
+  }, "\n")
 end
 
 -- Farbklasse für Nummer nr: gewählte Farbe oder die feste Farbe der Nummer
@@ -90,7 +126,7 @@ local function farben_lesen(div)
   for name in wert:gmatch("%S+") do
     n = n + 1
     local farbe = rollen[name] or name
-    if FARBEN[farbe] then
+    if FARBEN[farbe] or eigene[farbe] then
       farben[n] = farbe
     else
       warnung(string.format('unbekannte Farbe oder Rolle "%s" in farben= (m%d bleibt in der Standardfarbe)',
@@ -157,17 +193,31 @@ local function nummern(inlines)
   return inlines
 end
 
--- markierung-rollen: { rolle: farbname } (Alias highlight-roles)
+-- markierung-rollen: { rolle: farbname oder "#hexwert" } (Alias highlight-roles)
 local function rollen_lesen(meta)
   local m = meta["markierung-rollen"] or meta["highlight-roles"]
   if type(m) ~= "table" then return end
+  local css = {}
   for rolle, wert in pairs(m) do
     local farbe = pandoc.utils.stringify(wert)
     if FARBEN[farbe] then
       rollen[rolle] = farbe
+    elseif hex_rgb(farbe) then
+      -- Klassenname nur aus Buchstaben, Ziffern, - und _
+      local name = "rolle-" .. rolle:gsub("[^%w_-]", "-")
+      rollen[rolle] = name
+      eigene[name] = farbe
+      css[#css + 1] = farbe_css(name, farbe)
+    elseif farbe == "" then
+      warnung(string.format('keine Farbe für die Rolle "%s" in markierung-rollen ' ..
+        '(Hexwerte in Anführungszeichen setzen, z. B. "#3470A8")', rolle))
     else
       warnung(string.format('unbekannte Farbe "%s" für die Rolle "%s" in markierung-rollen', farbe, rolle))
     end
+  end
+  if #css > 0 then
+    table.sort(css)
+    quarto.doc.include_text("in-header", "<style>\n" .. table.concat(css, "\n") .. "\n</style>")
   end
 end
 
