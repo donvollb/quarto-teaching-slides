@@ -53,11 +53,13 @@ js <- function(code) b$Runtime$evaluate(code, returnByValue = TRUE)$result$value
 # Kopier-Knöpfe an Codeblöcken für die Bilder ausblenden
 js("var st=document.createElement('style'); st.textContent='.code-copy-button{display:none!important}'; document.head.appendChild(st); true")
 
-# Folie anhand des Anfangs ihrer Überschrift anzeigen (NULL = Titelfolie),
-# mit allen Fragmenten (also so, wie sie am Ende aussieht)
+# Folie anhand des Anfangs ihrer Überschrift anzeigen (NULL = Titelfolie; nicht
+# Folie 0, davor steht die .vor-titel-Folie), mit allen Fragmenten (also so, wie
+# sie am Ende aussieht)
 zeige <- function(titel = NULL) {
   if (is.null(titel)) {
-    js("Reveal.slide(0, 0)")
+    js("(function(){var i=Reveal.getIndices(document.querySelector('.reveal .slides section.quarto-title-block'));
+         Reveal.slide(i.h, i.v); return true;})()")
   } else {
     ok <- js(sprintf(
       "(function(){var t=%s;
@@ -108,8 +110,10 @@ element <- function(datei, titel, selektor, rand = 14, eng = TRUE, extra = 0, li
 }
 
 folie("folie-titel.png")
+folie("folie-vor-titel.png", "Bevor es losgeht")
 folie("folie-agenda.png", "Heutige Themen")
 folie("folie-abschnitt.png", "Aufbau eines Foliensatzes")
+folie("folie-abschnitt-anzeige.png", "Folien und Zwischenüberschriften")
 folie("folie-spalten.png", "Zwei Spalten")
 folie("folie-semesterplan.png", "Semesterplan")
 folie("folie-kaesten.png", "Kästen, Farben und Text")
@@ -118,6 +122,7 @@ folie("folie-symbole.png", "Symbole")
 folie("folie-nur-vortrag.png", "Nur im Vortrag")
 folie("folie-grafik.png", "Grafiken mit ggplot2")
 folie("folie-markierungen.png", "Markierungen im Output")
+folie("folie-farben.png", "Farben selbst wählen")
 folie("folie-loesung.png", "Lösung Übung 1")
 
 element("el-kasten.png", "Kästen, Farben und Text", ".kasten", eng = FALSE)

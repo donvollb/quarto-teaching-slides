@@ -9,7 +9,7 @@ In die Folien klicken und mit den Pfeiltasten oder der Leertaste blättern. Tast
 öffnet das Folienmenü, `F` den Vollbildmodus.
 
 ::: {.demo-rahmen}
-<iframe src="../demo/beispiel.html" title="Beispiel-Foliensatz" loading="lazy" allowfullscreen></iframe>
+<iframe src="../demo/beispiel.html#/0" title="Beispiel-Foliensatz" loading="lazy" allowfullscreen></iframe>
 :::
 
 [Im Vollbild öffnen](../demo/beispiel.html){.btn .btn-primary target="_blank"}
@@ -20,10 +20,15 @@ In die Folien klicken und mit den Pfeiltasten oder der Leertaste blättern. Tast
 Der Foliensatz ist die Datei
 [`template.qmd`](https://github.com/donvollb/quarto-teaching-slides/blob/main/template.qmd)
 aus dem Repository, so wie `quarto use template` sie anlegt. Er zeigt alle Elemente:
-Titelfolie, Agenda, Abschnitte, Spalten, Semesterplan, schrittweise Einblendungen,
-Kästen, Farben, Symbole, Inhalte nur für den Vortrag, R-Code, eine Grafik,
-Markierungen und eine Übungsfolge.
+Titelfolie, Agenda, Abschnitte mit Anzeige über dem Folientitel, Spalten,
+Semesterplan, schrittweise Einblendungen, Kästen, Farben, Symbole, Inhalte nur für den
+Vortrag, R-Code, eine Grafik, Markierungen mit selbst gewählten Farben und eine
+Übungsfolge.
+
+Oben beginnt die Demo auf der Titelfolie. Im Vollbild beginnt sie wie ein echter
+Vortrag mit der Folie „Bevor es losgeht“, die vor der Titelfolie steht
+([Folien vor der Titelfolie](slides.qmd#vor-titel)).
 
 Das Handout ist aus derselben Datei entstanden: Alle Inhalte sind sofort sichtbar, die
-Folie „Diese Folie fehlt im Handout“ fehlt, und auf „Nur im Vortrag“ bleibt die rechte
-Spalte leer.
+Folien „Bevor es losgeht“ und „Diese Folie fehlt im Handout“ fehlen, und auf „Nur im
+Vortrag“ bleibt die rechte Spalte leer.

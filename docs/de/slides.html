@@ -336,6 +336,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="abschnitt-anzeige">Aktueller Abschnitt über dem Folientitel</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">abschnitt-anzeige</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Im Kopf eines Foliensatzes oder in der <code>_quarto.yml</code> (englisch <code>section-indicator: true</code>) zeigt jede Folie klein über ihrem Titel Nummer und Namen ihres Abschnitts, z. B. „02 Deskriptive Statistik“, im Vortrag wie im Handout. Der Folieninhalt verschiebt sich dadurch nicht. Ohne den Eintrag bleibt die Anzeige aus. Folien vor dem ersten Abschnitt (etwa die Agenda) bleiben ohne Anzeige.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../bilder/folie-abschnitt-anzeige.png" class="folienbild img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Abschnittsanzeige über dem Folientitel</figcaption>
+</figure>
+</div>
 <p>Für lange Abschnittstitel gibt es eine Kurzform: <code># Lineare Regression mit mehreren Prädiktoren {kurz="Multiple Regression"}</code> (englisch <code>short=</code>). Die Abschnittsfolie zeigt weiter den vollen Titel.</p>
 </section>
 </section>
@@ -375,6 +381,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Skript öffnen und das Paket <span class="in">`ggplot2`</span> laden</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Eine Folie mit <code>.vor-titel</code> (englisch <code>.before-title</code>) steht im Vortrag vor der Titelfolie, egal wo sie im Foliensatz steht. Der Vortrag beginnt dann mit ihr, z. B. mit Hinweisen zur Vorbereitung, die schon laufen, während die Studierenden ankommen. Mehrere solche Folien behalten ihre Reihenfolge.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../bilder/folie-vor-titel.png" class="folienbild img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Folie vor der Titelfolie</figcaption>
+</figure>
+</div>
 <p>Die Nummern ändern sich dadurch nicht: Die Titelfolie bleibt Folie 1, alle anderen behalten Nummer und Adresse (<code>#/…</code>). Die Folien davor haben keine Nummer und keine Adresse; wer den Vortrag ohne Adresse öffnet, landet auf der ersten von ihnen.</p>
 <p>Ins Handout gehören solche Folien meist nicht, deshalb zusätzlich <code>.no-handout</code>. Ohne <code>.no-handout</code> erscheinen sie im Handout an ihrer Stelle im Foliensatz, ohne Nummer.</p>
 </section>

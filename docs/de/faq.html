@@ -247,6 +247,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#kein-pdf" id="toc-kein-pdf" class="nav-link active" data-scroll-target="#kein-pdf">Es entsteht kein Handout</a></li>
   <li><a href="#pdf-alt" id="toc-pdf-alt" class="nav-link" data-scroll-target="#pdf-alt">Das Handout ist nicht aktuell</a></li>
+  <li><a href="#folie-zu-voll" id="toc-folie-zu-voll" class="nav-link" data-scroll-target="#folie-zu-voll">Beim Rendern erscheint „Folie zu voll“</a></li>
   <li><a href="#quarto-wird-nicht-gefunden" id="toc-quarto-wird-nicht-gefunden" class="nav-link" data-scroll-target="#quarto-wird-nicht-gefunden">„quarto“ wird nicht gefunden</a></li>
   <li><a href="#am-anfang-ist-eine-leere-folie" id="toc-am-anfang-ist-eine-leere-folie" class="nav-link" data-scroll-target="#am-anfang-ist-eine-leere-folie">Am Anfang ist eine leere Folie</a></li>
   <li><a href="#eine-datei-oder-ein-bild-wird-nicht-gefunden" id="toc-eine-datei-oder-ein-bild-wird-nicht-gefunden" class="nav-link" data-scroll-target="#eine-datei-oder-ein-bild-wird-nicht-gefunden">Eine Datei oder ein Bild wird nicht gefunden</a></li>
@@ -289,13 +290,21 @@ ul.task-list li input[type="checkbox"] {
 <li>Steht <code>format: rptu-revealjs</code> im Kopf der qmd-Datei? Nur daran erkennt das Skript Foliensätze; ein Eintrag allein in der <code>_quarto.yml</code> reicht nicht.</li>
 <li>Ist das Skript für das Handout in der <code>_quarto.yml</code> eingetragen und stimmt der Pfad? Bei Projekten aus der Vorlage ist das der Fall, sonst siehe <a href="../de/installation.html#weg-b">Weg B</a>.</li>
 <li>Liegt die Extension an der richtigen Stelle? Siehe <a href="../de/installation.html#fundort">Wo die Extension liegen muss</a>.</li>
-<li>Ist das R-Paket <code>chromote</code> installiert und findet es Chrome? Siehe <a href="../de/installation.html#chrome">Chrome für das Handout</a>. Beim Rendern erscheint sonst „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.</li>
+<li>Ist das R-Paket <code>chromote</code> installiert und findet es Chrome? Siehe <a href="../de/installation.html#chrome">Chrome für das Handout</a>. Beim Rendern erscheint sonst „R-Paket chromote fehlt“, „Kein Chrome gefunden“ bzw. „PDF-Druck fehlgeschlagen“.</li>
 <li>Ist <code>RPTU_NO_HANDOUT</code> noch auf <code>1</code> gesetzt (siehe <a href="../de/getting-started.html#ohne-handout">Schneller ohne Handout</a>)?</li>
 </ul>
 </section>
 <section id="pdf-alt" class="level2">
 <h2 class="anchored" data-anchor-id="pdf-alt">Das Handout ist nicht aktuell</h2>
 <p>Ist das PDF in einem Programm geöffnet, kann Windows es nicht überschreiben. Das Skript gibt dann einen auffälligen Hinweis mit <code>!!!</code> aus. PDF schließen und neu rendern.</p>
+</section>
+<section id="folie-zu-voll" class="level2">
+<h2 class="anchored" data-anchor-id="folie-zu-voll">Beim Rendern erscheint „Folie zu voll“</h2>
+<pre><code>post-render: Folie zu voll in folien.html (ragt im Vortrag in die Fußzeile,
+  im Handout ggf. abgeschnitten oder auf zwei Seiten verteilt):
+  Folie 7 (Ergebnisse): 13 px in der Fußzeile</code></pre>
+<p>Auf der genannten Folie reicht der Inhalt bis in die Fußzeile. Im Vortrag ist das untere Ende dann verdeckt, im Handout wird es abgeschnitten, oder die Folie wird auf zwei Seiten verteilt („belegt 2 PDF-Seiten“). Abhilfe: Inhalt kürzen, auf zwei Folien aufteilen oder verkleinern, z. B. mit <code>::: klein</code> (siehe <a href="../de/slides.html#text-hervorheben">Text hervorheben</a>). Bei Grafiken hilft eine kleinere <code>fig-height</code>.</p>
+<p>Das Skript prüft den Vortrag, also auch Folien mit <code>.no-handout</code> und auch ohne Handout. Es ist nur ein Hinweis; Vortrag und Handout entstehen trotzdem.</p>
 </section>
 <section id="quarto-wird-nicht-gefunden" class="level2">
 <h2 class="anchored" data-anchor-id="quarto-wird-nicht-gefunden">„quarto“ wird nicht gefunden</h2>

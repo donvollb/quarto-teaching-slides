@@ -9,7 +9,8 @@
 > not published by RPTU.** A Quarto extension providing the slide format
 > `rptu-revealjs` (reveal.js) in RPTU's corporate colours. Every `quarto render`
 > produces the presentation as a single HTML file **and** a handout PDF without
-> animations (printed with headless Chrome via the R package `chromote`). Extras:
+> animations (printed with headless Chrome via the R package `chromote`) and reports
+> slides whose content runs into the footer. Extras:
 > numbered section slides, agenda slides, footer with contact / course / slide
 > number, coloured highlights in R output (palette names or custom colour values via
 > `highlight-roles:`, e.g. `fixed: "#3470A8"`), a course schedule table, an optional
@@ -32,6 +33,7 @@ entstanden in Übungen mit viel R-Code:
   mit Kontakt, Veranstaltung und Foliennummer.
 - **Vortrag und Handout aus einer Datei:** Jedes `quarto render` erzeugt den Vortrag
   als HTML-Datei und ein Handout als PDF (ohne schrittweise Einblendungen und ohne `.no-handout`).
+  Zu volle Folien meldet das Rendern.
 - **Für Übungen mit R:** Markierungen im R-Output, Agenda, Kästen, Warndreieck für
   Output-Folien, KI-Symbol, Semesterplan.
 - **Für den Vortrag:** Folien vor der Titelfolie (`.vor-titel`), z. B. zur Vorbereitung,
@@ -50,7 +52,7 @@ entstanden in Übungen mit viel R-Code:
 ## Schnellstart
 
 Voraussetzungen: Quarto ≥ 1.7; für das PDF zusätzlich R mit dem Paket `chromote` und
-Google Chrome.
+Google Chrome (ohne Chrome geht auch „Chrome for Testing“, siehe Website, Installation).
 
 Neues Projekt, z. B. für eine Lehrveranstaltung (in einem leeren Ordner):
 

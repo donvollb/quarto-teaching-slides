@@ -20,6 +20,13 @@ date: today
 format:
   rptu-revealjs:
     footer: "Name der Lehrveranstaltung | Beispielsitzung"
+# Nummer und Name des Abschnitts klein über jedem Folientitel
+abschnitt-anzeige: true
+# Feste Farben für Begriffe (Farbname oder eigener Farbwert), nutzbar in
+# farben="…" bei Markierungen (Folie "Farben selbst wählen")
+markierung-rollen:
+  achsenabschnitt: grau
+  steigung: "#3470A8"
 ---
 
 ```{r}
@@ -32,6 +39,14 @@ daten <- mtcars
 daten$getriebe <- factor(daten$am, levels = c(0, 1),
                          labels = c("Automatik", "Schaltung"))
 ```
+
+## Bevor es losgeht {.no-handout .vor-titel}
+
+- Öffnen Sie RStudio und das Skript zur heutigen Sitzung
+- Laden Sie das Paket ggplot2: `library(ggplot2)`
+
+[`{.vor-titel}` stellt diese Folie im Vortrag vor die Titelfolie, der Vortrag beginnt
+hier. `{.no-handout}` lässt sie im Handout weg.]{.anm}
 
 ## Heutige Themen {.agenda}
 
@@ -60,6 +75,7 @@ Abschnitte, Folien und Zwischenüberschriften
 ### Abschnitte
 
 - `# Titel` erzeugt eine Abschnittsfolie, fortlaufend nummeriert (01, 02, …)
+- `abschnitt-anzeige: true` im Kopf zeigt den Abschnitt klein über jedem Folientitel
 
 ### Folien
 
@@ -264,6 +280,26 @@ coef(summary(modell))
 - [1]{.nr} **Steigung:** pro 1000 lbs mehr Gewicht 5.34 Meilen weniger pro Gallone
 - [2]{.nr} **t-Wert** der Steigung
 - [3]{.nr} ***p*-Wert:** *p* < .001, der Zusammenhang ist signifikant
+
+<!--
+  farben="…" legt die Farben von m1, m2, … selbst fest: Farbnamen (gruen, navy, …)
+  oder Rollen aus markierung-rollen: im Kopf. Gleiche Rolle = gleiche Farbe auf
+  allen Folien, unabhängig von der Nummer.
+-->
+
+## Farben selbst wählen
+
+::: {.markiert m1="37.285126" m2="-5.344472" farben="achsenabschnitt steigung"}
+```{r}
+coef(modell)
+```
+:::
+
+- [1]{.nr} **Achsenabschnitt:** erwartete Meilen pro Gallone bei Gewicht 0 (nur rechnerisch)
+- [2]{.nr} **Steigung:** wie auf der vorigen Folie, jetzt in der Farbe der Rolle `steigung`
+
+[`farben="achsenabschnitt steigung"` nutzt die Rollen aus `markierung-rollen:` im Kopf,
+hier mit dem eigenen Farbwert `"#3470A8"`. Statt Rollen gehen auch Farbnamen wie `gruen`.]{.anm}
 
 <!--
   Übungsfolge: Übungsfolie -> Output-Folie {.achtung} (nur Output, zum Vergleichen)

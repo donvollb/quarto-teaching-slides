@@ -335,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="odd">
 <td>Handout (PDF)</td>
-<td>R mit dem Paket <code>chromote</code> und Google Chrome</td>
+<td>R mit dem Paket <code>chromote</code> und Google Chrome (oder <a href="#chrome">Chrome for Testing</a>)</td>
 </tr>
 <tr class="even">
 <td>Grafiken im Folien-Design (optional)</td>
@@ -356,16 +356,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>chromote</code> findet Google Chrome in der Regel selbst. Ob das klappt, zeigt in der R-Konsole:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>chromote<span class="sc">::</span><span class="fu">find_chrome</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Erscheint ein Pfad zu Chrome, ist alles bereit. Fehlt <code>chromote</code> oder Chrome, entsteht nur der Vortrag, und das Rendern meldet, dass das Handout fehlt.</p>
-<p>Ohne Chrome lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B. Microsoft Edge. Dazu den Pfad zur Programmdatei in die Datei <code>.Renviron</code> im Benutzerordner schreiben und R danach neu starten. Die Datei lässt sich z. B. mit <code>usethis::edit_r_environ()</code> öffnen (R-Paket <code>usethis</code>). Ob der Druck mit Edge funktioniert, ist noch nicht geklärt; getestet ist er mit Google Chrome.</p>
+<p>Ohne installiertes Chrome (oder ohne Rechte, es zu installieren) lädt <code>chromote</code> eine eigene Fassung herunter, „Chrome for Testing“ (ohne Administratorrechte; belegt unter Windows ca. 280 MB). Dazu einmal in der R-Konsole:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>chromote<span class="sc">::</span><span class="fu">chrome_versions_add</span>(<span class="st">"latest-stable"</span>, <span class="st">"chrome-headless-shell"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das Skript für das Handout nutzt diese Fassung dann von selbst, wenn es kein installiertes Chrome findet. Das braucht <code>chromote</code> ab Version 0.5.0.</p>
+<p>Alternativ lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B. Microsoft Edge. Dazu den Pfad zur Programmdatei in die Datei <code>.Renviron</code> im Benutzerordner schreiben und R danach neu starten. Die Datei lässt sich z. B. mit <code>usethis::edit_r_environ()</code> öffnen (R-Paket <code>usethis</code>). Ob der Druck mit Edge funktioniert, ist noch nicht geklärt; getestet ist er mit Google Chrome.</p>
 <pre><code>CHROMOTE_CHROME="C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"</code></pre>
 </section>
 </section>
 <section id="weg-a" class="level2">
 <h2 class="anchored" data-anchor-id="weg-a">Weg A: neues Projekt aus der Vorlage</h2>
 <p><strong>1. Leeren Ordner anlegen</strong> und im Terminal dorthin wechseln, z. B.:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">"C:/Lehre/statistik-ws26"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> <span class="st">"C:/Lehre/statistik-ws26"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>2. Vorlage holen:</strong></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template donvollb/quarto-teaching-slides</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template donvollb/quarto-teaching-slides</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Quarto fragt zuerst, ob die Autoren der Vorlage vertrauenswürdig sind, denn Vorlagen können beim Rendern Code ausführen. Mit <code>Y</code> bestätigen. Ist der Ordner nicht leer, fragt Quarto zusätzlich, ob es einen Unterordner anlegen soll.</p>
 <p>Aus R heraus geht dasselbe mit dem R-Paket <code>quarto</code>: <code>quarto::quarto_use_template("donvollb/quarto-teaching-slides", dir = "C:/Lehre/statistik-ws26")</code>.</p>
 <p><strong>3. Ergebnis:</strong> Im Ordner liegen jetzt die folgenden Dateien. Die Beispieldatei heißt wie der Ordner.</p>
@@ -379,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 │   └── R/rptu.R             # Farben und Theme für R-Grafiken (optional)
 └── statistik-ws26.qmd       # Beispiel-Foliensatz mit allen Elementen</code></pre>
 <p><strong>4. Kontakt eintragen:</strong> In der <code>_quarto.yml</code> steht der Platzhalter <code>kontakt: "Name | Mailadresse"</code> für den Kontakt links in der Fußzeile. Ihn durch den eigenen Kontakt ersetzen, z. B.:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kontakt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Vorname Nachname | vorname.nachname@rptu.de"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kontakt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Vorname Nachname | vorname.nachname@rptu.de"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Für RStudio lässt sich anschließend ein RStudio-Projekt für den Ordner anlegen (<em>File → New Project → Existing Directory</em>). Weiter geht es mit dem <a href="../de/getting-started.html">ersten Foliensatz</a>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -398,25 +401,25 @@ Warum ein Projekt?
 <section id="weg-b" class="level2">
 <h2 class="anchored" data-anchor-id="weg-b">Weg B: bestehendes Quarto-Projekt</h2>
 <p>Im Projektordner (dort, wo die <code>_quarto.yml</code> liegt):</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add donvollb/quarto-teaching-slides</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add donvollb/quarto-teaching-slides</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Extension landet in <code>_extensions/donvollb/rptu/</code>. Dann in der <code>_quarto.yml</code> das Skript für das Handout und den Kontakt eintragen:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">post-render</span><span class="kw">:</span><span class="at"> _extensions/donvollb/rptu/post-render.R</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kontakt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Vorname Nachname | vorname.nachname@rptu.de"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Steht dort schon ein anderes post-render-Skript, beide als Liste eintragen:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">post-render</span><span class="kw">:</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mein-skript.R</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> _extensions/donvollb/rptu/post-render.R</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Hat der Ordner noch keine <code>_quarto.yml</code>, reicht eine mit diesem Inhalt. <code>lang: de</code> stellt Bedienelemente und Datum auf Deutsch um, <code>date-format</code> legt fest, wie das Datum auf der Titelfolie erscheint:</p>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">post-render</span><span class="kw">:</span><span class="at"> _extensions/donvollb/rptu/post-render.R</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">kontakt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Vorname Nachname | vorname.nachname@rptu.de"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Steht dort schon ein anderes post-render-Skript, beide als Liste eintragen:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> default</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">post-render</span><span class="kw">:</span><span class="at"> _extensions/donvollb/rptu/post-render.R</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> de</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD.MM.YYYY"</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kontakt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Vorname Nachname | vorname.nachname@rptu.de"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">post-render</span><span class="kw">:</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> mein-skript.R</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> _extensions/donvollb/rptu/post-render.R</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hat der Ordner noch keine <code>_quarto.yml</code>, reicht eine mit diesem Inhalt. <code>lang: de</code> stellt Bedienelemente und Datum auf Deutsch um, <code>date-format</code> legt fest, wie das Datum auf der Titelfolie erscheint:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">post-render</span><span class="kw">:</span><span class="at"> _extensions/donvollb/rptu/post-render.R</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> de</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date-format</span><span class="kw">:</span><span class="at"> </span><span class="st">"DD.MM.YYYY"</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="fu">kontakt</span><span class="kw">:</span><span class="at"> </span><span class="st">"Vorname Nachname | vorname.nachname@rptu.de"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Optional lassen sich aus dem <a href="https://github.com/donvollb/quarto-teaching-slides">Repository</a> der <a href="https://github.com/donvollb/quarto-teaching-slides/blob/main/_resources/semesterplan.qmd">Semesterplan</a> und das Skript für <a href="../de/r-code.html#grafiken">R-Grafiken</a> kopieren.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -443,7 +446,7 @@ Ohne festen Pfad
 <section id="aktualisieren" class="level2">
 <h2 class="anchored" data-anchor-id="aktualisieren">Aktualisieren</h2>
 <p>Im Projektordner:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> update extension donvollb/quarto-teaching-slides</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> update extension donvollb/quarto-teaching-slides</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Aktualisiert wird nur die Extension in <code>_extensions/</code>. Die eigene <code>_quarto.yml</code>, die Foliensätze und die Dateien aus der Vorlage (<code>_rptu-post-render.R</code>, <code>_resources/</code>) bleiben unverändert.</p>
 
 

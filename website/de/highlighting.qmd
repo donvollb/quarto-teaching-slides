@@ -122,6 +122,11 @@ markierung-rollen:
   Töne funktionieren am besten.
 - Eigene Farbwerte gibt es nur über Rollen, nicht direkt in `farben=`.
 
+Die Demo nutzt zwei Rollen, `achsenabschnitt: grau` und `steigung: "#3470A8"`, auf der
+Folie „Farben selbst wählen“ mit `farben="achsenabschnitt steigung"`:
+
+![Farben über Rollen](../bilder/folie-farben.png){.folienbild width="70%"}
+
 ## Übungsfolge {#uebungsfolge}
 
 Ein bewährter Ablauf für Übungen mit R, über drei Folien:

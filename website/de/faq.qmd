@@ -16,7 +16,7 @@ Der Reihe nach prüfen:
   [Wo die Extension liegen muss](installation.qmd#fundort).
 - Ist das R-Paket `chromote` installiert und findet es Chrome? Siehe
   [Chrome für das Handout](installation.qmd#chrome). Beim Rendern erscheint sonst
-  „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.
+  „R-Paket chromote fehlt“, „Kein Chrome gefunden“ bzw. „PDF-Druck fehlgeschlagen“.
 - Ist `RPTU_NO_HANDOUT` noch auf `1` gesetzt (siehe
   [Schneller ohne Handout](getting-started.qmd#ohne-handout))?
 
@@ -24,6 +24,24 @@ Der Reihe nach prüfen:
 
 Ist das PDF in einem Programm geöffnet, kann Windows es nicht überschreiben. Das Skript
 gibt dann einen auffälligen Hinweis mit `!!!` aus. PDF schließen und neu rendern.
+
+## Beim Rendern erscheint „Folie zu voll“ {#folie-zu-voll}
+
+```
+post-render: Folie zu voll in folien.html (ragt im Vortrag in die Fußzeile,
+  im Handout ggf. abgeschnitten oder auf zwei Seiten verteilt):
+  Folie 7 (Ergebnisse): 13 px in der Fußzeile
+```
+
+Auf der genannten Folie reicht der Inhalt bis in die Fußzeile. Im Vortrag ist das
+untere Ende dann verdeckt, im Handout wird es abgeschnitten, oder die Folie wird auf
+zwei Seiten verteilt („belegt 2 PDF-Seiten“). Abhilfe: Inhalt kürzen, auf zwei Folien
+aufteilen oder verkleinern, z. B. mit `::: klein` (siehe
+[Text hervorheben](slides.qmd#text-hervorheben)). Bei Grafiken hilft eine kleinere
+`fig-height`.
+
+Das Skript prüft den Vortrag, also auch Folien mit `.no-handout` und auch ohne
+Handout. Es ist nur ein Hinweis; Vortrag und Handout entstehen trotzdem.
 
 ## „quarto“ wird nicht gefunden
 

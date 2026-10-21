@@ -1,3 +1,18 @@
+## 0.5.0 (21.10.2026)
+
+- Zu volle Folien: Nach dem Rendern meldet das Skript Folien, deren Inhalt in die
+  Fußzeile reicht oder die im Druck zwei Seiten belegen, z. B.
+  `Folie 7 (Ergebnisse): 13 px in der Fußzeile`. Bisher fiel das erst im Vortrag oder
+  im Handout auf (verdeckt, abgeschnitten oder auf zwei Seiten verteilt). Geprüft wird
+  der Vortrag, also auch Folien mit `.no-handout` und Renders ohne Handout. Es ist nur
+  ein Hinweis, das Rendern läuft weiter.
+- Ohne installiertes Chrome druckt das Skript das Handout mit „Chrome for Testing“,
+  wenn es einmal mit `chromote::chrome_versions_add("latest-stable",
+  "chrome-headless-shell")` heruntergeladen wurde (chromote ab 0.5.0, ohne
+  Administratorrechte). Fehlt beides, nennt die Meldung beim Rendern diesen Befehl.
+- Vorlage und Demo zeigen jetzt eine Folie vor der Titelfolie, die Abschnittsanzeige
+  und Markierungsfarben über Rollen (Folie „Farben selbst wählen“).
+
 ## 0.4.0 (21.10.2026)
 
 - Folien vor der Titelfolie: `## Vorbereitung {.no-handout .vor-titel}` (englisch

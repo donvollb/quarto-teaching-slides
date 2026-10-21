@@ -77,3 +77,8 @@ Außerdem entfernt es aus den HTML-Dateien eine Schrift, die Quarto einbindet, d
 Folien aber nicht nutzen (ca. 3 MB weniger pro Datei). Enthält ein Foliensatz Formeln,
 bettet es die Software für Formeln (MathJax) ein, die Quarto sonst beim Präsentieren
 aus dem Internet lädt (ca. 3 MB mehr).
+
+Zum Schluss öffnet es den Vortrag im Drucklayout und meldet Folien, deren Inhalt in
+die Fußzeile reicht oder die im Druck zwei Seiten belegen, siehe
+[„Folie zu voll“](faq.qmd#folie-zu-voll). Das dauert pro Foliensatz zwei bis drei
+Sekunden, auch ohne Handout.

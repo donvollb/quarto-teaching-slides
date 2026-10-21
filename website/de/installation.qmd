@@ -15,7 +15,7 @@ Es gibt zwei Wege:
 |-------|-----|
 | Vortrag (HTML) | [Quarto](https://quarto.org) ab Version 1.7 |
 | R-Code auf Folien | R mit den Paketen `knitr` und `rmarkdown` |
-| Handout (PDF) | R mit dem Paket `chromote` und Google Chrome |
+| Handout (PDF) | R mit dem Paket `chromote` und Google Chrome (oder [Chrome for Testing](#chrome)) |
 | Grafiken im Folien-Design (optional) | R-Pakete `ggplot2` und `ragg`, siehe [R-Code und Grafiken](r-code.qmd#grafiken) |
 
 R ist für das Handout auch dann nötig, wenn die Folien keinen R-Code enthalten: Das
@@ -55,7 +55,19 @@ chromote::find_chrome()
 Erscheint ein Pfad zu Chrome, ist alles bereit. Fehlt `chromote` oder Chrome, entsteht
 nur der Vortrag, und das Rendern meldet, dass das Handout fehlt.
 
-Ohne Chrome lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B.
+Ohne installiertes Chrome (oder ohne Rechte, es zu installieren) lädt `chromote` eine
+eigene Fassung herunter, „Chrome for Testing“ (ohne Administratorrechte; belegt unter
+Windows ca. 280 MB).
+Dazu einmal in der R-Konsole:
+
+```r
+chromote::chrome_versions_add("latest-stable", "chrome-headless-shell")
+```
+
+Das Skript für das Handout nutzt diese Fassung dann von selbst, wenn es kein
+installiertes Chrome findet. Das braucht `chromote` ab Version 0.5.0.
+
+Alternativ lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B.
 Microsoft Edge. Dazu den Pfad zur Programmdatei in die Datei `.Renviron` im
 Benutzerordner schreiben und R danach neu starten. Die Datei lässt sich z. B. mit
 `usethis::edit_r_environ()` öffnen (R-Paket `usethis`). Ob der Druck mit Edge

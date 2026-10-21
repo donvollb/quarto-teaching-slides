@@ -16,7 +16,7 @@
     "href": "de/slides.html#abschnitte",
     "title": "Folien gestalten",
     "section": "Abschnitte",
-    "text": "Abschnitte\n# Deskriptive Statistik\n\nLage- und Streuungsmaße\n# Titel erzeugt eine Abschnittsfolie mit großer Nummer und Logo. Die Abschnitte werden fortlaufend nummeriert (01, 02, …). Text direkt unter der Überschrift wird zum grauen Untertitel.\n\n\n\nAbschnittsfolie\n\n\nEine Nummer lässt sich auch selbst setzen, z. B. # Rückblick {nr=\"00\"}. Die fortlaufende Zählung der übrigen Abschnitte ändert sich dadurch nicht.\n\nAktueller Abschnitt über dem Folientitel\nabschnitt-anzeige: true\nIm Kopf eines Foliensatzes oder in der _quarto.yml (englisch section-indicator: true) zeigt jede Folie klein über ihrem Titel Nummer und Namen ihres Abschnitts, z. B. „02 Deskriptive Statistik“, im Vortrag wie im Handout. Der Folieninhalt verschiebt sich dadurch nicht. Ohne den Eintrag bleibt die Anzeige aus. Folien vor dem ersten Abschnitt (etwa die Agenda) bleiben ohne Anzeige.\nFür lange Abschnittstitel gibt es eine Kurzform: # Lineare Regression mit mehreren Prädiktoren {kurz=\"Multiple Regression\"} (englisch short=). Die Abschnittsfolie zeigt weiter den vollen Titel.",
+    "text": "Abschnitte\n# Deskriptive Statistik\n\nLage- und Streuungsmaße\n# Titel erzeugt eine Abschnittsfolie mit großer Nummer und Logo. Die Abschnitte werden fortlaufend nummeriert (01, 02, …). Text direkt unter der Überschrift wird zum grauen Untertitel.\n\n\n\nAbschnittsfolie\n\n\nEine Nummer lässt sich auch selbst setzen, z. B. # Rückblick {nr=\"00\"}. Die fortlaufende Zählung der übrigen Abschnitte ändert sich dadurch nicht.\n\nAktueller Abschnitt über dem Folientitel\nabschnitt-anzeige: true\nIm Kopf eines Foliensatzes oder in der _quarto.yml (englisch section-indicator: true) zeigt jede Folie klein über ihrem Titel Nummer und Namen ihres Abschnitts, z. B. „02 Deskriptive Statistik“, im Vortrag wie im Handout. Der Folieninhalt verschiebt sich dadurch nicht. Ohne den Eintrag bleibt die Anzeige aus. Folien vor dem ersten Abschnitt (etwa die Agenda) bleiben ohne Anzeige.\n\n\n\nAbschnittsanzeige über dem Folientitel\n\n\nFür lange Abschnittstitel gibt es eine Kurzform: # Lineare Regression mit mehreren Prädiktoren {kurz=\"Multiple Regression\"} (englisch short=). Die Abschnittsfolie zeigt weiter den vollen Titel.",
     "crumbs": [
       "Demo",
       "Anleitungen",
@@ -52,7 +52,7 @@
     "href": "de/slides.html#vor-titel",
     "title": "Folien gestalten",
     "section": "Folien vor der Titelfolie",
-    "text": "Folien vor der Titelfolie\n## Vorbereitung {.no-handout .vor-titel}\n\n- Skript öffnen und das Paket `ggplot2` laden\nEine Folie mit .vor-titel (englisch .before-title) steht im Vortrag vor der Titelfolie, egal wo sie im Foliensatz steht. Der Vortrag beginnt dann mit ihr, z. B. mit Hinweisen zur Vorbereitung, die schon laufen, während die Studierenden ankommen. Mehrere solche Folien behalten ihre Reihenfolge.\nDie Nummern ändern sich dadurch nicht: Die Titelfolie bleibt Folie 1, alle anderen behalten Nummer und Adresse (#/…). Die Folien davor haben keine Nummer und keine Adresse; wer den Vortrag ohne Adresse öffnet, landet auf der ersten von ihnen.\nIns Handout gehören solche Folien meist nicht, deshalb zusätzlich .no-handout. Ohne .no-handout erscheinen sie im Handout an ihrer Stelle im Foliensatz, ohne Nummer.",
+    "text": "Folien vor der Titelfolie\n## Vorbereitung {.no-handout .vor-titel}\n\n- Skript öffnen und das Paket `ggplot2` laden\nEine Folie mit .vor-titel (englisch .before-title) steht im Vortrag vor der Titelfolie, egal wo sie im Foliensatz steht. Der Vortrag beginnt dann mit ihr, z. B. mit Hinweisen zur Vorbereitung, die schon laufen, während die Studierenden ankommen. Mehrere solche Folien behalten ihre Reihenfolge.\n\n\n\nFolie vor der Titelfolie\n\n\nDie Nummern ändern sich dadurch nicht: Die Titelfolie bleibt Folie 1, alle anderen behalten Nummer und Adresse (#/…). Die Folien davor haben keine Nummer und keine Adresse; wer den Vortrag ohne Adresse öffnet, landet auf der ersten von ihnen.\nIns Handout gehören solche Folien meist nicht, deshalb zusätzlich .no-handout. Ohne .no-handout erscheinen sie im Handout an ihrer Stelle im Foliensatz, ohne Nummer.",
     "crumbs": [
       "Demo",
       "Anleitungen",
@@ -244,7 +244,7 @@
     "href": "de/news.html",
     "title": "Neuigkeiten",
     "section": "",
-    "text": "Folien vor der Titelfolie: ## Vorbereitung {.no-handout .vor-titel} (englisch .before-title) steht im Vortrag vor der Titelfolie, und der Vortrag beginnt mit dieser Folie. Die Titelfolie bleibt Folie 1, alle anderen Folien behalten Nummer und Adresse; die vorgezogenen Folien haben keine Nummer. Im Handout bleiben sie (ohne .no-handout) an ihrer Stelle, ebenfalls ohne Nummer. Eigene Skripte, die solche Folien verschieben, sind damit überflüssig und sollten entfernt werden.\nAbschnittsanzeige: Mit abschnitt-anzeige: true (englisch section-indicator: true) steht über jedem Folientitel klein Nummer und Name des Abschnitts. Für lange Abschnittstitel gibt es die Kurzform # Titel {kurz=\"…\"} (englisch short=). Ohne den Eintrag bleibt alles wie bisher.",
+    "text": "Zu volle Folien: Nach dem Rendern meldet das Skript Folien, deren Inhalt in die Fußzeile reicht oder die im Druck zwei Seiten belegen, z. B. Folie 7 (Ergebnisse): 13 px in der Fußzeile. Bisher fiel das erst im Vortrag oder im Handout auf (verdeckt, abgeschnitten oder auf zwei Seiten verteilt). Geprüft wird der Vortrag, also auch Folien mit .no-handout und Renders ohne Handout. Es ist nur ein Hinweis, das Rendern läuft weiter.\nOhne installiertes Chrome druckt das Skript das Handout mit „Chrome for Testing“, wenn es einmal mit chromote::chrome_versions_add(\"latest-stable\",   \"chrome-headless-shell\") heruntergeladen wurde (chromote ab 0.5.0, ohne Administratorrechte). Fehlt beides, nennt die Meldung beim Rendern diesen Befehl.\nVorlage und Demo zeigen jetzt eine Folie vor der Titelfolie, die Abschnittsanzeige und Markierungsfarben über Rollen (Folie „Farben selbst wählen“).",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -256,7 +256,7 @@
     "href": "de/news.html#section",
     "title": "Neuigkeiten",
     "section": "",
-    "text": "Folien vor der Titelfolie: ## Vorbereitung {.no-handout .vor-titel} (englisch .before-title) steht im Vortrag vor der Titelfolie, und der Vortrag beginnt mit dieser Folie. Die Titelfolie bleibt Folie 1, alle anderen Folien behalten Nummer und Adresse; die vorgezogenen Folien haben keine Nummer. Im Handout bleiben sie (ohne .no-handout) an ihrer Stelle, ebenfalls ohne Nummer. Eigene Skripte, die solche Folien verschieben, sind damit überflüssig und sollten entfernt werden.\nAbschnittsanzeige: Mit abschnitt-anzeige: true (englisch section-indicator: true) steht über jedem Folientitel klein Nummer und Name des Abschnitts. Für lange Abschnittstitel gibt es die Kurzform # Titel {kurz=\"…\"} (englisch short=). Ohne den Eintrag bleibt alles wie bisher.",
+    "text": "Zu volle Folien: Nach dem Rendern meldet das Skript Folien, deren Inhalt in die Fußzeile reicht oder die im Druck zwei Seiten belegen, z. B. Folie 7 (Ergebnisse): 13 px in der Fußzeile. Bisher fiel das erst im Vortrag oder im Handout auf (verdeckt, abgeschnitten oder auf zwei Seiten verteilt). Geprüft wird der Vortrag, also auch Folien mit .no-handout und Renders ohne Handout. Es ist nur ein Hinweis, das Rendern läuft weiter.\nOhne installiertes Chrome druckt das Skript das Handout mit „Chrome for Testing“, wenn es einmal mit chromote::chrome_versions_add(\"latest-stable\",   \"chrome-headless-shell\") heruntergeladen wurde (chromote ab 0.5.0, ohne Administratorrechte). Fehlt beides, nennt die Meldung beim Rendern diesen Befehl.\nVorlage und Demo zeigen jetzt eine Folie vor der Titelfolie, die Abschnittsanzeige und Markierungsfarben über Rollen (Folie „Farben selbst wählen“).",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -267,8 +267,8 @@
     "objectID": "de/news.html#section-1",
     "href": "de/news.html#section-1",
     "title": "Neuigkeiten",
-    "section": "0.3.0 (21.10.2026)",
-    "text": "0.3.0 (21.10.2026)\n\nMarkierungen: In markierung-rollen: (englisch highlight-roles:) geht statt eines Farbnamens auch ein eigener Farbwert, z. B. fixed: \"#3470A8\". Rahmen, Nummer und Fettdruck sehen aus wie bei den Farbnamen; bei hellen Farben wird die Nummer automatisch dunkel gesetzt.",
+    "section": "0.4.0 (21.10.2026)",
+    "text": "0.4.0 (21.10.2026)\n\nFolien vor der Titelfolie: ## Vorbereitung {.no-handout .vor-titel} (englisch .before-title) steht im Vortrag vor der Titelfolie, und der Vortrag beginnt mit dieser Folie. Die Titelfolie bleibt Folie 1, alle anderen Folien behalten Nummer und Adresse; die vorgezogenen Folien haben keine Nummer. Im Handout bleiben sie (ohne .no-handout) an ihrer Stelle, ebenfalls ohne Nummer. Eigene Skripte, die solche Folien verschieben, sind damit überflüssig und sollten entfernt werden.\nAbschnittsanzeige: Mit abschnitt-anzeige: true (englisch section-indicator: true) steht über jedem Folientitel klein Nummer und Name des Abschnitts. Für lange Abschnittstitel gibt es die Kurzform # Titel {kurz=\"…\"} (englisch short=). Ohne den Eintrag bleibt alles wie bisher.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -279,8 +279,8 @@
     "objectID": "de/news.html#section-2",
     "href": "de/news.html#section-2",
     "title": "Neuigkeiten",
-    "section": "0.2.0 (20.10.2026)",
-    "text": "0.2.0 (20.10.2026)\n\nMarkierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B. ::: {.markiert m1=\"…\" m2=\"…\" farben=\"gruen navy\"} (englisch colors=). Die Nummern [1]{.nr} auf derselben Folie übernehmen die Farben. Mit markierung-rollen: (englisch highlight-roles:) in der _quarto.yml lassen sich Begriffen feste Farben zuordnen, z. B. intercept: gruen. Ohne Angabe bleibt alles wie bisher.\nHandout: Fragmente mit fragment-index oder mit Stilklassen wie .fade-up und einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente vollständig auf ihrer Folie. Der Vortrag ist unverändert.",
+    "section": "0.3.0 (21.10.2026)",
+    "text": "0.3.0 (21.10.2026)\n\nMarkierungen: In markierung-rollen: (englisch highlight-roles:) geht statt eines Farbnamens auch ein eigener Farbwert, z. B. fixed: \"#3470A8\". Rahmen, Nummer und Fettdruck sehen aus wie bei den Farbnamen; bei hellen Farben wird die Nummer automatisch dunkel gesetzt.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -291,8 +291,8 @@
     "objectID": "de/news.html#section-3",
     "href": "de/news.html#section-3",
     "title": "Neuigkeiten",
-    "section": "0.1.1 (20.10.2026)",
-    "text": "0.1.1 (20.10.2026)\n\nAbschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit .no-handout entfällt. Bisher rückten die folgenden Nummern auf.\nMarkierungen ab m7: Die sechs Farben wiederholen sich (m7 wie m1 usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.\nEinzelne Bilder mit fig-align (center, left, right) stehen wieder an der richtigen Stelle. Bisher wurden sie zusätzlich nach rechts verschoben, bei right bis über den Folienrand. Bilder ohne fig-align stehen weiterhin mittig.\nSchlägt der Druck des Handouts fehl, wird die Zwischendatei …_handout.html trotzdem gelöscht.\nNeue Umgebungsvariable RPTU_NO_HANDOUT=1, um nur den Vortrag zu erzeugen. Der bisherige Name RPTU_HANDOUT_RENDER funktioniert weiterhin.",
+    "section": "0.2.0 (20.10.2026)",
+    "text": "0.2.0 (20.10.2026)\n\nMarkierungen: Farben lassen sich unabhängig von der Nummer wählen, z. B. ::: {.markiert m1=\"…\" m2=\"…\" farben=\"gruen navy\"} (englisch colors=). Die Nummern [1]{.nr} auf derselben Folie übernehmen die Farben. Mit markierung-rollen: (englisch highlight-roles:) in der _quarto.yml lassen sich Begriffen feste Farben zuordnen, z. B. intercept: gruen. Ohne Angabe bleibt alles wie bisher.\nHandout: Fragmente mit fragment-index oder mit Stilklassen wie .fade-up und einer Überschrift darin landeten im PDF auf einer eigenen Seite, und Teile der Folie konnten über der Titelfolie liegen. Jetzt stehen sie wie alle Fragmente vollständig auf ihrer Folie. Der Vortrag ist unverändert.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -302,6 +302,18 @@
   {
     "objectID": "de/news.html#section-4",
     "href": "de/news.html#section-4",
+    "title": "Neuigkeiten",
+    "section": "0.1.1 (20.10.2026)",
+    "text": "0.1.1 (20.10.2026)\n\nAbschnittsnummern im Handout stimmen jetzt mit dem Vortrag überein, auch wenn eine Abschnittsfolie mit .no-handout entfällt. Bisher rückten die folgenden Nummern auf.\nMarkierungen ab m7: Die sechs Farben wiederholen sich (m7 wie m1 usw.). Bisher fehlten ab der siebten Markierung Farbe und sichtbare Nummer.\nEinzelne Bilder mit fig-align (center, left, right) stehen wieder an der richtigen Stelle. Bisher wurden sie zusätzlich nach rechts verschoben, bei right bis über den Folienrand. Bilder ohne fig-align stehen weiterhin mittig.\nSchlägt der Druck des Handouts fehl, wird die Zwischendatei …_handout.html trotzdem gelöscht.\nNeue Umgebungsvariable RPTU_NO_HANDOUT=1, um nur den Vortrag zu erzeugen. Der bisherige Name RPTU_HANDOUT_RENDER funktioniert weiterhin.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Neuigkeiten"
+    ]
+  },
+  {
+    "objectID": "de/news.html#section-5",
+    "href": "de/news.html#section-5",
     "title": "Neuigkeiten",
     "section": "0.1.0 (19.10.2026)",
     "text": "0.1.0 (19.10.2026)\nErste Version.\n\nFormat rptu-revealjs: Folien im Design der RPTU; jedes Rendern erzeugt den Vortrag (HTML) und ein Handout (PDF) ohne schrittweise Einblendungen und ohne Inhalte, die mit .no-handout nur für den Vortrag gekennzeichnet sind.\nAbschnittsfolien mit Nummern, Agenda, Fußzeile mit Kontakt, Veranstaltung und Foliennummer.\nMarkierungen im R-Output, Kästen, Hervorhebungen, Symbole, Semesterplan.\nFormeln auch ohne Internet (MathJax wird eingebettet).\nOptional: ggplot2-Theme theme_rptu() mit Farben und Schrift der Folien.\nDeutsche Klassennamen mit englischen Aliassen.\nProjektvorlage für quarto use template und Website mit Anleitungen.",
@@ -400,7 +412,7 @@
     "href": "de/handout.html#wie-es-funktioniert",
     "title": "Vortrag und Handout",
     "section": "Wie es funktioniert",
-    "text": "Wie es funktioniert\nNach dem normalen Rendern startet Quarto das post-render-Skript der Extension (post-render.R). Für jeden Foliensatz\n\nrendert es die Datei ein zweites Mal mit -M handout:true; dabei löst der Filter handout.lua die schrittweisen Einblendungen auf, blendet Inhalte mit .no-handout aus und entfernt Folien mit .no-handout,\ndruckt diese Fassung mit Chrome als PDF und\nlöscht die Zwischendatei folien_handout.html wieder.\n\nAußerdem entfernt es aus den HTML-Dateien eine Schrift, die Quarto einbindet, die Folien aber nicht nutzen (ca. 3 MB weniger pro Datei). Enthält ein Foliensatz Formeln, bettet es die Software für Formeln (MathJax) ein, die Quarto sonst beim Präsentieren aus dem Internet lädt (ca. 3 MB mehr).",
+    "text": "Wie es funktioniert\nNach dem normalen Rendern startet Quarto das post-render-Skript der Extension (post-render.R). Für jeden Foliensatz\n\nrendert es die Datei ein zweites Mal mit -M handout:true; dabei löst der Filter handout.lua die schrittweisen Einblendungen auf, blendet Inhalte mit .no-handout aus und entfernt Folien mit .no-handout,\ndruckt diese Fassung mit Chrome als PDF und\nlöscht die Zwischendatei folien_handout.html wieder.\n\nAußerdem entfernt es aus den HTML-Dateien eine Schrift, die Quarto einbindet, die Folien aber nicht nutzen (ca. 3 MB weniger pro Datei). Enthält ein Foliensatz Formeln, bettet es die Software für Formeln (MathJax) ein, die Quarto sonst beim Präsentieren aus dem Internet lädt (ca. 3 MB mehr).\nZum Schluss öffnet es den Vortrag im Drucklayout und meldet Folien, deren Inhalt in die Fußzeile reicht oder die im Druck zwei Seiten belegen, siehe „Folie zu voll“. Das dauert pro Foliensatz zwei bis drei Sekunden, auch ohne Handout.",
     "crumbs": [
       "Demo",
       "Anleitungen",
@@ -412,7 +424,7 @@
     "href": "de/faq.html",
     "title": "Probleme und FAQ",
     "section": "",
-    "text": "Der Reihe nach prüfen:\n\nSteht format: rptu-revealjs im Kopf der qmd-Datei? Nur daran erkennt das Skript Foliensätze; ein Eintrag allein in der _quarto.yml reicht nicht.\nIst das Skript für das Handout in der _quarto.yml eingetragen und stimmt der Pfad? Bei Projekten aus der Vorlage ist das der Fall, sonst siehe Weg B.\nLiegt die Extension an der richtigen Stelle? Siehe Wo die Extension liegen muss.\nIst das R-Paket chromote installiert und findet es Chrome? Siehe Chrome für das Handout. Beim Rendern erscheint sonst „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.\nIst RPTU_NO_HANDOUT noch auf 1 gesetzt (siehe Schneller ohne Handout)?",
+    "text": "Der Reihe nach prüfen:\n\nSteht format: rptu-revealjs im Kopf der qmd-Datei? Nur daran erkennt das Skript Foliensätze; ein Eintrag allein in der _quarto.yml reicht nicht.\nIst das Skript für das Handout in der _quarto.yml eingetragen und stimmt der Pfad? Bei Projekten aus der Vorlage ist das der Fall, sonst siehe Weg B.\nLiegt die Extension an der richtigen Stelle? Siehe Wo die Extension liegen muss.\nIst das R-Paket chromote installiert und findet es Chrome? Siehe Chrome für das Handout. Beim Rendern erscheint sonst „R-Paket chromote fehlt“, „Kein Chrome gefunden“ bzw. „PDF-Druck fehlgeschlagen“.\nIst RPTU_NO_HANDOUT noch auf 1 gesetzt (siehe Schneller ohne Handout)?",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -424,7 +436,7 @@
     "href": "de/faq.html#kein-pdf",
     "title": "Probleme und FAQ",
     "section": "",
-    "text": "Der Reihe nach prüfen:\n\nSteht format: rptu-revealjs im Kopf der qmd-Datei? Nur daran erkennt das Skript Foliensätze; ein Eintrag allein in der _quarto.yml reicht nicht.\nIst das Skript für das Handout in der _quarto.yml eingetragen und stimmt der Pfad? Bei Projekten aus der Vorlage ist das der Fall, sonst siehe Weg B.\nLiegt die Extension an der richtigen Stelle? Siehe Wo die Extension liegen muss.\nIst das R-Paket chromote installiert und findet es Chrome? Siehe Chrome für das Handout. Beim Rendern erscheint sonst „R-Paket chromote fehlt“ bzw. „PDF-Druck fehlgeschlagen“.\nIst RPTU_NO_HANDOUT noch auf 1 gesetzt (siehe Schneller ohne Handout)?",
+    "text": "Der Reihe nach prüfen:\n\nSteht format: rptu-revealjs im Kopf der qmd-Datei? Nur daran erkennt das Skript Foliensätze; ein Eintrag allein in der _quarto.yml reicht nicht.\nIst das Skript für das Handout in der _quarto.yml eingetragen und stimmt der Pfad? Bei Projekten aus der Vorlage ist das der Fall, sonst siehe Weg B.\nLiegt die Extension an der richtigen Stelle? Siehe Wo die Extension liegen muss.\nIst das R-Paket chromote installiert und findet es Chrome? Siehe Chrome für das Handout. Beim Rendern erscheint sonst „R-Paket chromote fehlt“, „Kein Chrome gefunden“ bzw. „PDF-Druck fehlgeschlagen“.\nIst RPTU_NO_HANDOUT noch auf 1 gesetzt (siehe Schneller ohne Handout)?",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -437,6 +449,18 @@
     "title": "Probleme und FAQ",
     "section": "Das Handout ist nicht aktuell",
     "text": "Das Handout ist nicht aktuell\nIst das PDF in einem Programm geöffnet, kann Windows es nicht überschreiben. Das Skript gibt dann einen auffälligen Hinweis mit !!! aus. PDF schließen und neu rendern.",
+    "crumbs": [
+      "Demo",
+      "Nachschlagen",
+      "Probleme und FAQ"
+    ]
+  },
+  {
+    "objectID": "de/faq.html#folie-zu-voll",
+    "href": "de/faq.html#folie-zu-voll",
+    "title": "Probleme und FAQ",
+    "section": "Beim Rendern erscheint „Folie zu voll“",
+    "text": "Beim Rendern erscheint „Folie zu voll“\npost-render: Folie zu voll in folien.html (ragt im Vortrag in die Fußzeile,\n  im Handout ggf. abgeschnitten oder auf zwei Seiten verteilt):\n  Folie 7 (Ergebnisse): 13 px in der Fußzeile\nAuf der genannten Folie reicht der Inhalt bis in die Fußzeile. Im Vortrag ist das untere Ende dann verdeckt, im Handout wird es abgeschnitten, oder die Folie wird auf zwei Seiten verteilt („belegt 2 PDF-Seiten“). Abhilfe: Inhalt kürzen, auf zwei Folien aufteilen oder verkleinern, z. B. mit ::: klein (siehe Text hervorheben). Bei Grafiken hilft eine kleinere fig-height.\nDas Skript prüft den Vortrag, also auch Folien mit .no-handout und auch ohne Handout. Es ist nur ein Hinweis; Vortrag und Handout entstehen trotzdem.",
     "crumbs": [
       "Demo",
       "Nachschlagen",
@@ -568,7 +592,7 @@
     "href": "de/demo.html#was-ist-zu-sehen",
     "title": "Demo",
     "section": "Was ist zu sehen?",
-    "text": "Was ist zu sehen?\nDer Foliensatz ist die Datei template.qmd aus dem Repository, so wie quarto use template sie anlegt. Er zeigt alle Elemente: Titelfolie, Agenda, Abschnitte, Spalten, Semesterplan, schrittweise Einblendungen, Kästen, Farben, Symbole, Inhalte nur für den Vortrag, R-Code, eine Grafik, Markierungen und eine Übungsfolge.\nDas Handout ist aus derselben Datei entstanden: Alle Inhalte sind sofort sichtbar, die Folie „Diese Folie fehlt im Handout“ fehlt, und auf „Nur im Vortrag“ bleibt die rechte Spalte leer.",
+    "text": "Was ist zu sehen?\nDer Foliensatz ist die Datei template.qmd aus dem Repository, so wie quarto use template sie anlegt. Er zeigt alle Elemente: Titelfolie, Agenda, Abschnitte mit Anzeige über dem Folientitel, Spalten, Semesterplan, schrittweise Einblendungen, Kästen, Farben, Symbole, Inhalte nur für den Vortrag, R-Code, eine Grafik, Markierungen mit selbst gewählten Farben und eine Übungsfolge.\nOben beginnt die Demo auf der Titelfolie. Im Vollbild beginnt sie wie ein echter Vortrag mit der Folie „Bevor es losgeht“, die vor der Titelfolie steht (Folien vor der Titelfolie).\nDas Handout ist aus derselben Datei entstanden: Alle Inhalte sind sofort sichtbar, die Folien „Bevor es losgeht“ und „Diese Folie fehlt im Handout“ fehlen, und auf „Nur im Vortrag“ bleibt die rechte Spalte leer.",
     "crumbs": [
       "Demo",
       "Loslegen",
@@ -767,7 +791,7 @@
     "href": "de/highlighting.html#farben",
     "title": "Markierungen",
     "section": "Farben selbst wählen",
-    "text": "Farben selbst wählen\nNormalerweise hängt die Farbe an der Nummer: m1 ist dunkelblau, m2 dunkelgrün usw. Soll ein Begriff über mehrere Folien dieselbe Farbe behalten, z. B. der Achsenabschnitt immer grün wie in einer Grafik, legt farben= die Farben der Reihe nach fest:\n::: {.markiert m1=\"-5.344472\" m2=\"37.285126\" farben=\"navy gruen\"}\n```{r}\ncoef(summary(modell))\n```\n:::\n\n- [1]{.nr} **Steigung**\n- [2]{.nr} **Achsenabschnitt**\n\nDer erste Name färbt m1, der zweite m2 usw. Fehlen Namen, behalten die übrigen Markierungen ihre Standardfarbe.\nDie Nummern [1]{.nr} und der Fettdruck danach übernehmen diese Farben bis zur nächsten Folie. Stehen zwei markierte Blöcke auf einer Folie, gilt für jede Nummer der letzte Block davor.\nEnglischer Name des Attributs: colors=.\n\nFarbnamen: navy (Dunkelblau), hellblau, blaugrau, petrol (Grüngrau), teal (Dunkelgrün), gruen (wie .gruen), orange, violett, pink, rot (wie .rot), grau. Die Namen entsprechen rptu_farben für Grafiken; Orange ist für Rahmen und Schrift etwas dunkler.\n\nFarbrollen\nWer dieselben Begriffe in vielen Foliensätzen markiert, kann ihnen in der _quarto.yml (oder im Kopf eines Foliensatzes) einmal eine Farbe zuordnen:\nmarkierung-rollen:\n  intercept: gruen\n  slope: navy\nDanach geht farben=\"slope intercept\". Englischer Name: highlight-roles:. Ein unbekannter Name führt beim Rendern zu einer Warnung, die Markierung behält dann ihre Standardfarbe: WARNUNG (markieren.lua): unbekannte Farbe oder Rolle \"…\" in farben= (m1 bleibt in der Standardfarbe).\nStatt eines Farbnamens geht in den Rollen auch ein eigener Farbwert, z. B. passend zu einer Grafik:\nmarkierung-rollen:\n  intercept: gruen\n  fixed: \"#3470A8\"\n\nDer Farbwert braucht Anführungszeichen, sonst liest YAML ihn als Kommentar. Möglich sind sechs- und dreistellige Werte (\"#3470A8\", \"#37A\").\nRahmen, heller Hintergrund, Nummer und Fettdruck sehen aus wie bei den Farbnamen. Bei hellen Farben wird die Nummer automatisch dunkel statt weiß gesetzt.\nHelle Farben sind als Schrift und am Beamer schlecht lesbar; kräftige, eher dunkle Töne funktionieren am besten.\nEigene Farbwerte gibt es nur über Rollen, nicht direkt in farben=.",
+    "text": "Farben selbst wählen\nNormalerweise hängt die Farbe an der Nummer: m1 ist dunkelblau, m2 dunkelgrün usw. Soll ein Begriff über mehrere Folien dieselbe Farbe behalten, z. B. der Achsenabschnitt immer grün wie in einer Grafik, legt farben= die Farben der Reihe nach fest:\n::: {.markiert m1=\"-5.344472\" m2=\"37.285126\" farben=\"navy gruen\"}\n```{r}\ncoef(summary(modell))\n```\n:::\n\n- [1]{.nr} **Steigung**\n- [2]{.nr} **Achsenabschnitt**\n\nDer erste Name färbt m1, der zweite m2 usw. Fehlen Namen, behalten die übrigen Markierungen ihre Standardfarbe.\nDie Nummern [1]{.nr} und der Fettdruck danach übernehmen diese Farben bis zur nächsten Folie. Stehen zwei markierte Blöcke auf einer Folie, gilt für jede Nummer der letzte Block davor.\nEnglischer Name des Attributs: colors=.\n\nFarbnamen: navy (Dunkelblau), hellblau, blaugrau, petrol (Grüngrau), teal (Dunkelgrün), gruen (wie .gruen), orange, violett, pink, rot (wie .rot), grau. Die Namen entsprechen rptu_farben für Grafiken; Orange ist für Rahmen und Schrift etwas dunkler.\n\nFarbrollen\nWer dieselben Begriffe in vielen Foliensätzen markiert, kann ihnen in der _quarto.yml (oder im Kopf eines Foliensatzes) einmal eine Farbe zuordnen:\nmarkierung-rollen:\n  intercept: gruen\n  slope: navy\nDanach geht farben=\"slope intercept\". Englischer Name: highlight-roles:. Ein unbekannter Name führt beim Rendern zu einer Warnung, die Markierung behält dann ihre Standardfarbe: WARNUNG (markieren.lua): unbekannte Farbe oder Rolle \"…\" in farben= (m1 bleibt in der Standardfarbe).\nStatt eines Farbnamens geht in den Rollen auch ein eigener Farbwert, z. B. passend zu einer Grafik:\nmarkierung-rollen:\n  intercept: gruen\n  fixed: \"#3470A8\"\n\nDer Farbwert braucht Anführungszeichen, sonst liest YAML ihn als Kommentar. Möglich sind sechs- und dreistellige Werte (\"#3470A8\", \"#37A\").\nRahmen, heller Hintergrund, Nummer und Fettdruck sehen aus wie bei den Farbnamen. Bei hellen Farben wird die Nummer automatisch dunkel statt weiß gesetzt.\nHelle Farben sind als Schrift und am Beamer schlecht lesbar; kräftige, eher dunkle Töne funktionieren am besten.\nEigene Farbwerte gibt es nur über Rollen, nicht direkt in farben=.\n\nDie Demo nutzt zwei Rollen, achsenabschnitt: grau und steigung: \"#3470A8\", auf der Folie „Farben selbst wählen“ mit farben=\"achsenabschnitt steigung\":\n\n\n\nFarben über Rollen",
     "crumbs": [
       "Demo",
       "Anleitungen",
@@ -803,7 +827,7 @@
     "href": "de/installation.html#voraussetzungen",
     "title": "Installation",
     "section": "Voraussetzungen",
-    "text": "Voraussetzungen\n\n\n\nWofür\nWas\n\n\n\n\nVortrag (HTML)\nQuarto ab Version 1.7\n\n\nR-Code auf Folien\nR mit den Paketen knitr und rmarkdown\n\n\nHandout (PDF)\nR mit dem Paket chromote und Google Chrome\n\n\nGrafiken im Folien-Design (optional)\nR-Pakete ggplot2 und ragg, siehe R-Code und Grafiken\n\n\n\nR ist für das Handout auch dann nötig, wenn die Folien keinen R-Code enthalten: Das PDF erzeugt ein R-Skript. R gibt es bei CRAN, RStudio bei Posit. Die R-Pakete in der R-Konsole installieren:\ninstall.packages(c(\"rmarkdown\", \"chromote\"))\n\nQuarto prüfen\nBefehle, die mit quarto beginnen, gehören ins Terminal, nicht in die R-Konsole. In RStudio liegt das Terminal im Reiter Terminal neben Console (Tastenkürzel Alt+Umschalt+R).\nquarto --version\nErscheint eine Versionsnummer ab 1.7, ist alles bereit. Erscheint eine Fehlermeldung oder eine ältere Version, Quarto von quarto.org installieren und RStudio neu starten. RStudio bringt zwar ein eigenes Quarto mit, das im Terminal aber oft nicht gefunden wird oder älter ist.\n\n\nChrome für das Handout\nchromote findet Google Chrome in der Regel selbst. Ob das klappt, zeigt in der R-Konsole:\nchromote::find_chrome()\nErscheint ein Pfad zu Chrome, ist alles bereit. Fehlt chromote oder Chrome, entsteht nur der Vortrag, und das Rendern meldet, dass das Handout fehlt.\nOhne Chrome lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B. Microsoft Edge. Dazu den Pfad zur Programmdatei in die Datei .Renviron im Benutzerordner schreiben und R danach neu starten. Die Datei lässt sich z. B. mit usethis::edit_r_environ() öffnen (R-Paket usethis). Ob der Druck mit Edge funktioniert, ist noch nicht geklärt; getestet ist er mit Google Chrome.\nCHROMOTE_CHROME=\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\"",
+    "text": "Voraussetzungen\n\n\n\nWofür\nWas\n\n\n\n\nVortrag (HTML)\nQuarto ab Version 1.7\n\n\nR-Code auf Folien\nR mit den Paketen knitr und rmarkdown\n\n\nHandout (PDF)\nR mit dem Paket chromote und Google Chrome (oder Chrome for Testing)\n\n\nGrafiken im Folien-Design (optional)\nR-Pakete ggplot2 und ragg, siehe R-Code und Grafiken\n\n\n\nR ist für das Handout auch dann nötig, wenn die Folien keinen R-Code enthalten: Das PDF erzeugt ein R-Skript. R gibt es bei CRAN, RStudio bei Posit. Die R-Pakete in der R-Konsole installieren:\ninstall.packages(c(\"rmarkdown\", \"chromote\"))\n\nQuarto prüfen\nBefehle, die mit quarto beginnen, gehören ins Terminal, nicht in die R-Konsole. In RStudio liegt das Terminal im Reiter Terminal neben Console (Tastenkürzel Alt+Umschalt+R).\nquarto --version\nErscheint eine Versionsnummer ab 1.7, ist alles bereit. Erscheint eine Fehlermeldung oder eine ältere Version, Quarto von quarto.org installieren und RStudio neu starten. RStudio bringt zwar ein eigenes Quarto mit, das im Terminal aber oft nicht gefunden wird oder älter ist.\n\n\nChrome für das Handout\nchromote findet Google Chrome in der Regel selbst. Ob das klappt, zeigt in der R-Konsole:\nchromote::find_chrome()\nErscheint ein Pfad zu Chrome, ist alles bereit. Fehlt chromote oder Chrome, entsteht nur der Vortrag, und das Rendern meldet, dass das Handout fehlt.\nOhne installiertes Chrome (oder ohne Rechte, es zu installieren) lädt chromote eine eigene Fassung herunter, „Chrome for Testing“ (ohne Administratorrechte; belegt unter Windows ca. 280 MB). Dazu einmal in der R-Konsole:\nchromote::chrome_versions_add(\"latest-stable\", \"chrome-headless-shell\")\nDas Skript für das Handout nutzt diese Fassung dann von selbst, wenn es kein installiertes Chrome findet. Das braucht chromote ab Version 0.5.0.\nAlternativ lässt sich ein anderer Browser auf Chromium-Basis eintragen, z. B. Microsoft Edge. Dazu den Pfad zur Programmdatei in die Datei .Renviron im Benutzerordner schreiben und R danach neu starten. Die Datei lässt sich z. B. mit usethis::edit_r_environ() öffnen (R-Paket usethis). Ob der Druck mit Edge funktioniert, ist noch nicht geklärt; getestet ist er mit Google Chrome.\nCHROMOTE_CHROME=\"C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe\"",
     "crumbs": [
       "Demo",
       "Loslegen",
